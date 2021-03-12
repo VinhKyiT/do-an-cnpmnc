@@ -1,6 +1,6 @@
 <h2>Phone selling website! <img src="https://media.giphy.com/media/12oufCB0MyZ1Go/giphy.gif" width="50"></h2>
 <img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
-<p><em>VinhKyIT - Hoang Trieu - ThayPhapHuTi <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> 
+<p><em>VinhKyIT - HoangTrieu - ThayPhapHuTi <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> 
 </em></p>
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/HackerJax?label=Follow)
@@ -8,9 +8,9 @@
 ### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> A little more about project...  
 
 ```javascript
-const VinhKyIT = {
-            pronouns: "He" | "Him",
-            code: ["Javascript", "Typescript", "Python", "Java", "php"],
+const vinhkyit.tech/cps = {
+            project-name: "Dien thoai All-in"
+            Scrum Master: "HoangTrieu"
             askMeAbout: ["web dev", "tech", "app dev", "photography"],
             technologies: {
                 mobileApp: ["Android App"],
