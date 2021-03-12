@@ -4,7 +4,6 @@
 </em></p>
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/HackerJax?label=Follow)
-![GitHub followers](https://img.shields.io/github/followers/vinhkyit?label=Follow&style=social)
 <img src="https://visitor-badge.glitch.me/badge?page_id=vinhkyit.do-an-cnpmnc" alt="visitor badge"/>
 ### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> A little more about project...  
 
