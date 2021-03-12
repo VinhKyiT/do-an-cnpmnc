@@ -10,9 +10,9 @@
 ```javascript
 const vinhkyit.tech/cps = {
             project-name: "Dien thoai All-in",
-            Scrum Master: "HoangTrieu",
-            Project Manager: "VinhKyIT",
-            Developer: ["VinhKyIT, HoangTrieu, ThayPhapHuTi"],
+            scrum-master: "HoangTrieu",
+            project-manager: "VinhKyIT",
+            developer: ["VinhKyIT, HoangTrieu, ThayPhapHuTi"],
             technologies: {
                 frontEnd: {
                     js: "React",
