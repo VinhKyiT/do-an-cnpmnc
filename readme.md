@@ -9,26 +9,21 @@
 
 ```javascript
 const vinhkyit.tech/cps = {
-            project-name: "Dien thoai All-in"
-            Scrum Master: "HoangTrieu"
-            askMeAbout: ["web dev", "tech", "app dev", "photography"],
+            project-name: "Dien thoai All-in",
+            Scrum Master: "HoangTrieu",
+            Project Manager: "VinhKyIT",
+            Developer: ["VinhKyIT, HoangTrieu, ThayPhapHuTi"],
             technologies: {
-                mobileApp: ["Android App"],
                 frontEnd: {
-                    js: ["Vue", "Nuxt"],
-                    css: ["materialize", "vuetify", "bootstrap"]
+                    js: "React",
+                    css: ["materialize", "bootstrap"]
                 },
                 backEnd: {
                     js: ["node", "express"],
-                    python: ["flask"]
+                database: "mongoDB",
                 },
-                devOps: ["AWS", "Docker🐳", "Route53", "Nginx"],
-                databases: ["mongo", "MySql", "sqlite"],
-                misc: ["Firebase", "selenium", "open-cv", "php", "SuiteScript"]
             },
-            architecture: ["Serverless Architecture", "Progressive web applications", "Single page applications"],
-            currentProject: "I am developing Extension for NetSuite using SuiteScript2.0",
-            funFact: "There are two ways to write error-free programs; only the third one works"
+            funFact: "Gap doi den chet - dung lai la that bai"
         };
 ```
 
