@@ -1,0 +1,29 @@
+{
+  "name": "mobistore",
+  "version": "1.0.0",
+  "description": "Do-An-CNPMNC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VinhKyiT/do-an-cnpmnc.git"
+  },
+  "keywords": [
+    "mobilestore"
+  ],
+  "author": "VinhKyIT, HoangTrieu, TinNow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VinhKyiT/do-an-cnpmnc/issues"
+  },
+  "homepage": "https://github.com/VinhKyiT/do-an-cnpmnc#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
