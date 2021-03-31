@@ -1436,17 +1436,26 @@ textarea:focus {
 }
 /*Header Middle*/
 .header-middle {
-	padding: 30px;
+	padding: 10px;
+}
+.header-middle > div > div > div > div > a > img{
+	width: 220px;
+	height: auto;
+}
+.header-middle > div > div > div.center-bar {
+	position: relative;
 }
 .hm-searchbox {
 	display: flex;
-	position: relative;
+	position: absolute;
 	background: #fff;
 	border-radius: 5px;
 	border: 1px solid #e1e1e1;
 	min-width: 638px;
 	height: 45px;
 	float: left;
+	top: 50%;
+	transform: translate(0, -50%)
 }
 .hm-searchbox .nice-select.select-search-category {
 	width: auto;
@@ -1501,7 +1510,10 @@ textarea:focus {
 .hm-wishlist {
 	float: left;
 	margin-right: 25px;
-	position: relative;
+	position: absolute;
+	right: 12%;
+	top: 50%;
+	transform: translate(-100%, -50%)
 }
 .hm-wishlist > a {
 	border: 1px solid #e1e1e1;
@@ -1521,7 +1533,9 @@ textarea:focus {
 /*Header Middle Minicart*/
 .hm-minicart {
 		display: inline-block;
-		position: relative;
+		position: absolute;
+		top: 80%;
+		transform: translate(-100%, -50%)
 }
 .hm-minicart-trigger {
 		border-radius: 2px;
