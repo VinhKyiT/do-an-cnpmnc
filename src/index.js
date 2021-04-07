@@ -14,8 +14,16 @@ app.get('/', (req, res) =>{
     res.render('./layouts/main');
 })
 
+app.get('/index', (req, res) =>{
+    res.render('./layouts/main');
+})
+
 app.get('/news', (req, res) =>{
     res.render('news');
+})
+
+app.get('/about-us', (req, res) => {
+    res.render('./about-us');
 })
 
 app.listen(port, () => console.log(`listening on port ${port}`))
