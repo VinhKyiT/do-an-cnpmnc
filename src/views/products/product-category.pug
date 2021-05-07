@@ -1,0 +1,41 @@
+ul.list-group.list-group-flush
+    li.list-group-item.has-sub.product-category
+        .row
+            .col-10
+                a.cate-name(href='/products/cate/'+data[0][0].name)= data[0][0].name
+            .col-2
+                a.btn-detail-gundam(href='#/')
+                    i.fal.fa-plus
+        ul.list-group.list-group-flush.gundam-cate.d-none
+            each detail_gundam in data[1]
+                li.list-group-item.has-sub
+                    a(href='/products/'+detail_gundam.id)= detail_gundam.name
+    li.list-group-item.product-category
+        .row
+            .col-10
+                a.cate-name(href='/products/cate/'+data[0][1].name)= data[0][1].name
+            .col-2
+                a.btn-detail-tools(href='#/')
+                    i.fal.fa-plus
+        ul.list-group.list-group-flush.tools-cate.d-none
+            each detail_tools in data[2]
+                li.list-group-item.has-sub
+                    a(href='/products/'+detail_tools.id)= detail_tools.name
+    li.list-group-item.product-category
+        .row
+            .col-10
+                a.cate-name(href='/products/cate/'+data[0][2].name)= data[0][2].name
+            .col-2
+                a.btn-detail-paints(href='#/')
+                    i.fal.fa-plus
+        ul.list-group.list-group-flush.paints-cate.d-none
+            each detail_paints in data[3]
+                li.list-group-item.has-sub
+                    a(href='/products/'+detail_paints.id)= detail_paints.name
+    each other in data[4]
+        li.list-group-item.product-category
+            a.cate-name(href='/products/'+other.id)= other.name
+    li.list-group-item.product-category
+        a.cate-name(href='/products/cate/'+data[0][3].name)= data[0][3].name
+    li.list-group-item.product-category
+        a.cate-name(href='/products/cate/'+data[0][4].name)= data[0][4].name

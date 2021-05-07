@@ -1,0 +1,35 @@
+.category-product-inner
+    .products
+        .product-list.product
+            .row.product-list-row
+                .col.col-sm-3.col-lg-3
+                    .product-image
+                        .image
+                            img(src=product.image[0], alt='')
+                    // /.product-image
+                // /.col
+                .col.col-sm-9.col-lg-9
+                    .product-info
+                        h3.name
+                            a(href='/products/detail/' + product.code)= product.name
+                        .rateit-small
+                            .product-price
+                                span.price= product.price
+                                span.price-before-discount= product.price
+                            // /.product-price
+                            .description.m-t-10
+                                ul 
+                                    each des in product.description 
+                                        li= des
+                            .cart.clearfix.animate-effect
+                                .action
+                                    ul.list-unstyled
+                                        li.add-cart-button.btn-group
+                                            button.btn.btn-primary.icon(data-toggle='dropdown', type='button')
+                                                i.fa.fa-shopping-cart
+                                            button.btn.btn-primary.cart-btn(type='button') Add to cart
+                                        li.lnk.wishlist
+                                            a.add-to-cart(href='detail.html', title='Wishlist')
+                                                i.icon.fa.fa-heart
+                    .tag.new
+                        span new
