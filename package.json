@@ -2,11 +2,11 @@
   "name": "store",
   "version": "1.0.0",
   "description": "KTT Store",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect ./src/index.js",
-    "watch": "node-sass -w src/resources/scss/ -o src/public/css/"
+    "start": "nodemon --inspect index.js",
+    "watch": "node-sass -w resources/scss/ -o public/css/"
   },
   "repository": {
     "type": "git",
