@@ -15,7 +15,7 @@ const vinhkyit.tech/cps = {
             developer: ["VinhKyIT, HoangTrieu, ThayPhapHuTi"],
             technologies: {
                 frontEnd: {
-                    js: "React",
+                    js: "Node, PugJS",
                     css: ["materialize", "bootstrap"]
                 },
                 backEnd: {
@@ -23,7 +23,7 @@ const vinhkyit.tech/cps = {
                 database: "mongoDB",
                 },
             },
-            funFact: "Gap doi den chet - dung lai la that bai"
+            quote: "Tien co kiem nhu nuoc roi cung se troi het"
         };
 ```
 
