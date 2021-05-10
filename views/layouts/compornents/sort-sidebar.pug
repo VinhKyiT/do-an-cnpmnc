@@ -1,0 +1,67 @@
+.sidebar-filter
+    .sidebar-widget
+        h3.section-title Shop by
+        .widget-header
+            h4.widget-title Category
+        .sidebar-widget-body
+            .accordion
+                .accordion-group
+                    .accordion-heading
+                        a.accordion-toggle.collapsed(href='#collapseOne', data-toggle='collapse')= data[0][0].name 
+                    // /.accordion-heading
+                    #collapseOne.accordion-body.collapse(style='height: 0px;')
+                        .accordion-inner
+                            ul
+                                each gundam in data[1]
+                                    li
+                                        a(href='/products/' + gundam._id)= gundam.name
+                    // /.accordion-inner
+                // /.accordion-body
+                // /.accordion-group
+                .accordion-group
+                    .accordion-heading
+                        a.accordion-toggle.collapsed(href='#collapseTwo', data-toggle='collapse')= data[0][1].name 
+                    // /.accordion-heading
+                    #collapseTwo.accordion-body.collapse(style='height: 0px;')
+                        .accordion-inner
+                            ul
+                                each tool in data[2]
+                                    li
+                                        a(href='/products/' + tool._id)= tool.name
+                        // /.accordion-inner
+                    // /.accordion-body
+                // /.accordion-group
+                .accordion-group
+                    .accordion-heading
+                        a.accordion-toggle.collapsed(href='#collapseThree', data-toggle='collapse')= data[0][2].name 
+                    // /.accordion-heading
+                    #collapseThree.accordion-body.collapse(style='height: 0px;')
+                        .accordion-inner
+                            ul
+                                each pant in data[3]
+                                    li
+                                        a(href='/products/' + pant._id)= pant.name
+                        // /.accordion-inner
+                    // /.accordion-body
+                // /.accordion-group
+                each other in data[4]
+                    a.other(href="/products/" + other._id)= other.name
+                    br
+            // /.accordion
+        // /.sidebar-widget-body
+// /.sidebar-widget
+// ============================================== SIDEBAR CATEGORY : END ==============================================
+// ============================================== PRICE SILDER==============================================
+.sidebar-widget
+    .widget-header
+        h4.widget-title Price Slider
+    .sidebar-widget-body.m-t-10
+        .price-range-holder
+            span.min-max
+                span.pull-left $200.00
+                span.pull-right $800.00
+            input#amount(type='text', style='border:0; color:#666666; font-weight:bold;text-align:center;')
+            input.price-slider(type='text', value='')
+        a.lnk.btn.btn-primary(href='#') Show Now
+// ============================================== PRICE SILDER : END ==============================================
+// ============================================== MANUFACTURES==============================================

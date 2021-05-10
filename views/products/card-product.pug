@@ -1,0 +1,16 @@
+.card.text-center.position-relative
+    a.card-top(href="/products/detail/"+product.code) 
+        img.card-img-top.img-fluid(src=product.image[0], alt='...')
+    if (product.sale !== 0)
+        .box-sale-percent.position-absolute= "-" + product.sale + "%"
+    a(href="/products/add-to-wishlist/" + product._id, class="icon-favourite")
+        i(class="fal fa-heart text-black")
+    a(href="/products/add-to-cart/" + product._id, class="icon-addToCart")
+        i(class="fal fa-shopping-cart")
+    .card-body
+        button.quick-view(type='button', data-bs-toggle='modal', data-bs-target='#exampleModal', data-bs-whatever='@mdo') Quick view
+        h5.card-title.product-name= product.name
+        .price-wrapper
+            if (product.sale !== 0)
+                p.text-price.text-decoration-line-through.purchase-cost= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+            p.text-price= product.priceSale.toLocaleString('vi', {style : 'currency', currency : 'VND'})    

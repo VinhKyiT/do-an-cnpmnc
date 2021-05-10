@@ -1,0 +1,20 @@
+tr
+    td.col-md-2.col-sm-6.col-xs-6
+        img(src=product.image[0], alt='imga')
+    td.col-md-7.col-sm-6.col-xs-6
+        .product-name
+            a(href='#')= product.name
+        .rating
+            i.fa.fa-star.rate
+            i.fa.fa-star.rate
+            i.fa.fa-star.rate
+            i.fa.fa-star.rate
+            i.fa.fa-star.non-rate
+            span.review ( 06 Reviews )
+        .price= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+            span= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+    td.col-md-2
+        a.btn-upper.btn.btn-primary(href='/products/add-to-cart/'+product._id) Giỏ hàng
+    td.col-md-1.close-btn
+        a(href='#')
+            i.fa.fa-times

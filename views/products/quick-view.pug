@@ -1,0 +1,17 @@
+#exampleModal.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title New message
+                button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+            .modal-body
+                form
+                    .mb-3
+                        label.col-form-label(for='recipient-name') Recipient:
+                        input#recipient-name.form-control(type='text')
+                    .mb-3
+                        label.col-form-label(for='message-text') Message:
+                        textarea#message-text.form-control
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-bs-dismiss='modal') Close
+                button.btn.btn-primary(type='button') Send message    

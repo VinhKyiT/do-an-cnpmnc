@@ -1,0 +1,14 @@
+.body-content
+  .container(style="margin-top: 50px;")
+    .my-wishlist-page
+      .row
+        .col-md-12.my-wishlist
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th.heading-title(colspan='4') S&#x1EA3;n ph&#x1EA9;m y&ecirc;u th&iacute;ch
+              tbody
+                each product in products
+                  include ./wishlist-item
+                  
