@@ -1,0 +1,79 @@
+extends ../layouts/layout
+block contents
+  .breadcrumb-area
+    .container
+      .breadcrumb-content
+        ul
+          li
+            a(href='index.html') Home
+          |
+          li.active Login Register
+  // Li's Breadcrumb Area End Here
+  // Begin Login Content Area
+  .page-section.mb-60
+    .container
+      .row
+        .col-sm-12.col-md-12.col-xs-12.col-lg-6.mb-30
+          // Login Form s
+          form(action='/authentication/login', role='form', method='POST')
+            .login-form
+              h4.login-title Login
+              |
+              .row
+                .col-md-12.col-12.mb-20
+                  label Email Address*
+                  |
+                  input.mb-0(type='email', name="email", placeholder='Email Address', required, value= values ? values.email : "")
+                |
+                .col-12.mb-20
+                  label Password*
+                  |
+                  input.mb-0(type='password', name="password", placeholder='Password', required, value= values ? values.password : "")
+                |
+                .col-md-8
+                  .check-box.d-inline-block.ml-0.ml-md-2.mt-10
+                    input#remember_me(type='checkbox')
+                    |
+                    label(for='remember_me') Remember me
+                |
+                .col-md-4.mt-10.mb-20.text-left.text-md-right
+                  a(href='#')  Forgotten pasward?
+                |
+                .col-md-12
+                  button.register-button.mt-0 Login
+        |
+        .col-sm-12.col-md-12.col-lg-6.col-xs-12
+          form(action='/authentication', role='form', method='POST')
+            .login-form
+              h4.login-title Register
+              |
+              .row
+                .col-md-6.col-12.mb-20
+                  label Name*
+                  |
+                  input.mb-0(type='text', name="name", placeholder='Name', required, value= values ? values.name : "")
+                |
+                .col-md-6.col-12.mb-20
+                  label Phone*
+                  |
+                  input.mb-0(type='text', name="phone", placeholder='Phone', required, value= values ? values.phone : "")
+                |
+                .col-md-12.mb-20
+                  label Email Address*
+                  |
+                  input.mb-0(type='email', name="emailSignUp", placeholder='Email Address', required, value= values ? values.emailSignUp : "")
+                |
+                .col-md-6.mb-20
+                  label Password*
+                  |
+                  input.mb-0(type='password', name="passwordSignUp", placeholder='Password', required, value= values ? values.passwordSignUp : "")
+                |
+                .col-md-6.mb-20
+                  label Confirm Password*
+                  |
+                  input.mb-0(type='password', name="confirmPassword", placeholder='Confirm Password', required, value= values ? values.confirmPassword : "")
+                |
+                .col-md-12.mb-20
+                  p(style="color: red;")= errorSignUp || ""
+                .col-12
+                  button(class="register-button mt-0", type="submit") Register

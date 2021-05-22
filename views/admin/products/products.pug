@@ -1,0 +1,105 @@
+extends ../layouts/layout
+block contents
+  .row
+    .col-lg-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title Product
+          button.btn.btn-inverse-success.btn-icon(type="button" data-toggle="modal" data-target="#createProducts")
+            i.mdi.mdi-plus     
+          .modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' id="createProducts")
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#exampleModalLabel.modal-title New Product
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                  form(action="/admin/products/create" method="POST" enctype="multipart/form-data")
+                    .form-group
+                      label.col-form-label(for='product-name') Tên sản phẩm:
+                      input.form-control(type='text' id='product-name' name="productName")
+                    .form-group
+                      label.col-form-label(for='product-price') Giá: 
+                      input.form-control(type='number' id='product-price' name="price")
+                    .form-group
+                      label.col-form-label(for='product-weight') Cân nặng(Kg): 
+                      input.form-control(type='number' id='product-weight' name="weight")
+                    .form-group
+                      label(for="exampleSelectCategory") Loại 
+                      select(class="form-control" id="exampleSelectCategory" name="category" onchange="onCategoryChange()")
+                    .form-group
+                      label(for="exampleSelectCategoryDetail") Loại chi tiết
+                      select(class="form-control" id="exampleSelectCategoryDetail" name="categoryDetail")
+                    .custom-file.mb-3
+                      input#validatedCustomFile.custom-file-input(type='file', required='' style="overflow: hidden;" name="avatar")
+                      label.custom-file-label(for='validatedCustomFile') Ảnh 1...
+                      .invalid-feedback Example invalid custom file feedback
+                    .custom-file.mb-3
+                      input#validatedCustomFile.custom-file-input(type='file', required='' style="overflow: hidden;" name="avatar")
+                      label.custom-file-label(for='validatedCustomFile') Ảnh 2...
+                      .invalid-feedback Example invalid custom file feedback
+                    .custom-file.mb-3
+                      input#validatedCustomFile.custom-file-input(type='file', required='' style="overflow: hidden;" name="avatar")
+                      label.custom-file-label(for='validatedCustomFile') Ảnh 3...
+                      .invalid-feedback Example invalid custom file feedback
+                    .custom-file.mb-3
+                      input#validatedCustomFile.custom-file-input(type='file', required='' style="overflow: hidden;" name="avatar")
+                      label.custom-file-label(for='validatedCustomFile') Ảnh 4...
+                      .invalid-feedback Example invalid custom file feedback
+                    .form-group
+                      label(for="exampleTextarea1") Mô tả
+                      textarea(class="form-control" id="exampleTextarea1" rows="4" name="description")
+                    .modal-footer
+                      button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                      button.btn.btn-primary(type='sumit') Submit
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th Tên sản phẩm
+                  |                             
+                  th Loại
+                  |                             
+                  th Giá
+                  |                             
+                  th Tình trạng
+                  |                             
+                  th
+                  |                             
+                  th
+              |                         
+              tbody
+                each product in products
+                  tr
+                    td= product.name
+                    |                             
+                    td= product.type
+                    |                             
+                    td= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                    |                             
+                    td
+                      if (product.count >= 10)
+                        label.badge.badge-success Còn Hàng
+                      if (product.count === 0)
+                        label.badge.badge-danger Hết hàng
+                      if (product.count > 0 && product.count < 10)
+                        label.badge.badge-warning Sắp hết
+                    |                             
+                    td
+                      a(href="products/edit/"+product._id) 
+                        button.btn.btn-inverse-primary.btn-icon(type='button')
+                          i.mdi.mdi-pencil
+                    |                             
+                    td
+                      a(href="products/delete/"+product._id) 
+                        button.btn.btn-inverse-danger.btn-icon(type='button')
+                          i.mdi.mdi-delete
+block script 
+  script(src="/assets/js/admin.js") 
+  script.
+    $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+  

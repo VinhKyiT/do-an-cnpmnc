@@ -1,0 +1,699 @@
+doctype html
+html.no-js(lang='zxx')
+  // index28:48
+  head
+    meta(charset='utf-8')
+    |
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    |
+    title
+      | KTT Store
+    |
+    meta(name='description', content='')
+    |
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Favicon
+    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.png')
+    // Material Design Iconic Font-V2.2.0
+    link(rel='stylesheet', href='css/material-design-iconic-font.min.css')
+    // Font Awesome
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
+    // Font Awesome Stars
+    //link(rel='stylesheet', href='/css/fontawesome-stars.css')
+    // Meanmenu CSS
+    link(rel='stylesheet', href='/css/meanmenu.css')
+    // owl carousel CSS
+    link(rel='stylesheet', href='/css/owl.carousel.min.css')
+    // Slick Carousel CSS
+    link(rel='stylesheet', href='/css/slick.css')
+    // Animate CSS
+    link(rel='stylesheet', href='/css/animate.css')
+    // Jquery-ui CSS
+    link(rel='stylesheet', href='/css/jquery-ui.min.css')
+    // Venobox CSS
+    link(rel='stylesheet', href='/css/venobox.css')
+    // Nice Select CSS
+    link(rel='stylesheet', href='/css/nice-select.css')
+    // Magnific Popup CSS
+    link(rel='stylesheet', href='/css/magnific-popup.css')
+    // Bootstrap V4.1.3 Fremwork CSS
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    // Helper CSS
+    link(rel='stylesheet', href='/css/helper.css')
+    // Main Style CSS
+    link(rel='stylesheet', href='/css/style.css')
+    // Responsive CSS
+    link(rel='stylesheet', href='/css/responsive.css')
+    // Modernizr js
+    script(src='/js/vendor/modernizr-2.8.3.min.js')
+  |
+  body
+    //if lt IE 8
+      p.browserupgrade
+        | You are using an
+        strong outdated
+        |  browser. Please
+        a(href='http://browsehappy.com/') upgrade your browser
+        |  to improve your experience.
+    // Begin Body Wrapper
+    .body-wrapper
+      // Begin Header Area
+      header
+        // Begin Header Top Area
+        .header-top
+          .container
+            .row
+              // Begin Header Top Left Area
+              .col-lg-3.col-md-4
+                .header-top-left
+                  ul.phone-wrap
+                    li
+                      span Telephone:
+                      a(href='#')  037 8383 986
+              // Header Top Left Area End Here
+              // Begin Header Top Right Area
+              .col-lg-9.col-md-8
+                .header-top-right
+                  ul.ht-menu
+                    // Begin Setting Area
+                    li
+                      .ht-setting-trigger
+                        span Setting
+                      |
+                      .setting.ht-setting
+                        ul.ht-setting-list
+                          li
+                            if (!checkLogin)
+                              a(href='/authentication')
+                                span Please Login
+                            else
+                              a(href='/profile')
+                                span My Account
+                          |
+                          li
+                            a(href='checkout.html') Checkout
+                          |
+                          li
+                            a(href='/admin') Control Panel
+                    // Setting Area End Here
+                    // Begin Language Area
+                    li
+                      span.language-selector-wrapper Language :
+                      |
+                      .ht-language-trigger
+                        span English
+                      |
+                      .language.ht-language
+                        ul.ht-setting-list
+                          li.active
+                            a(href='#')
+                              img(src='images/menu/flag-icon/1.jpg', alt='')
+                              | English
+                          |
+                          li
+                            a(href='#')
+                              img(src='images/menu/flag-icon/2.jpg', alt='')
+                              | Fran&ccedil;ais
+                    // Language Area End Here
+                    // Begin Login Area
+                    li
+                      if (!checkLogin)
+                        a(href='/authentication')
+                          span.currency-selector-wrapper Login
+                      else
+                        a(href='/authentication/logout')
+                          span.currency-selector-wrapper Logout
+                    // Login Area End Here
+              // Header Top Right Area End Here
+        // Header Top Area End Here
+        // Begin Header Middle Area
+        .header-middle.pl-sm-0.pr-sm-0.pl-xs-0.pr-xs-0
+          .container
+            .row
+              // Begin Header Logo Area
+              .col-lg-3
+                .logo.pb-sm-30.pb-xs-30
+                  a(href='/home')
+                    img(src='../images/menu/logo/1.jpg', alt='')
+              // Header Logo Area End Here
+              // Begin Header Middle Right Area
+              .col-lg-9.pl-0.ml-sm-15.ml-xs-15
+                // Begin Header Middle Searchbox Area
+                form.hm-searchbox(action='#')
+                  select.nice-select.select-search-category
+                    option(value='0') Tìm kiếm
+                  |
+                  input(type='text', placeholder='Nhập tên sản phẩm cần tìm')
+                  |
+                  button.li-btn(type='submit' action='/search')
+                    i.fa.fa-search
+                // Header Middle Searchbox Area End Here
+                // Begin Header Middle Right Area
+                .header-middle-right
+                  ul.hm-menu
+                    // Begin Header Middle Wishlist Area
+                    li.hm-wishlist
+                      a(href='wishlist.html')
+                        span.cart-item-count.wishlist-item-count 0
+                        |
+                        i.fa.fa-heart-o
+                    // Header Middle Wishlist Area End Here
+                    // Begin Header Mini Cart Area
+                    li.hm-minicart
+                      .hm-minicart-trigger
+                        span.item-icon
+                        |
+                        span.item-text
+                          if (finalPrice)
+                            span= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                          else
+                            span 0
+                          span.cart-item-count= cartLength || 0
+                      .minicart
+                        ul.minicart-product-list
+                          if (cartItems.length == 0)
+                            h4 Bạn chưa thêm gì vào giỏ hàng
+                          else
+                            each item in cartItems
+                              li
+                                a.minicart-product-image(href='/products/detail/'+item._id)
+                                  img(src=item.image[0], alt='cart products')
+                                |
+                                .minicart-product-details
+                                  h6
+                                    a(href='/products/detail/'+item._id)= item.name
+                                  |
+                                  span= item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                |
+                                button.close(title='Remove')
+                                  a(href='/products/remove-from-cart/'+item._id)
+                                    i.fa.fa-close
+                              |
+                        p.minicart-total
+                          | Tạm tính:
+                          span= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                        |
+                        .minicart-button
+                          a.li-button.li-button-fullwidth.li-button-dark(href='shopping-cart.html')
+                            span View Full Cart
+                          |
+                          a.li-button.li-button-fullwidth(href='checkout.html')
+                            span Checkout
+                    // Header Mini Cart Area End Here
+                // Header Middle Right Area End Here
+              // Header Middle Right Area End Here
+        // Header Middle Area End Here
+        // Begin Header Bottom Area
+        .header-bottom.header-sticky.d-none.d-lg-block.d-xl-block
+          .container
+            .row
+              .col-lg-12
+                // Begin Header Bottom Menu Area
+                .hb-menu
+                  nav
+                    ul
+                      li.dropdown-holder
+                        a(href='/home') Home
+                        |
+                      |
+                      li.dropdown-holder
+                        a(href='#')= data[0][0].name
+                        |
+                        ul.hb-dropdown
+                          each device in data[1]
+                            li
+                              - var deviceName = device.name
+                                  a(href='/products/'+device._id)= device.name
+                            |
+                      |
+                      li.dropdown-holder
+                        a(href='#')= data[0][1].name
+                        |
+                        ul.hb-dropdown
+                          each device in data[2]
+                            li
+                              a(href='/products/'+device._id)= device.name
+                            |
+                      |
+                      li.dropdown-holder
+                        a(href='#')= data[0][2].name
+                        |
+                        ul.hb-dropdown
+                          each device in data[3]
+                            li
+                              a(href='/products/'+device._id)= device.name
+                            |
+                      |
+                      li.dropdown-holder
+                        a(href='#')= data[0][3].name
+                        |
+                        ul.hb-dropdown
+                          each device in data[9]
+                            li
+                              a(href='/products/'+device._id)= device.name
+                            |
+                      |
+                      li.dropdown-holder
+                        a(href='#')= data[0][4].name
+                        |
+                        ul.hb-dropdown
+                          each device in data[4]
+                            li
+                              a(href='/products/'+device._id)= device.name
+                            |
+                      |
+                // Header Bottom Menu Area End Here
+        // Header Bottom Area End Here
+        // Begin Mobile Menu Area
+        .mobile-menu-area.d-lg-none.d-xl-none.col-12
+          .container
+            .row
+              .mobile-menu
+        // Mobile Menu Area End Here
+      // Header Area End Here
+      main
+        block contents
+      // Begin Footer Area
+      .footer
+        // Begin Footer Static Top Area
+        .footer-static-top
+          .container
+            // Begin Footer Shipping Area
+            .footer-shipping.pt-60.pb-55.pb-xs-25
+              .row
+                // Begin Li's Shipping Inner Box Area
+                .col-lg-3.col-md-6.col-sm-6.pb-sm-55.pb-xs-55
+                  .li-shipping-inner-box
+                    .shipping-icon
+                      img(src='images/shipping-icon/1.png', alt='Shipping Icon')
+                    |
+                    .shipping-text
+                      h2 Free Delivery
+                      |
+                      p And free returns. See checkout for delivery dates.
+                // Li's Shipping Inner Box Area End Here
+                // Begin Li's Shipping Inner Box Area
+                .col-lg-3.col-md-6.col-sm-6.pb-sm-55.pb-xs-55
+                  .li-shipping-inner-box
+                    .shipping-icon
+                      img(src='images/shipping-icon/2.png', alt='Shipping Icon')
+                    |
+                    .shipping-text
+                      h2 Safe Payment
+                      |
+                      p Pay with the world&apos;s most popular and secure payment methods.
+                // Li's Shipping Inner Box Area End Here
+                // Begin Li's Shipping Inner Box Area
+                .col-lg-3.col-md-6.col-sm-6.pb-xs-30
+                  .li-shipping-inner-box
+                    .shipping-icon
+                      img(src='images/shipping-icon/3.png', alt='Shipping Icon')
+                    |
+                    .shipping-text
+                      h2 Shop with Confidence
+                      |
+                      p Our Buyer Protection covers your purchasefrom click to delivery.
+                // Li's Shipping Inner Box Area End Here
+                // Begin Li's Shipping Inner Box Area
+                .col-lg-3.col-md-6.col-sm-6.pb-xs-30
+                  .li-shipping-inner-box
+                    .shipping-icon
+                      img(src='images/shipping-icon/4.png', alt='Shipping Icon')
+                    |
+                    .shipping-text
+                      h2 24/7 Help Center
+                      |
+                      p Have a question? Call a Specialist or chat online.
+                // Li's Shipping Inner Box Area End Here
+            // Footer Shipping Area End Here
+        // Footer Static Top Area End Here
+        // Begin Footer Static Middle Area
+        .footer-static-middle
+          .container
+            .footer-logo-wrap.pt-50.pb-35
+              .row
+                // Begin Footer Logo Area
+                .col-lg-4.col-md-6
+                  .footer-logo
+                    img(src='/images/menu/logo/1.jpg', alt='Footer Logo')
+                    |
+                    p.info
+                      | We are a team of designers and developers that create high quality HTML Template &amp; Woocommerce, Shopify Theme.
+                  |
+                  ul.des
+                    li
+                      span Address:
+                      |                                             6688Princess Road, London, Greater London BAS 23JK, UK
+                    |
+                    li
+                      span Phone:
+                      |
+                      a(href='#') (+123) 123 321 345
+                    |
+                    li
+                      span Email:
+                      |
+                      a(href='mailto://info@yourdomain.com') info@yourdomain.com
+                // Footer Logo Area End Here
+                // Begin Footer Block Area
+                .col-lg-2.col-md-3.col-sm-6
+                  .footer-block
+                    h3.footer-block-title Product
+                    |
+                    ul
+                      li
+                        a(href='#') Prices drop
+                      |
+                      li
+                        a(href='#') New products
+                      |
+                      li
+                        a(href='#') Best sales
+                      |
+                      li
+                        a(href='#') Contact us
+                // Footer Block Area End Here
+                // Begin Footer Block Area
+                .col-lg-2.col-md-3.col-sm-6
+                  .footer-block
+                    h3.footer-block-title Our company
+                    |
+                    ul
+                      li
+                        a(href='#') Delivery
+                      |
+                      li
+                        a(href='#') Legal Notice
+                      |
+                      li
+                        a(href='#') About us
+                      |
+                      li
+                        a(href='#') Contact us
+                // Footer Block Area End Here
+                // Begin Footer Block Area
+                .col-lg-4
+                  .footer-block
+                    h3.footer-block-title Follow Us
+                    |
+                    ul.social-link
+                      li.twitter
+                        a(href='https://twitter.com/', data-toggle='tooltip', target='_blank', title='Twitter')
+                          i.fa.fa-twitter
+                      |
+                      li.rss
+                        a(href='https://rss.com/', data-toggle='tooltip', target='_blank', title='RSS')
+                          i.fa.fa-rss
+                      |
+                      li.google-plus
+                        a(href='https://www.plus.google.com/discover', data-toggle='tooltip', target='_blank', title='Google Plus')
+                          i.fa.fa-google-plus
+                      |
+                      li.facebook
+                        a(href='https://www.facebook.com/', data-toggle='tooltip', target='_blank', title='Facebook')
+                          i.fa.fa-facebook
+                      |
+                      li.youtube
+                        a(href='https://www.youtube.com/', data-toggle='tooltip', target='_blank', title='Youtube')
+                          i.fa.fa-youtube
+                      |
+                      li.instagram
+                        a(href='https://www.instagram.com/', data-toggle='tooltip', target='_blank', title='Instagram')
+                          i.fa.fa-instagram
+                  // Begin Footer Newsletter Area
+                  .footer-newsletter
+                    h4 Sign up to newsletter
+                    |
+                    form#mc-embedded-subscribe-form.footer-subscribe-form.validate(action='#', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+                      #mc_embed_signup_scroll
+                        #mc-form.mc-form.subscribe-form.form-group
+                          input#mc-email(type='email', autocomplete='off', placeholder='Enter your email')
+                          |
+                          button#mc-submit.btn Subscribe
+                  // Footer Newsletter Area End Here
+                // Footer Block Area End Here
+        // Footer Static Middle Area End Here
+        // Begin Footer Static Bottom Area
+        .footer-static-bottom.pt-55.pb-55
+          .container
+            .row
+              .col-lg-12
+                // Begin Footer Links Area
+                .footer-links
+                  ul
+                    li
+                      a(href='#') Online Shopping
+                    |
+                    li
+                      a(href='#') Promotions
+                    |
+                    li
+                      a(href='#') My Orders
+                    |
+                    li
+                      a(href='#') Help
+                    |
+                    li
+                      a(href='#') Customer Service
+                    |
+                    li
+                      a(href='#') Support
+                    |
+                    li
+                      a(href='#') Most Populars
+                    |
+                    li
+                      a(href='#') New Arrivals
+                    |
+                    li
+                      a(href='#') Special Products
+                    |
+                    li
+                      a(href='#') Manufacturers
+                    |
+                    li
+                      a(href='#') Our Stores
+                    |
+                    li
+                      a(href='#') Shipping
+                    |
+                    li
+                      a(href='#') Payments
+                    |
+                    li
+                      a(href='#') Warantee
+                    |
+                    li
+                      a(href='#') Refunds
+                    |
+                    li
+                      a(href='#') Checkout
+                    |
+                    li
+                      a(href='#') Discount
+                    |
+                    li
+                      a(href='#') Refunds
+                    |
+                    li
+                      a(href='#') Policy Shipping
+                // Footer Links Area End Here
+                // Begin Footer Payment Area
+                .copyright.text-center
+                  a(href='#')
+                    img(src='images/payment/1.png', alt='')
+                // Footer Payment Area End Here
+                // Begin Copyright Area
+                .copyright.text-center.pt-25
+                  span
+                    a(target='_blank', href='https://www.templateshub.net') Templates Hub
+                // Copyright Area End Here
+        // Footer Static Bottom Area End Here
+      // Footer Area End Here
+      //- // Begin Quick View | Modal Area
+      //- #exampleModalCenter.modal.fade.modal-wrapper
+      //-   .modal-dialog.modal-dialog-centered(role='document')
+      //-     .modal-content
+      //-       .modal-body
+      //-         button.close(type='button', data-dismiss='modal', aria-label='Close')
+      //-           span(aria-hidden='true') &times;
+      //-         |
+      //-         .modal-inner-area.row
+      //-           .col-lg-5.col-md-6.col-sm-6
+      //-             // Product Details Left
+      //-             .product-details-left
+      //-               .product-details-images.slider-navigation-1
+      //-                 .lg-image
+      //-                   img(src='images/product/large-size/1.jpg', alt='product image')
+      //-                 |
+      //-                 .lg-image
+      //-                   img(src='images/product/large-size/2.jpg', alt='product image')
+      //-                 |
+      //-                 .lg-image
+      //-                   img(src='images/product/large-size/3.jpg', alt='product image')
+      //-                 |
+      //-                 .lg-image
+      //-                   img(src='images/product/large-size/4.jpg', alt='product image')
+      //-                 |
+      //-                 .lg-image
+      //-                   img(src='images/product/large-size/5.jpg', alt='product image')
+      //-                 |
+      //-                 .lg-image
+      //-                   img(src='images/product/large-size/6.jpg', alt='product image')
+      //-               |
+      //-               .product-details-thumbs.slider-thumbs-1
+      //-                 .sm-image
+      //-                   img(src='images/product/small-size/1.jpg', alt='product image thumb')
+      //-                 |
+      //-                 .sm-image
+      //-                   img(src='images/product/small-size/2.jpg', alt='product image thumb')
+      //-                 |
+      //-                 .sm-image
+      //-                   img(src='images/product/small-size/3.jpg', alt='product image thumb')
+      //-                 |
+      //-                 .sm-image
+      //-                   img(src='images/product/small-size/4.jpg', alt='product image thumb')
+      //-                 |
+      //-                 .sm-image
+      //-                   img(src='images/product/small-size/5.jpg', alt='product image thumb')
+      //-                 |
+      //-                 .sm-image
+      //-                   img(src='images/product/small-size/6.jpg', alt='product image thumb')
+      //-             // // Product Details Left
+      //-           |
+      //-           .col-lg-7.col-md-6.col-sm-6
+      //-             .product-details-view-content.pt-60
+      //-               .product-info
+      //-                 h2 Today is a good day Framed poster
+      //-                 |
+      //-                 span.product-details-ref Reference: demo_15
+      //-                 |
+      //-                 .rating-box.pt-20
+      //-                   ul.rating.rating-with-review-item
+      //-                     li
+      //-                       i.fa.fa-star-o
+      //-                     |
+      //-                     li
+      //-                       i.fa.fa-star-o
+      //-                     |
+      //-                     li
+      //-                       i.fa.fa-star-o
+      //-                     |
+      //-                     li.no-star
+      //-                       i.fa.fa-star-o
+      //-                     |
+      //-                     li.no-star
+      //-                       i.fa.fa-star-o
+      //-                     |
+      //-                     li.review-item
+      //-                       a(href='#') Read Review
+      //-                     |
+      //-                     li.review-item
+      //-                       a(href='#') Write Review
+      //-                 |
+      //-                 .price-box.pt-20
+      //-                   span.new-price.new-price-2 $57.98
+      //-                 |
+      //-                 .product-desc
+      //-                   p
+      //-                     span
+      //-                       | 100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
+      //-                 |
+      //-                 .product-variants
+      //-                   .produt-variants-size
+      //-                     label Dimension
+      //-                     |
+      //-                     select.nice-select
+      //-                       option(value='1', title='S', selected='selected') 40x60cm
+      //-                       |
+      //-                       option(value='2', title='M') 60x90cm
+      //-                       |
+      //-                       option(value='3', title='L') 80x120cm
+      //-                 |
+      //-                 .single-add-to-cart
+      //-                   form.cart-quantity(action='#')
+      //-                     .quantity
+      //-                       label Quantity
+      //-                       |
+      //-                       .cart-plus-minus
+      //-                         input.cart-plus-minus-box(value='1', type='text')
+      //-                         |
+      //-                         .dec.qtybutton
+      //-                           i.fa.fa-angle-down
+      //-                         |
+      //-                         .inc.qtybutton
+      //-                           i.fa.fa-angle-up
+      //-                     |
+      //-                     button.add-to-cart(type='submit') Add to cart
+      //-                 |
+      //-                 .product-additional-info.pt-25
+      //-                   a.wishlist-btn(href='wishlist.html')
+      //-                     i.fa.fa-heart-o
+      //-                     | Add to wishlist
+      //-                   |
+      //-                   .product-social-sharing.pt-25
+      //-                     ul
+      //-                       li.facebook
+      //-                         a(href='#')
+      //-                           i.fa.fa-facebook
+      //-                           | Facebook
+      //-                       |
+      //-                       li.twitter
+      //-                         a(href='#')
+      //-                           i.fa.fa-twitter
+      //-                           | Twitter
+      //-                       |
+      //-                       li.google-plus
+      //-                         a(href='#')
+      //-                           i.fa.fa-google-plus
+      //-                           | Google +
+      //-                       |
+      //-                       li.instagram
+      //-                         a(href='#')
+      //-                           i.fa.fa-instagram
+      //-                           | Instagram
+      //- // Quick View | Modal Area End Here
+    // Body Wrapper End Here
+    // jQuery-V1.12.4
+    script(src='js/vendor/jquery-1.12.4.min.js')
+    // Popper js
+    script(src='js/vendor/popper.min.js')
+    // Bootstrap V4.1.3 Fremwork js
+    script(src='js/bootstrap.min.js')
+    // Ajax Mail js
+    script(src='js/ajax-mail.js')
+    // Meanmenu js
+    script(src='js/jquery.meanmenu.min.js')
+    // Wow.min js
+    script(src='js/wow.min.js')
+    // Slick Carousel js
+    script(src='js/slick.min.js')
+    // Owl Carousel-2 js
+    script(src='js/owl.carousel.min.js')
+    // Magnific popup js
+    script(src='js/jquery.magnific-popup.min.js')
+    // Isotope js
+    script(src='js/isotope.pkgd.min.js')
+    // Imagesloaded js
+    script(src='js/imagesloaded.pkgd.min.js')
+    // Mixitup js
+    script(src='js/jquery.mixitup.min.js')
+    // Countdown
+    script(src='js/jquery.countdown.min.js')
+    // Counterup
+    script(src='js/jquery.counterup.min.js')
+    // Waypoints
+    script(src='js/waypoints.min.js')
+    // Barrating
+    script(src='js/jquery.barrating.min.js')
+    // Jquery-ui
+    script(src='js/jquery-ui.min.js')
+    // Venobox
+    script(src='js/venobox.min.js')
+    // Nice Select js
+    script(src='js/jquery.nice-select.min.js')
+    // ScrollUp js
+    script(src='js/scrollUp.min.js')
+    // Main/Activator js
+    script(src='js/main.js')
+    // index30:23

@@ -1,0 +1,59 @@
+extends ../layouts/layout
+block contents
+    .col-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title Edit Product
+          form.forms-sample(method="POST", enctype="multipart/form-data", action="/admin/products/edit/" + product._id )
+            .form-group
+              label(for='exampleInputName1') Name
+              |             
+              input#exampleInputName1.form-control(type='text', placeholder='Name' name="nameProduct" value=product.name)
+            |           
+            .form-group
+              label(for='exampleInputEmail3') Price
+              |             
+              input#exampleInputEmail3.form-control(type='number', placeholder='Price' name="price" value=product.price)
+            |           
+            .form-group
+              label(for='exampleInputPassword4') Count
+              |             
+              input#exampleInputPassword4.form-control(type='number', placeholder='Count' name="count" value=product.count)
+            |           
+            .form-group
+              label(for='exampleInputCity1') Weight
+              |             
+              input#exampleInputCity1.form-control(type='number', placeholder='Weight' name="weight" value=product.weight)
+            |           
+            .form-group
+              label(for='exampleTextarea1') Textarea
+              |             
+              textarea#exampleTextarea1.form-control(rows='4' name="description")= description 
+            |           
+            each img in product.image  
+              .form-group
+                label= "Ảnh " + (product.image.indexOf(img) + 1)
+                input.file-upload-default(type='file', name='avatar-'+product.image.indexOf(img), value=img )
+                .input-group.col-xs-12
+                  input.form-control.file-upload-info(type='text', placeholder='Upload Image' value=img)
+                  span.input-group-append
+                    button.file-upload-browse.btn.btn-primary(type='button') Upload
+            .image-product 
+                .row
+                    each img in product.image
+                        .col-lg-3.col-md-3.col-sm-3
+                            label(for="uploadImg-"+product.image.indexOf(img)) 
+                                img.img-fluid.img-thumbnail.d-inline(src=img, alt="")
+            button.btn.btn-primary.mr-2(type='submit') Submit
+            |           
+            button.btn.btn-light Cancel
+block script 
+  script(src='/assets/admin/vendors/base/vendor.bundle.base.js')
+  // endinject
+  // inject:js
+  script(src='/assets/admin/js/off-canvas.js')
+  script(src='/assets/admin/js/hoverable-collapse.js')
+  script(src='/assets/admin/js/template.js')
+  // endinject
+  // Custom js for this page
+  script(src='/assets/admin/js/file-upload.js')

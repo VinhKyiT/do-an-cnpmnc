@@ -1,0 +1,17 @@
+extends ../layouts/layout
+block contents 
+    .col-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title= 'Edit ' + detailCate.name
+          form.forms-sample(method="POST", action="/admin/detail-category/edit/" + detailCate.id)
+            .form-group
+              label(for='exampleInputName1') Tên loại 
+              input#exampleInputName1.form-control(type='text', placeholder='Category Name' name="detailCateName" value=detailCate.name)
+            .form-group
+                label(for="exampleSelectGender") Loại 
+                select(class="form-control" id="exampleSelectGender" name="category")
+                    each cate in category
+                        option(value= cate._id)= cate.name
+            button(type="submit" class="btn btn-primary mr-2") Submit
+            button(class="btn btn-light") Cancel          

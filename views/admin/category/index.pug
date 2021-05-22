@@ -1,0 +1,101 @@
+extends ../layouts/layout
+block contents
+  .row
+    .col-lg-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title Loại lớn
+          |                   
+          button.btn.btn-inverse-success.btn-icon(type="button" data-toggle="modal" data-target="#createCategory")
+            i.mdi.mdi-plus
+          #createCategory.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#exampleModalLabel.modal-title New message
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                  form(method="POST" action="/admin/category/create")
+                    .form-group
+                      label.col-form-label(for='recipient-name') Tên loại:
+                      input#recipient-name.form-control(type='text' name="categoryName")
+                    .modal-footer
+                      button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                      button.btn.btn-primary(type='sumit') Submit                 
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th Tên            
+                  th Số lượng loại                          
+                  th                    
+                  th
+              |                       
+              tbody
+                each cate in category
+                  tr
+                    td= cate.name                 
+                    td= cate.countItems                     
+                    td
+                      a(href="/admin/category/edit/"+cate.id)
+                        button.btn.btn-inverse-primary.btn-icon(type='button')
+                          i.mdi.mdi-pencil                       
+                    td
+                      a(href="/admin/category/delete/"+cate.id)
+                        button.btn.btn-inverse-danger.btn-icon(type='button')
+                          i.mdi.mdi-delete
+    each detail in detailCate             
+      .col-lg-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title= detail.name
+            |                   
+            button.btn.btn-inverse-success.btn-icon(type="button" data-toggle="modal" data-target="#create"+detail.name)
+              i.mdi.mdi-plus
+            .modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' id="create"+detail.name)
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    h5#exampleModalLabel.modal-title= 'New ' + detail.name
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                  .modal-body
+                    form(method="POST" action="/admin/category-detail/create/"+detail.id)
+                      .form-group
+                        label.col-form-label(for=detail.name+'-product') Tên loại chi tiết:
+                        input.form-control(type='text' id=detail.name+'-product' name="detailName")
+                      .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                        button.btn.btn-primary(type='sumit') Submit
+            |                   
+            .table-responsive
+              table.table.table-hover
+                thead
+                  tr
+                    th T&ecirc;n
+                    |                           
+                    th S&#x1ED1; l&#x1B0;&#x1EE3;ng s&#x1EA3;n ph&#x1EA9;m
+                    |                           
+                    th
+                    |                           
+                    th
+                |                       
+                tbody
+                  each detailCate in detail.detailCate
+                    tr
+                      td= detailCate.name
+                      |                           
+                      td= detailCate.countItems
+                      |                           
+                      td 
+                        a(href="/admin/detail-category/edit/"+detailCate._id)
+                          button.btn.btn-inverse-primary.btn-icon(type='button')
+                            i.mdi.mdi-pencil
+                      |                           
+                      td
+                        a(href="/admin/detail-category/delete/"+detailCate._id)
+                          button.btn.btn-inverse-danger.btn-icon(type='button')
+                            i.mdi.mdi-delete
+                    
+      

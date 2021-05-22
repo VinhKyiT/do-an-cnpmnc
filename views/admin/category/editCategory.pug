@@ -1,0 +1,13 @@
+extends ../layouts/layout
+block contents 
+    .col-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title= 'Edit ' + category.name
+          form.forms-sample(method="POST", action="/admin/category/edit/" + category.id)
+            .form-group
+              label(for='exampleInputName1') Tên loại 
+              input#exampleInputName1.form-control(type='text', placeholder='Category Name' name="cateName" value=category.name)
+            
+            button(type="submit" class="btn btn-primary mr-2") Submit
+            button(class="btn btn-light") Cancel          

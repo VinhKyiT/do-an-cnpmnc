@@ -1,0 +1,41 @@
+nav.navbar.col-lg-12.col-12.p-0.fixed-top.d-flex.flex-row
+    .navbar-brand-wrapper.d-flex.justify-content-center
+        .navbar-brand-inner-wrapper.d-flex.justify-content-between.align-items-center.w-100
+            a.navbar-brand.brand-logo(href='index.html')
+                img(src='/assets/admin/images/logo.svg' alt='logo')
+            |           
+            a.navbar-brand.brand-logo-mini(href='index.html')
+                img(src='/assets/admin/images/logo-mini.svg' alt='logo')
+            |           
+            button.navbar-toggler.navbar-toggler.align-self-center(type='button' data-toggle='minimize')
+                span.mdi.mdi-sort-variant
+    |       
+    .navbar-menu-wrapper.d-flex.align-items-center.justify-content-end
+        ul.navbar-nav.mr-lg-4.w-100
+            li.nav-item.nav-search.d-none.d-lg-block.w-100
+                .input-group
+                    .input-group-prepend
+                        span#search.input-group-text
+                            i.mdi.mdi-magnify
+                    |               
+                    input.form-control(type='text' placeholder='Search now' aria-label='search' aria-describedby='search')
+        |         
+        ul.navbar-nav.navbar-nav-right
+            li.nav-item.nav-profile.dropdown
+                a#profileDropdown.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
+                    img(src='/assets/admin/images/faces/face5.jpg' alt='profile')
+                    |
+                    if (account)           
+                        span.nav-profile-name= account.name
+                |             
+                .dropdown-menu.dropdown-menu-right.navbar-dropdown(aria-labelledby='profileDropdown')
+                    a.dropdown-item
+                        i.mdi.mdi-account-circle.text-primary
+                        |                 Profile
+                    |               
+                    a.dropdown-item(href="/admin/logout")
+                        i.mdi.mdi-logout.text-primary
+                        |                 Logout
+        |         
+        button.navbar-toggler.navbar-toggler-right.d-lg-none.align-self-center(type='button' data-toggle='offcanvas')
+            span.mdi.mdi-menu

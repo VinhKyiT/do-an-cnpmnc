@@ -1,0 +1,78 @@
+extends ../layouts/layout
+block contents
+    .col-lg-12.stretch-card
+      .card
+        .card-body
+          h4.card-title Roles
+          |         
+          button.btn.btn-inverse-success.btn-icon(type="button" data-toggle="modal" data-target="#createRole")
+            i.mdi.mdi-plus        
+          .modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' id="createRole")
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#exampleModalLabel.modal-title New Role
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                  form(action="/admin/roles/create" method="POST")
+                    .form-group
+                      label.col-form-label(for='role-name') Tên phân quyền:
+                      input.form-control(type='text' id='role-name' name="name")
+                    .modal-footer
+                      button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                      button.btn.btn-primary(type='sumit') Submit
+          .table-responsive.pt-3
+            table.table.table-bordered
+              thead
+                tr
+                    th #          
+                    th Tên quyền    
+                    th         
+              tbody
+                each role in roles
+                    if (role.name === "admin")
+                        tr.table-primary
+                            td= (roles.indexOf(role) + 1)
+                            td= role.name
+                            td
+                                a(href="roles/edit/"+role._id) 
+                                    button.btn.btn-inverse-primary.btn-icon(type='button')
+                                        i.mdi.mdi-pencil
+                                a(href="roles/delete/"+role._id) 
+                                    button.btn.btn-inverse-danger.btn-icon(type='button')
+                                        i.mdi.mdi-delete
+                    else if (role.name === "staff")
+                        tr.table-warning
+                            td= (roles.indexOf(role) + 1)
+                            td= role.name
+                            td
+                                a(href="roles/edit/"+role._id) 
+                                    button.btn.btn-inverse-primary.btn-icon(type='button')
+                                        i.mdi.mdi-pencil
+                                a(href="roles/delete/"+role._id) 
+                                    button.btn.btn-inverse-danger.btn-icon(type='button')
+                                        i.mdi.mdi-delete
+                    else if (role.name === "customer")
+                        tr.table-success
+                            td= (roles.indexOf(role) + 1)
+                            td= role.name
+                            td
+                                a(href="roles/edit/"+role._id) 
+                                    button.btn.btn-inverse-primary.btn-icon(type='button')
+                                        i.mdi.mdi-pencil
+                                a(href="roles/delete/"+role._id) 
+                                    button.btn.btn-inverse-danger.btn-icon(type='button')
+                                        i.mdi.mdi-delete
+                    else
+                        tr.table-danger
+                            td= (roles.indexOf(role) + 1)
+                            td= role.name
+                            td
+                                a(href="roles/edit/"+role._id) 
+                                    button.btn.btn-inverse-primary.btn-icon(type='button')
+                                        i.mdi.mdi-pencil
+                                a(href="roles/delete/"+role._id) 
+                                    button.btn.btn-inverse-danger.btn-icon(type='button')
+                                        i.mdi.mdi-delete
+                    

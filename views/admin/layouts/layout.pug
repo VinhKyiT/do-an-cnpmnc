@@ -1,0 +1,87 @@
+doctype html
+html(lang='en')
+  head
+    // Required meta tags
+    meta(charset='utf-8')
+    |   
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    |   
+    title AATOYS Admin
+    // plugins:css
+    link(rel='stylesheet', href='/assets/admin/vendors/mdi/css/materialdesignicons.min.css')
+    |   
+    link(rel='stylesheet', href='/assets/admin/vendors/base/vendor.bundle.base.css')
+    // endinject
+    // plugin css for this page
+    link(rel='stylesheet', href='/assets/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css')
+    // End plugin css for this page
+    // inject:css
+    link(rel='stylesheet', href='/assets/admin/css/style.css')
+    // endinject
+    link(rel='shortcut icon', href='/assets/admin/images/favicon.png')
+  body
+    .container-scroller
+      // partial:partials/_navbar.html
+      include ./navbar
+      // partial
+      .container-fluid.page-body-wrapper
+        // partial:partials/_sidebar.html
+        include ./sidebar
+        // partial
+        .main-panel
+          .content-wrapper
+            block contents
+          // content-wrapper ends
+        // main-panel ends
+      // page-body-wrapper ends
+    // container-scroller
+    // plugins:js
+    script(src='/assets/admin/vendors/base/vendor.bundle.base.js')
+    // endinject
+    // Plugin js for this page
+    script(src='/assets/admin/vendors/chart.js/Chart.min.js')
+    |   
+    script(src='/assets/admin/vendors/datatables.net/jquery.dataTables.js')
+    |   
+    script(src='/assets/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js')
+    // End plugin js for this page
+    // inject:js
+    script(src='/assets/admin/js/off-canvas.js')
+    |   
+    script(src='/assets/admin/js/hoverable-collapse.js')
+    |   
+    script(src='/assets/admin/js/template.js')
+    // endinject
+    // Custom js for this page
+    script(src='/assets/admin/js/dashboard.js')
+    |   
+    script(src='/assets/admin/js/data-table.js')
+    |   
+    script(src='/assets/admin/js/jquery.dataTables.js')
+    |   
+    script(src='/assets/admin/js/dataTables.bootstrap4.js')
+    // End custom js for this page
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+    // The core Firebase JS SDK is always required and must be listed first
+    script(src='https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js')
+    //
+      TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries
+    script(src='https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js") 
+    script.
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+      apiKey: "AIzaSyCkv4UK-oZSSIgD9XLCUjzLi1Tgj7RiXMw",
+      authDomain: "gundam-e4b9e.firebaseapp.com",
+      projectId: "gundam-e4b9e",
+      storageBucket: "gundam-e4b9e.appspot.com",
+      messagingSenderId: "860365416110",
+      appId: "1:860365416110:web:92015de178bd2c4d93af3f",
+      measurementId: "G-YE5B5WMQYJ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    block script

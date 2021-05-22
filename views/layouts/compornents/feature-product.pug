@@ -1,0 +1,29 @@
+// Begin Product Area
+html
+  head
+  body
+    .product-area.pt-60.pb-50
+      .container
+        .row
+          .col-lg-12
+            .li-product-tab
+              ul.nav.li-product-menu
+                li
+                  a.active(data-toggle='tab', href='#li-new-product')
+                    span New Arrival
+                |
+                li
+                  a(data-toggle='tab', href='#li-bestseller-product')
+                    span Bestseller
+                |
+                li
+                  a(data-toggle='tab', href='#li-featured-product')
+                    span Featured Products
+            // Begin Li's Tab Menu Content Area
+        |
+        .tab-content
+          #li-new-product.tab-pane.active.show(role='tabpanel')
+            .row
+              .product-active.owl-carousel
+                .col-lg-12
+                    block products

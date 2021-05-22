@@ -1,0 +1,41 @@
+nav#sidebar.sidebar.sidebar-offcanvas
+    ul.nav
+        li.nav-item
+            a.nav-link(href='/admin')
+                i.mdi.mdi-home.menu-icon
+                |               
+                span.menu-title Home
+        |           
+        li.nav-item
+            a.nav-link(data-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
+                i.mdi.mdi-archive.menu-icon
+                |               
+                span.menu-title S&#x1EA3;n ph&#x1EA9;m
+                |               
+                i.menu-arrow
+            |             
+            #ui-basic.collapse
+                ul.nav.flex-column.sub-menu
+                    li.nav-item
+                        a.nav-link(href='/admin/category') Lo&#x1EA1;i s&#x1EA3;n ph&#x1EA9;m
+                    |                 
+                    li.nav-item
+                        a.nav-link(href='/admin/products') S&#x1EA3;n ph&#x1EA9;m
+        |
+        if (role === 'admin')           
+            li.nav-item
+                a.nav-link(href='/admin/users')
+                    i.mdi.mdi-account.menu-icon
+                    |               
+                    span.menu-title T&agrave;i kho&#x1EA3;n
+            li.nav-item
+                a.nav-link(href='/admin/roles')
+                    i(class="mdi mdi-file-tree menu-icon")
+                    |               
+                    span.menu-title Phân quyền
+        |           
+        li.nav-item
+            a.nav-link(href='/admin/bills')
+                i.mdi.mdi-file-document-box-outline.menu-icon
+                |               
+                span.menu-title &Dstrok;&#x1A1;n h&agrave;ng

@@ -1,0 +1,13 @@
+extends ../layouts/layout
+block contents 
+    .col-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title= 'Edit ' + editRole.name
+          form.forms-sample(method="POST", action="/admin/roles/edit/" + editRole.id)
+            .form-group
+              label(for='exampleInputName1') Tên quyền
+              input#exampleInputName1.form-control(type='text', placeholder='Tên quyền' name="name" value=editRole.name)
+            
+            button(type="submit" class="btn btn-primary mr-2") Submit
+            button(class="btn btn-light") Cancel          

@@ -1,0 +1,30 @@
+extends ../layouts/layout
+block contents
+    .col-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title Edit User
+          form.forms-sample(method="POST", action="/admin/users/edit/"+ acc._id)
+            .form-group
+              label(for='exampleInputName1') Tên
+              |             
+              input#exampleInputName1.form-control(type='text', placeholder='Name' name="name" value=acc.name)
+            .form-group
+              label(for='exampleInputName1') Email
+              |             
+              input#exampleInputName1.form-control(type='text', placeholder='Name' name="email" value=acc.email)
+            .form-group
+              label(for='exampleInputName1') Số điện thoại
+              |             
+              input#exampleInputName1.form-control(type='text', placeholder='Name' name="phone" value=acc.phone)
+            .form-group
+              label(for='role') Quyền
+              select(class="form-control" id="role" name="id_role")
+                each role in roles 
+                  if (role._id.equals(acc.id_role) )
+                    option(value=role._id selected)= role.name 
+                  else
+                    option(value=role._id)= role.name 
+            button.btn.btn-primary.mr-2(type='submit') Submit
+            |           
+            button.btn.btn-light Cancel
