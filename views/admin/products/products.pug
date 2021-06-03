@@ -6,7 +6,7 @@ block contents
         .card-body
           h4.card-title Product
           button.btn.btn-inverse-success.btn-icon(type="button" data-toggle="modal" data-target="#createProducts")
-            i.mdi.mdi-plus     
+            i.mdi.mdi-plus
           .modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' id="createProducts")
             .modal-dialog(role='document')
               .modal-content
@@ -20,13 +20,13 @@ block contents
                       label.col-form-label(for='product-name') Tên sản phẩm:
                       input.form-control(type='text' id='product-name' name="productName")
                     .form-group
-                      label.col-form-label(for='product-price') Giá: 
+                      label.col-form-label(for='product-price') Giá:
                       input.form-control(type='number' id='product-price' name="price")
                     .form-group
-                      label.col-form-label(for='product-weight') Cân nặng(Kg): 
-                      input.form-control(type='number' id='product-weight' name="weight")
+                      label.col-form-label(for='product-weight') Code:
+                      input.form-control(type='number' id='product-weight' name="code")
                     .form-group
-                      label(for="exampleSelectCategory") Loại 
+                      label(for="exampleSelectCategory") Loại
                       select(class="form-control" id="exampleSelectCategory" name="category" onchange="onCategoryChange()")
                     .form-group
                       label(for="exampleSelectCategoryDetail") Loại chi tiết
@@ -58,26 +58,26 @@ block contents
               thead
                 tr
                   th Tên sản phẩm
-                  |                             
+                  |
                   th Loại
-                  |                             
+                  |
                   th Giá
-                  |                             
+                  |
                   th Tình trạng
-                  |                             
+                  |
                   th
-                  |                             
+                  |
                   th
-              |                         
+              |
               tbody
                 each product in products
                   tr
                     td= product.name
-                    |                             
+                    |
                     td= product.type
-                    |                             
+                    |
                     td= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                    |                             
+                    |
                     td
                       if (product.count >= 10)
                         label.badge.badge-success Còn Hàng
@@ -85,21 +85,20 @@ block contents
                         label.badge.badge-danger Hết hàng
                       if (product.count > 0 && product.count < 10)
                         label.badge.badge-warning Sắp hết
-                    |                             
+                    |
                     td
-                      a(href="products/edit/"+product._id) 
+                      a(href="/admin/products/edit/"+product._id)
                         button.btn.btn-inverse-primary.btn-icon(type='button')
                           i.mdi.mdi-pencil
-                    |                             
+                    |
                     td
-                      a(href="products/delete/"+product._id) 
+                      a(href="/admin/products/delete/"+product._id)
                         button.btn.btn-inverse-danger.btn-icon(type='button')
                           i.mdi.mdi-delete
-block script 
-  script(src="/assets/js/admin.js") 
+block script
+  script(src="/assets/js/admin.js")
   script.
     $(".custom-file-input").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
-  

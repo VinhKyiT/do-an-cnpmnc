@@ -1,1045 +1,311 @@
 extends ../layouts/layout
 block contents
-    .breadcrumb-area
-      .container
-        .breadcrumb-content
-          ul
-            li
-              a(href='index.html') Home
-            |
-            li.active= deviceName
-    // Li's Breadcrumb Area End Here
-    // Begin Li's Content Wraper Area
-    .content-wraper.pt-60.pb-60.pt-sm-30
-      .container
-        .row
-          .col-lg-9.order-1.order-lg-2
-            // Begin Li's Banner Area
-            .single-banner.shop-page-banner
-              a(href='#')
-                img(src='../images/bg-banner/2.jpg', alt="Li's Static Banner")
-            // Li's Banner Area End Here
-            // shop-top-bar start
-            .shop-top-bar.mt-30
-              .shop-bar-inner
-                .product-view-mode
-                  // shop-item-filter-list start
-                  ul.nav.shop-item-filter-list(role='tablist')
-                    li.active(role='presentation')
-                      a.active.show(aria-selected='true', data-toggle='tab', role='tab', aria-controls='grid-view', href='#grid-view')
-                        i.fa.fa-th
-                    |
-                    li(role='presentation')
-                      a(data-toggle='tab', role='tab', aria-controls='list-view', href='#list-view')
-                        i.fa.fa-th-list
-                  // shop-item-filter-list end
-                |
-                .toolbar-amount
-                  span Showing 1 to 9 of 15
-              // product-select-box start
-              .product-select-box
-                .product-short
-                  p Sort By:
-                  |
-                  select.nice-select
-                    option(value='trending') Relevance
-                    |
-                    option(value='sales') Name (A - Z)
-                    |
-                    option(value='sales') Name (Z - A)
-                    |
-                    option(value='rating') Price (Low &gt; High)
-                    |
-                    option(value='date') Rating (Lowest)
-                    |
-                    option(value='price-asc') Model (A - Z)
-                    |
-                    option(value='price-asc') Model (Z - A)
-              // product-select-box end
-            // shop-top-bar end
-            // shop-products-wrapper start
-            .shop-products-wrapper
-              .tab-content
-                #grid-view.tab-pane.fade.active.show(role='tabpanel')
-                  .product-area.shop-product-area
-                    .row
-                        each product in data[10]
-                            .col-lg-4.col-md-4.col-sm-6.mt-40
-                                // single-product-wrap start
-                                .single-product-wrap
-                                    .product-image
-                                        a(href='/products/detail/'+product._id)
-                                            img(src=product.image[0], alt="Li's Product Image")
-                                        |
-                                        span.sticker New
-                                    |
-                                    .product_desc
-                                        .product_desc_info
-                                            .product-review
-                                                h5.manufacturer
-                                                    a(href='product-details.html')= product.name
-                                                |
-                                                .rating-box
-                                                    ul.rating
-                                                        li
-                                                            i.fa.fa-star-o
-                                                        |
-                                                        li
-                                                            i.fa.fa-star-o
-                                                        |
-                                                        li
-                                                            i.fa.fa-star-o
-                                                        |
-                                                        li.no-star
-                                                            i.fa.fa-star-o
-                                                        |
-                                                        li.no-star
-                                                            i.fa.fa-star-o
-                                                |
-                                            h4
-                                                a.product_name(href='/products/detail/'+product._id)= product.name
-                                            |
-                                            .price-box
-                                                span.new-price= (product.price - product.price * (product.sale/100)).toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                                                span.old-price= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                                                span.discount-percentage= product.sale+"%"
-                                        |
-                                        .add-actions
-                                            ul.add-actions-link
-                                                li.add-cart.active
-                                                    a(href='/products/add-to-cart/'+product._id) Add to cart
-                                                |
-                                                li
-                                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
-                                                        i.fa.fa-eye
-                                                |
-                                                li
-                                                    a.links-details(href='/products/add-to-wishlist/'+product._id)
-                                                        i.fa.fa-heart-o
-                                // single-product-wrap end
-                |
-            //-     #list-view.tab-pane.fade.product-list-view(role='tabpanel')
-            //-       .row
-            //-         .col
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/12.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/11.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/10.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/9.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/8.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/7.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/6.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/5.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/4.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/3.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/2.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action.mb-xs-30
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-           |
-            //-           .row.product-layout-list.last-child
-            //-             .col-lg-3.col-md-5
-            //-               .product-image
-            //-                 a(href='single-product.html')
-            //-                   img(src='images/product/large-size/1.jpg', alt="Li's Product Image")
-            //-                 |
-            //-                 span.sticker New
-            //-             |
-            //-             .col-lg-5.col-md-7
-            //-               .product_desc
-            //-                 .product_desc_info
-            //-                   .product-review
-            //-                     h5.manufacturer
-            //-                       a(href='product-details.html') Graphic Corner
-            //-                     |
-            //-                     .rating-box
-            //-                       ul.rating
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                         |
-            //-                         li.no-star
-            //-                           i.fa.fa-star-o
-            //-                   |
-            //-                   h4
-            //-                     a.product_name(href='single-product.html') Hummingbird printed t-shirt
-            //-                   |
-            //-                   .price-box
-            //-                     span.new-price $46.80
-            //-                   |
-            //-                   p
-            //-                     | Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig
-            //-             |
-            //-             .col-lg-4
-            //-               .shop-add-action
-            //-                 ul.add-actions-link
-            //-                   li.add-cart
-            //-                     a(href='#') Add to cart
-            //-                   |
-            //-                   li.wishlist
-            //-                     a(href='wishlist.html')
-            //-                       i.fa.fa-heart-o
-            //-                       | Add to wishlist
-            //-                   |
-            //-                   li
-            //-                     a.quick-view(data-toggle='modal', data-target='#exampleModalCenter', href='#')
-            //-                       i.fa.fa-eye
-            //-                       | Quick view
-            //-     |
-            //-     .paginatoin-area
-            //-       .row
-            //-         .col-lg-6.col-md-6.pt-xs-15
-            //-           p Showing 1-12 of 13 item(s)
-            //-         |
-            //-         .col-lg-6.col-md-6
-            //-           ul.pagination-box.pt-xs-20.pb-xs-15
-            //-             li
-            //-               a.Previous(href='#')
-            //-                 i.fa.fa-chevron-left
-            //-                 |  Previous
-            //-             |
-            //-             li.active
-            //-               a(href='#') 1
-            //-             |
-            //-             li
-            //-               a(href='#') 2
-            //-             |
-            //-             li
-            //-               a(href='#') 3
-            //-             |
-            //-             li
-            //-               a.Next(href='#')
-            //-                 | Next
-            //-                 i.fa.fa-chevron-right
-            //- // shop-products-wrapper end
+  .breadcrumb-area
+    .container
+      .breadcrumb-content
+        ul
+          li
+            a(href='#') Home
           |
-          .col-lg-3.order-2.order-lg-1
-            // sidebar-categores-box start
-            .sidebar-categores-box.mt-sm-30.mt-xs-30
-              .sidebar-title
-                h2 Laptop
-              // category-sub-menu start
-              .category-sub-menu
-                ul
-                  li.has-sub
-                    a(href='# ') Prime Video
-                    |
-                    ul
-                      li
-                        a(href='#') All Videos
-                      |
-                      li
-                        a(href='#') Blouses
-                      |
-                      li
-                        a(href='#') Evening Dresses
-                      |
-                      li
-                        a(href='#') Summer Dresses
-                      |
-                      li
-                        a(href='#') T-Rent or Buy
-                      |
-                      li
-                        a(href='#') Your Watchlist
-                      |
-                      li
-                        a(href='#') Watch Anywhere
-                      |
-                      li
-                        a(href='#') Getting Started
+          li.active= detail_category.name
+  // Li's Breadcrumb Area End Here
+  // Begin Li's Content Wraper Area
+  .content-wraper.pt-60.pb-60.pt-sm-30
+    .container
+      .row
+        .col-lg-9.order-1.order-lg-2
+          // Begin Li's Banner Area
+          .single-banner.shop-page-banner
+            a(href='#')
+              img(src='/images/bg-banner/2.jpg', alt="Li's Static Banner")
+          // Li's Banner Area End Here
+          // shop-top-bar start
+          .shop-top-bar.mt-30
+            .shop-bar-inner
+              .product-view-mode
+                // shop-item-filter-list start
+                ul.nav.shop-item-filter-list(role='tablist')
+                  li.active(role='presentation')
+                    a.active.show(aria-selected='true', data-toggle='tab', role='tab', aria-controls='grid-view', href='#grid-view')
+                      i.fa.fa-th
                   |
-                  li.has-sub
-                    a(href='#') Computer
-                    |
-                    ul
-                      li
-                        a(href='#') TV &amp; Video
-                      |
-                      li
-                        a(href='#') Audio &amp; Theater
-                      |
-                      li
-                        a(href='#') Camera, Photo
-                      |
-                      li
-                        a(href='#') Cell Phones
-                      |
-                      li
-                        a(href='#') Headphones
-                      |
-                      li
-                        a(href='#') Video Games
-                      |
-                      li
-                        a(href='#') Wireless Speakers
-                  |
-                  li.has-sub
-                    a(href='#') Electronics
-                    |
-                    ul
-                      li
-                        a(href='#') Amazon Home
-                      |
-                      li
-                        a(href='#') Kitchen &amp; Dining
-                      |
-                      li
-                        a(href='#') Bed &amp; Bath
-                      |
-                      li
-                        a(href='#') Appliances
-              // category-sub-menu end
-            // sidebar-categores-box end
-            // sidebar-categores-box start
-            .sidebar-categores-box
-              .sidebar-title
-                h2 Filter By
-              // btn-clear-all start
-              button.btn-clear-all.mb-sm-30.mb-xs-30 Clear all
-              // btn-clear-all end
-              // filter-sub-area start
-              .filter-sub-area
-                h5.filter-sub-titel Brand
-                |
-                .categori-checkbox
-                  form(action='#')
-                    ul
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') Prime Video (13)
-                      |
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') Computers (12)
-                      |
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') Electronics (11)
-              // filter-sub-area end
-              // filter-sub-area start
-              .filter-sub-area.pt-sm-10.pt-xs-10
-                h5.filter-sub-titel Categories
-                |
-                .categori-checkbox
-                  form(action='#')
-                    ul
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') Graphic Corner (10)
-                      |
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#')  Studio Design (6)
-              // filter-sub-area end
-              // filter-sub-area start
-              .filter-sub-area.pt-sm-10.pt-xs-10
-                h5.filter-sub-titel Size
-                |
-                .size-checkbox
-                  form(action='#')
-                    ul
-                      li
-                        input(type='checkbox', name='product-size')
-                        a(href='#') S (3)
-                      |
-                      li
-                        input(type='checkbox', name='product-size')
-                        a(href='#') M (3)
-                      |
-                      li
-                        input(type='checkbox', name='product-size')
-                        a(href='#') L (3)
-                      |
-                      li
-                        input(type='checkbox', name='product-size')
-                        a(href='#') XL (3)
-              // filter-sub-area end
-              // filter-sub-area start
-              .filter-sub-area.pt-sm-10.pt-xs-10
-                h5.filter-sub-titel Color
-                |
-                .color-categoriy
-                  form(action='#')
-                    ul
-                      li
-                        span.white
-                        a(href='#') White (1)
-                      |
-                      li
-                        span.black
-                        a(href='#') Black (1)
-                      |
-                      li
-                        span.Orange
-                        a(href='#') Orange (3)
-                      |
-                      li
-                        span.Blue
-                        a(href='#') Blue  (2)
-              // filter-sub-area end
-              // filter-sub-area start
-              .filter-sub-area.pt-sm-10.pb-sm-15.pb-xs-15
-                h5.filter-sub-titel Dimension
-                |
-                .categori-checkbox
-                  form(action='#')
-                    ul
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') 40x60cm (6)
-                      |
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') 60x90cm (6)
-                      |
-                      li
-                        input(type='checkbox', name='product-categori')
-                        a(href='#') 80x120cm (6)
-              // filter-sub-area end
-            // sidebar-categores-box end
-            // category-sub-menu start
-            .sidebar-categores-box.mb-sm-0.mb-xs-0
-              .sidebar-title
-                h2 Laptop
+                  li(role='presentation')
+                    a(data-toggle='tab', role='tab', aria-controls='list-view', href='#list-view')
+                      i.fa.fa-th-list
+                // shop-item-filter-list end
               |
-              .category-tags
-                ul
-                  li
-                    a(href='# ') Devita
+              .toolbar-amount
+                span Showing 1 to 9 of #{countItems}
+            // product-select-box start
+            .product-select-box
+              .product-short
+                p Sort By:
+                |
+                select.nice-select
+                  option(value='trending') Relevance
                   |
-                  li
-                    a(href='# ') Cameras
+                  option(value='sales') Name (A - Z)
                   |
-                  li
-                    a(href='# ') Sony
+                  option(value='sales') Name (Z - A)
                   |
-                  li
-                    a(href='# ') Computer
+                  option(value='rating') Price (Low &gt; High)
                   |
-                  li
-                    a(href='# ') Big Sale
+                  option(value='date') Rating (Lowest)
                   |
-                  li
-                    a(href='# ') Accessories
-              // category-sub-menu end
-    // Content Wraper Area End Here
+                  option(value='price-asc') Model (A - Z)
+                  |
+                  option(value='price-asc') Model (Z - A)
+            // product-select-box end
+          // shop-top-bar end
+          // shop-products-wrapper start
+          .shop-products-wrapper
+            .tab-content
+              #grid-view.tab-pane.fade.active.show(role='tabpanel')
+                .product-area.shop-product-area
+                  .row
+                      each product in products
+                          .col-lg-4.col-md-4.col-sm-6.mt-40
+                              include ../layouts/compornents/product-grid
+              |
+              #list-view.tab-pane.fade.product-list-view(role='tabpanel')
+                .row
+                    .col
+                      each product in products
+                        include ../layouts/compornents/product-list
+              .paginatoin-area
+                .row
+                  .col-lg-6.col-md-6.pt-xs-15
+                    p Total: #{countItems} items
+                  |
+                  .col-lg-6.col-md-6
+                    ul.pagination-box.pt-xs-20.pb-xs-15
+                      if (page === 1)
+                        li
+                          a(href='?page=' + (page - 1), class="Previous disabled")
+                            i.fa.fa-chevron-left
+                            | Previous
+                      else
+                        li
+                          a(href='?page=' + (page - 1), )
+                            i.fa.fa-angle-left
+                      if (page !== 1)
+                        li
+                          a(href='?page=' + (page - 1))= page - 1
+                      li.active
+                        a(href='?page=' + page)= page
+                      if ((page + 1) <= maxPage)
+                        li
+                          a(href='?page=' + (page + 1))= page + 1
+                      if ((page + 2) <= maxPage)
+                        li
+                          a(href='?page=' + (page + 2))= page + 2
+                      if (page === maxPage)
+                        li.next.disabled
+                          a(href='?page=' + (page + 1))
+                            i.fa.fa-angle-right
+                      else
+                        li.next
+                          a(href='?page=' + (page + 1))
+                            i.fa.fa-angle-right
+                  //- li
+                  //-   a.Previous(href='#')
+                  //-     i.fa.fa-chevron-left
+                  //-     |  Previous
+                  //- |
+                  //- li.active
+                  //-   a(href='#') 1
+                  //- |
+                  //- li
+                  //-   a(href='#') 2
+                  //- |
+                  //- li
+                  //-   a(href='#') 3
+                  //- |
+                  //- li
+                  //-   a.Next(href='#')
+                  //-     | Next
+                  //-     i.fa.fa-chevron-right
+          // shop-products-wrapper end
+        |
+        .col-lg-3.order-2.order-lg-1
+          // sidebar-categores-box start
+          .sidebar-categores-box.mt-sm-30.mt-xs-30
+            .sidebar-title
+              h2 Categories
+            // category-sub-menu start
+            .category-sub-menu
+              ul
+                li.has-sub
+                  a(href='# ')= data[0][0].name
+                  |
+                  ul
+                    each device in data[1]
+                      li
+                        a(href='/products/'+device._id)= device.name
+                |
+                li.has-sub
+                  a(href='#')= data[0][1].name
+                  |
+                  ul
+                    each device in data[2]
+                      li
+                        a(href='/products/'+device._id)= device.name
+                |
+                li.has-sub
+                  a(href='#')= data[0][2].name
+                  |
+                  ul
+                    each device in data[3]
+                      li
+                        a(href='/products/'+device._id)= device.name
+                |
+                li.has-sub
+                  a(href='#')= data[0][3].name
+                  |
+                  ul
+                    each device in data[9]
+                      li
+                        a(href='/products/'+device._id)= device.name
+                |
+                li.has-sub
+                  a(href='#')= data[0][4].name
+                  |
+                  ul
+                    each device in data[4]
+                      li
+                        a(href='/products/'+device._id)= device.name
+            // category-sub-menu end
+          // sidebar-categores-box end
+          //- // sidebar-categores-box start
+          //- .sidebar-categores-box
+          //-   .sidebar-title
+          //-     h2 Filter By
+          //-   // btn-clear-all start
+          //-   button.btn-clear-all.mb-sm-30.mb-xs-30 Clear all
+          //-   // btn-clear-all end
+          //-   // filter-sub-area start
+          //-   .filter-sub-area
+          //-     h5.filter-sub-titel Brand
+          //-     |
+          //-     .categori-checkbox
+          //-       form(action='#')
+          //-         ul
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') Prime Video (13)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') Computers (12)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') Electronics (11)
+          //-   // filter-sub-area end
+          //-   // filter-sub-area start
+          //-   .filter-sub-area.pt-sm-10.pt-xs-10
+          //-     h5.filter-sub-titel Categories
+          //-     |
+          //-     .categori-checkbox
+          //-       form(action='#')
+          //-         ul
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') Graphic Corner (10)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#')  Studio Design (6)
+          //-   // filter-sub-area end
+          //-   // filter-sub-area start
+          //-   .filter-sub-area.pt-sm-10.pt-xs-10
+          //-     h5.filter-sub-titel Size
+          //-     |
+          //-     .size-checkbox
+          //-       form(action='#')
+          //-         ul
+          //-           li
+          //-             input(type='checkbox', name='product-size')
+          //-             a(href='#') S (3)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-size')
+          //-             a(href='#') M (3)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-size')
+          //-             a(href='#') L (3)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-size')
+          //-             a(href='#') XL (3)
+          //-   // filter-sub-area end
+          //-   // filter-sub-area start
+          //-   .filter-sub-area.pt-sm-10.pt-xs-10
+          //-     h5.filter-sub-titel Color
+          //-     |
+          //-     .color-categoriy
+          //-       form(action='#')
+          //-         ul
+          //-           li
+          //-             span.white
+          //-             a(href='#') White (1)
+          //-           |
+          //-           li
+          //-             span.black
+          //-             a(href='#') Black (1)
+          //-           |
+          //-           li
+          //-             span.Orange
+          //-             a(href='#') Orange (3)
+          //-           |
+          //-           li
+          //-             span.Blue
+          //-             a(href='#') Blue  (2)
+          //-   // filter-sub-area end
+          //-   // filter-sub-area start
+          //-   .filter-sub-area.pt-sm-10.pb-sm-15.pb-xs-15
+          //-     h5.filter-sub-titel Dimension
+          //-     |
+          //-     .categori-checkbox
+          //-       form(action='#')
+          //-         ul
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') 40x60cm (6)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') 60x90cm (6)
+          //-           |
+          //-           li
+          //-             input(type='checkbox', name='product-categori')
+          //-             a(href='#') 80x120cm (6)
+          //-   // filter-sub-area end
+          //- // sidebar-categores-box end
+          //- // category-sub-menu start
+          //- .sidebar-categores-box.mb-sm-0.mb-xs-0
+          //-   .sidebar-title
+          //-     h2 Laptop
+          //-   |
+          //-   .category-tags
+          //-     ul
+          //-       li
+          //-         a(href='# ') Devita
+          //-       |
+          //-       li
+          //-         a(href='# ') Cameras
+          //-       |
+          //-       li
+          //-         a(href='# ') Sony
+          //-       |
+          //-       li
+          //-         a(href='# ') Computer
+          //-       |
+          //-       li
+          //-         a(href='# ') Big Sale
+          //-       |
+          //-       li
+          //-         a(href='# ') Accessories
+          //-   // category-sub-menu end
+  // Content Wraper Area End Here

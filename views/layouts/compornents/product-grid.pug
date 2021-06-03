@@ -1,0 +1,52 @@
+// single-product-wrap start
+.single-product-wrap
+    .product-image
+        a(href='/products/detail/'+product.code)
+            img(src=product.image[0], alt=product.name)
+        |
+        span.sticker New
+    |
+    .product_desc
+        .product_desc_info
+            .product-review
+                h5.manufacturer
+                    a(href='/products/'+product.id_detail_category._id)= product.id_detail_category.name
+                |
+                .rating-box
+                    ul.rating
+                        li
+                            i.fa.fa-star-o
+                        |
+                        li
+                            i.fa.fa-star-o
+                        |
+                        li
+                            i.fa.fa-star-o
+                        |
+                        li.no-star
+                            i.fa.fa-star-o
+                        |
+                        li.no-star
+                            i.fa.fa-star-o
+                |
+            h4
+                a.product_name(href='/products/detail/'+product.code)= product.name
+            |
+            .price-box
+                span.new-price= (product.price - product.price * (product.sale/100)).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                span.old-price= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                span.discount-percentage= "-"+product.sale+"%"
+        |
+        .add-actions
+            ul.add-actions-link
+                li.add-cart.active
+                    a(href='/products/add-to-cart/'+product._id) Add to cart
+                |
+                li
+                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                        i.fa.fa-eye
+                |
+                li
+                    a.links-details(href='/products/add-to-wishlist/'+product._id)
+                        i.fa.fa-heart-o
+// single-product-wrap end

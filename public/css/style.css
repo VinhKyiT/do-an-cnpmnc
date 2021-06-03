@@ -1094,6 +1094,13 @@ textarea:focus {
   line-height: 27px;
   color: #e80f0f;
 }
+.product-details-view-content .product-info .price-box .old-price {
+  color: #666;
+  font-size: 16px;
+  line-height: 27px;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
 .product-details-view-content .content-center .product-variants {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1542,6 +1549,9 @@ textarea:focus {
 		display: block;
 		font-size: 20px;
 }
+.item-quantity{
+	font-weight: 600;
+}
 .item-text {
 		position: relative;
 		line-height: 45px;
@@ -1897,9 +1907,9 @@ textarea:focus {
 	transform: translateY(0)
 }
 /*Header Bottom Megamenu*/
-.hb-menu nav > ul > li:nth-child(4) {
+/* .hb-menu nav > ul > li:nth-child(4) {
 	margin-right: -20px;
-}
+} */
 .megamenu-static-holder {
 	position: static !important;
 }
@@ -3544,9 +3554,12 @@ li.right-menu .cat-mega-menu-2 > li {
 }
 .table-content table td.li-product-stock-status span.in-stock,
 .table-content table td.li-product-stock-status span.out-stock {
-	color: #fed700;
+	color: green;
 	font-size: 12px;
 	text-transform: capitalize;
+}
+.table-content table td.li-product-stock-status span.nearly-out {
+	color: #fed700
 }
 .table-content table td.li-product-stock-status span.out-stock {
 	color: #EB3E32;

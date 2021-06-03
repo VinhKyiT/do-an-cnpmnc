@@ -18,8 +18,9 @@ var AdjustProductsPriceSale = function(products) {
 module.exports.getByCategory = async function(req, res) {
     var cateID = req.params.cateID;
     var page = req.query.page || 1;
-    var limit = 12;
+    var limit = 9;
 
+    var detail_category = await DetailCategory.findOne({_id: cateID});
 
     var totalProducts = await Product.find({ id_detail_category: cateID });
     var products = await Product.find({ id_detail_category: cateID })
@@ -34,7 +35,7 @@ module.exports.getByCategory = async function(req, res) {
         ++maxPage;
     }
 
-    var count = await (await Product.find({ id_detail_category: cateID })).length;
+    var count = (await Product.find({ id_detail_category: cateID })).length;
 
     res.render('./products/index', {
         data: data.data,
@@ -47,17 +48,18 @@ module.exports.getByCategory = async function(req, res) {
         cartLength: res.locals.cartLength,
         cartItems: res.locals.cartItems,
         finalPrice: res.locals.finalPrice,
-        maxPage
+        maxPage,
+        detail_category
     });
 };
 
 module.exports.getCategory = async function(req, res) {
     var page = req.query.page || 1;
-    var cateName = req.params.cateName;
+    var cateId = req.params.cateId;
     var limit = 8;
     var sessionId = req.signedCookies.sessionId;
 
-    var category = await Category.findOne({ name: cateName });
+    var category = await Category.findOne({ _id: cateId });
 
     var detail_category = await DetailCategory.find({ id_category: category._id })
 
@@ -89,10 +91,14 @@ module.exports.getCategory = async function(req, res) {
 module.exports.getDetail = async function(req, res) {
     var code = req.params.code;
     var product = await Product.findOne({ code: code });
+    var detailCateId = product.id_detail_category;
+
+    var detail_category = await DetailCategory.findOne({_id: detailCateId});
 
     product.priceSale = product.price - (product.price * product.sale) / 100;
 
-    var relatedProducts = await Product.find({ id_detail_category: product.id_detail_category }).limit(6);
+    var relatedProducts = await Product.find({ id_detail_category: detailCateId });
+    var relatedCount = relatedProducts.length - 1;
 
     AdjustProductsPriceSale(relatedProducts)
 
@@ -100,6 +106,8 @@ module.exports.getDetail = async function(req, res) {
         data: data.data,
         product,
         relatedProducts,
+        relatedCount,
+        detail_category,
         cartLength: res.locals.cartLength,
         cartItems: res.locals.cartItems,
         finalPrice: res.locals.finalPrice
@@ -137,22 +145,22 @@ module.exports.addToWishList = async function(req, res) {
     Wishlist.add(product);
 
     req.session.wishList = Wishlist.getWishlist();
-
     res.redirect('back');
 };
 
 module.exports.search = async function(req, res) {
     var productName = req.query.product.toLowerCase();
 
-    var results = await Product.find();
+    var results = await Product.find()
+        .populate('id_detail_category')
 
     var products = results.filter(product => {
         return product.name.toLowerCase().indexOf(productName) !== -1;
-    });
+    })
 
     AdjustProductsPriceSale(products)
 
-    res.render('./products/index', {
+    res.render('./products/search', {
         data: data.data,
         products,
         paggination: false,

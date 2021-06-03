@@ -4,9 +4,9 @@ block contents
       .card
         .card-body
           h4.card-title Users
-          |         
+          |
           button.btn.btn-inverse-success.btn-icon(type="button" data-toggle="modal" data-target="#createUser")
-            i.mdi.mdi-plus        
+            i.mdi.mdi-plus
           .modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' id="createUser")
             .modal-dialog(role='document')
               .modal-content
@@ -20,15 +20,15 @@ block contents
                       label.col-form-label(for='user-name') Họ và tên:
                       input.form-control(type='text' id='user-name' name="name")
                     .form-group
-                      label.col-form-label(for='email') Email: 
+                      label.col-form-label(for='email') Email:
                       input.form-control(type='email' id='email' name="email")
                     .form-group
-                      label.col-form-label(for='phone') Số điện thoại 
-                      input.form-control(type='number' id='phone' name="phone")
+                      label.col-form-label(for='phone') Số điện thoại
+                      input.form-control(type='text' id='phone' name="phone")
                     .form-group
-                      label(for="exampleSelectRole") Loại 
+                      label(for="exampleSelectRole") Quyền
                       select(class="form-control" id="exampleSelectRole" name="id_role")
-                        each role in roles 
+                        each role in roles
                           option(value=role._id)= role.name
                     .modal-footer
                       button.btn.btn-secondary(type='button', data-dismiss='modal') Close
@@ -39,74 +39,74 @@ block contents
                 tr
                   th
                     | #
-                  |                 
+                  |
                   th
                     | Tên
-                  |                 
+                  |
                   th
                     | Email
-                  |                 
+                  |
                   th
                     | Số điện thoại
-                  |                 
+                  |
                   th
                     | Quyền
                   th
-              |             
+              |
               tbody
                 each acc in accounts
                   if (acc.role === "admin")
                     tr.table-primary
                       td= (accounts.indexOf(acc) + 1)
-                      |                 
+                      |
                       td= acc.name
-                      |                 
+                      |
                       td= acc.email
-                      |                 
+                      |
                       td= acc.phone
-                      |                 
+                      |
                       td= acc.role
                       td
-                        a(href="users/edit/"+acc._id) 
+                        a(href="users/edit/"+acc._id)
                           button.btn.btn-inverse-primary.btn-icon(type='button')
                             i.mdi.mdi-pencil
                         if(!account._id.equals(acc._id))
-                          a(href="users/delete/"+acc._id) 
+                          a(href="users/delete/"+acc._id)
                             button.btn.btn-inverse-danger.btn-icon(type='button')
                               i.mdi.mdi-delete
                   if (acc.role === "staff")
                     tr.table-warning
                       td= (accounts.indexOf(acc) + 1)
-                      |                 
+                      |
                       td= acc.name
-                      |                 
+                      |
                       td= acc.email
-                      |                 
+                      |
                       td= acc.phone
-                      |                 
+                      |
                       td= acc.role
                       td
-                        a(href="users/edit/"+acc._id) 
-                          button.btn.btn-inverse-primary.btn-icon(type='button')
+                        a(href="users/edit/"+acc._id)
+                          button.btn.btn-inverse-primary.btn-icon(type='button', style='margin-right: 20px')
                             i.mdi.mdi-pencil
-                        a(href="users/delete/"+acc._id) 
+                        a(href="users/delete/"+acc._id)
                           button.btn.btn-inverse-danger.btn-icon(type='button')
                             i.mdi.mdi-delete
                   if (acc.role === "customer")
                     tr.table-success
                       td= (accounts.indexOf(acc) + 1)
-                      |                 
+                      |
                       td= acc.name
-                      |                 
+                      |
                       td= acc.email
-                      |                 
+                      |
                       td= acc.phone
-                      |                 
+                      |
                       td= acc.role
                       td
-                        a(href="users/edit/"+acc._id) 
+                        a(href="users/edit/"+acc._id)
                           button.btn.btn-inverse-primary.btn-icon(type='button')
                             i.mdi.mdi-pencil
-                        a(href="users/delete/"+acc._id) 
+                        a(href="users/delete/"+acc._id)
                           button.btn.btn-inverse-danger.btn-icon(type='button')
                             i.mdi.mdi-delete

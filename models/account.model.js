@@ -5,7 +5,7 @@ var accountSchema = new mongoose.Schema({
     password: String,
     name: String,
     phone: String,
-    role: String,
+    id_role: String,
     address: String,
     delivery_address: String,
 });

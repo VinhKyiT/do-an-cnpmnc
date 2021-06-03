@@ -1,0 +1,81 @@
+// Begin Li's TV & Audio Product Area
+html
+  head
+  body
+    section.product-area.li-laptop-product.li-tv-audio-product.pb-45
+      .container
+        .row
+          // Begin Li's Section Area
+          .col-lg-12
+            .li-section-title
+              h2
+                span Máy tính bảng
+              |
+              ul.li-sub-category-list
+                li.active
+                  a(href='#') iPad
+                |
+                li
+                  a(href='#') Galaxy Tabs
+                |
+                li
+                  a(href='#') Huawei Tabs
+            |
+            .row
+              .product-active.owl-carousel
+                each tablet in tablets
+                  .col-lg-12
+                    // single-product-wrap start
+                    .single-product-wrap
+                      .product-image
+                        a(href='/products/detail/'+tablet.code)
+                          img(src=tablet.image[0], alt=tablet.name)
+                        |
+                        span.sticker HOT
+                      |
+                      .product_desc
+                        .product_desc_info
+                          .product-review
+                            h5.manufacturer
+                              a(href='/products/'+tablet.id_detail_category._id)= tablet.id_detail_category.name
+                            |
+                            .rating-box
+                              ul.rating
+                                li
+                                  i.fa.fa-star-o
+                                |
+                                li
+                                  i.fa.fa-star-o
+                                |
+                                li
+                                  i.fa.fa-star-o
+                                |
+                                li.no-star
+                                  i.fa.fa-star-o
+                                |
+                                li.no-star
+                                  i.fa.fa-star-o
+                          |
+                          h4
+                            a.product_name(href='/products/detail/'+tablet.code)= tablet.name
+                          |
+                          .price-box
+                            span.new-price= (tablet.price - (tablet.price * tablet.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                            span.old-price= tablet.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                            span.discount-percentage= tablet.sale+"%"
+                        |
+                        .add-actions
+                          ul.add-actions-link
+                            li.add-cart.active
+                              a(href='/products/add-to-cart/'+tablet._id) Add to cart
+                            |
+                            li
+                              a.links-details(href='/products/add-to-wishlist/'+tablet._id)
+                                i.fa.fa-heart-o
+                            |
+                            li
+                              a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                i.fa.fa-eye
+                    // single-product-wrap end
+          // Li's Section Area End Here
+    // Li's TV & Audio Product Area End Here

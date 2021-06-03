@@ -1,0 +1,457 @@
+extends ../layouts/layout
+block contents
+  .breadcrumb-area
+    .container
+      .breadcrumb-content
+        ul
+          li
+            a(href='/home') Home
+          |
+          li.active Checkout
+  // Li's Breadcrumb Area End Here
+  // Checkout Area Strat
+  .checkout-area.pt-60.pb-30
+    .container
+      .row
+        .col-lg-6.col-12
+          if (!checkLogin)
+            form(action='/checkout/'+ checkoutCode, method='POST')
+              .checkbox-form
+                h3 Billing Details
+                |
+                .row
+                  .col-md-12
+                    .country-select.clearfix
+                      label
+                        | Country
+                        span.required *
+                      |
+                      select.nice-select.wide
+                        option(value='vn') Việt Nam
+                        |
+                        option(value='uk') London
+                        |
+                        option(value='rou') Romania
+                        |
+                        option(value='fr') French
+                        |
+                        option(value='de') Germany
+                        |
+                        option(value='aus') Australia
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label
+                        | Name
+                        span.required *
+                      |
+                      input(placeholder='', type='text')
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label Company Name
+                      |
+                      input(placeholder='', type='text')
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label
+                        | Address
+                        span.required *
+                      |
+                      input(placeholder='Street address', type='text')
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      input(placeholder='Apartment, suite, unit etc. (optional)', type='text')
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label
+                        | Town / City
+                        span.required *
+                      |
+                      input(type='text')
+                  |
+                  .col-md-6
+                    .checkout-form-list
+                      label
+                        | State / County
+                        span.required *
+                      |
+                      input(placeholder='', type='text')
+                  |
+                  .col-md-6
+                    .checkout-form-list
+                      label
+                        | Postcode / Zip
+                        span.required *
+                      |
+                      input(placeholder='', type='text')
+                  |
+                  .col-md-6
+                    .checkout-form-list
+                      label
+                        | Email Address
+                        span.required *
+                      |
+                      input(placeholder='', type='email')
+                  |
+                  .col-md-6
+                    .checkout-form-list
+                      label
+                        | Phone
+                        span.required *
+                      |
+                      input(type='text')
+                  |
+                  .col-md-12
+                    .checkout-form-list.create-acc
+                      input#cbox(type='checkbox')
+                      |
+                      label Create an account?
+                    |
+                    #cbox-info.checkout-form-list.create-account
+                      p
+                        | Create an account by entering the information below. If you are a returning customer please login at the top of the page.
+                      |
+                      label
+                        | Account password
+                        span.required *
+                      |
+                      input(placeholder='password', type='password')
+                |
+                .different-address
+                  .ship-different-title
+                    h3
+                      label Ship to a different address?
+                      |
+                      input#ship-box(type='checkbox')
+                  |
+                  #ship-box-info.row
+                    .col-md-12
+                      .country-select.clearfix
+                        label
+                          | Country
+                          span.required *
+                        |
+                        select.nice-select.wide
+                          option(value='vn') Việt Nam
+                          |
+                          option(value='uk') London
+                          |
+                          option(value='rou') Romania
+                          |
+                          option(value='fr') French
+                          |
+                          option(value='de') Germany
+                          |
+                          option(value='aus') Australia
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | First Name
+                          span.required *
+                        |
+                        input(placeholder='', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Last Name
+                          span.required *
+                        |
+                        input(placeholder='', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label Company Name
+                        |
+                        input(placeholder='', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Address
+                          span.required *
+                        |
+                        input(placeholder='Street address', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        input(placeholder='Apartment, suite, unit etc. (optional)', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Town / City
+                          span.required *
+                        |
+                        input(type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | State / County
+                          span.required *
+                        |
+                        input(placeholder='', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Postcode / Zip
+                          span.required *
+                        |
+                        input(placeholder='', type='text')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Email Address
+                          span.required *
+                        |
+                        input(placeholder='', type='email')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Phone
+                          span.required *
+                        |
+                        input(type='text')
+                  |
+                  .order-notes
+                    .checkout-form-list
+                      label Order Notes
+                      |
+                      textarea#checkout-mess(cols='30', rows='10', placeholder='Notes about your order, e.g. special notes for delivery.')
+          else
+            form(action='/checkout/'+ checkoutCode, method='POST')
+              .checkbox-form
+                h3 Billing Details
+                |
+                .row
+                  .col-md-12
+                    .country-select.clearfix
+                      label
+                        | Country
+                        span.required *
+                      |
+                      select.nice-select.wide(name='country')
+                        option(value='vn') Việt Nam
+                        |
+                        option(value='uk') London
+                        |
+                        option(value='rou') Romania
+                        |
+                        option(value='fr') French
+                        |
+                        option(value='de') Germany
+                        |
+                        option(value='aus') Australia
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label
+                        | Name
+                        span.required *
+                      |
+                      input(placeholder='', type='text', value=currentUser.name, name='name')
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label Company Name
+                      |
+                      input(placeholder='', type='text', name='companyName')
+                  |
+                  .col-md-12
+                    .checkout-form-list
+                      label
+                        | Address
+                        span.required *
+                      |
+                      if (currentUser.delivery_address != '')
+                        input(placeholder='Street address', type='text', value=currentUser.delivery_address, name='address')
+                      else if (currentUser.address != '')
+                        input(placeholder='Street address', type='text', value=currentUser.address, name='address')
+                      else
+                        input(placeholder='Street address', type='text', name='address')
+                  |
+                  .col-md-6
+                    .checkout-form-list
+                      label
+                        | Email Address
+                        span.required *
+                      |
+                      input(placeholder='', type='email', value=currentUser.email, name='email')
+                  |
+                  .col-md-6
+                    .checkout-form-list
+                      label
+                        | Phone
+                        span.required *
+                      |
+                      input(type='text', value=currentUser.phone, name='phone')
+                |
+                .different-address
+                  .ship-different-title
+                    h3
+                      label Ship to a different address?
+                      |
+                      input#ship-box(type='checkbox', name='another_address_cb')
+                  |
+                  #ship-box-info.row
+                    .col-md-12
+                      .country-select.clearfix
+                        label
+                          | Country
+                          span.required *
+                        |
+                        select.nice-select.wide(name='second_country')
+                          option(value='vn') Việt Nam
+                          |
+                          option(value='uk') London
+                          |
+                          option(value='rou') Romania
+                          |
+                          option(value='fr') French
+                          |
+                          option(value='de') Germany
+                          |
+                          option(value='aus') Australia
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Name
+                          span.required *
+                        |
+                        input(placeholder='', type='text', name='second_name')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label Company Name
+                        |
+                        input(placeholder='', type='text', name='second_companyName')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Address
+                          span.required *
+                        |
+                        input(placeholder='Street address', type='text', name='second_address')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Postcode / Zip
+                          span.required *
+                        |
+                        input(placeholder='', type='text', name='zipCode')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Email Address
+                          span.required *
+                        |
+                        input(placeholder='', type='email', name='second_email')
+                    |
+                    .col-md-12
+                      .checkout-form-list
+                        label
+                          | Phone
+                          span.required *
+                        |
+                        input(type='text', name='second_phone')
+                  |
+                  .order-notes
+                    .checkout-form-list
+                      label Order Notes
+                      |
+                      textarea#checkout-mess(cols='30', rows='10', placeholder='Notes about your order, e.g. special notes for delivery.', name='orderNote')
+
+        |
+        .col-lg-6.col-12
+          if (!products || products.length === 0)
+            h1 Bạn chưa thêm gì vào giỏ hàng, vui lòng chọn sản phẩm cần mua
+          else
+            .your-order
+              h3 Your order
+              |
+              .your-order-table.table-responsive
+                table.table
+                  thead
+                    tr
+                      th.cart-product-name Product
+                      |
+                      th.cart-product-total Total
+                  |
+                  tbody
+                    each product in products
+                      tr.cart_item
+                        td.cart-product-name= product.name
+                          strong.product-quantity= ' x ' + product.quantity
+                        |
+                        td.cart-product-total
+                          span.amount= (product.price - (product.price*product.sale) / 100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                  |
+                  tfoot
+                    tr.cart-subtotal
+                      th Cart Subtotal
+                      |
+                      td
+                        span.amount= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                    |
+                    tr.order-total
+                      th Order Total
+                      |
+                      td
+                        strong
+                          span.amount= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+              |
+              .payment-method
+                .payment-accordion
+                  #accordion
+                    .card
+                      .card-header(id='#payment-1')
+                        h5.panel-title
+                          a(data-toggle='collapse', data-target='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                            | Direct Bank Transfer.
+                      |
+                      #collapseOne.collapse.show(data-parent='#accordion')
+                        .card-body
+                          p
+                            | Thực hiện chuyển khoản #{finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} vào tài khoản sau:
+                            | TPBank CN Cửu Long: 03425624301 (BUI PHAM VINH KY)
+                            | với nội dung chuyên khoản là:
+                            span(style='font-weight:bold')  #{checkoutCode}
+                    |
+                    .card
+                      .card-header(id='#payment-2')
+                        h5.panel-title
+                          a.collapsed(data-toggle='collapse', data-target='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                            | Cheque Payment
+                      |
+                      #collapseTwo.collapse(data-parent='#accordion')
+                        .card-body
+                          p
+                            | Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won&rsquo;t be shipped until the funds have cleared in our account.
+                    |
+                    .card
+                      .card-header(id='#payment-3')
+                        h5.panel-title
+                          a.collapsed(data-toggle='collapse', data-target='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+                            | PayPal
+                      |
+                      #collapseThree.collapse(data-parent='#accordion')
+                        .card-body
+                          p
+                            | Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won&rsquo;t be shipped until the funds have cleared in our account.
+                  |
+                  .order-button-payment
+                    input(value='Place order', type='submit')
+  // Checkout Area End

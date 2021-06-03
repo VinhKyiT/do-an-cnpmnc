@@ -31,7 +31,7 @@ html
                     .single-product-wrap
                       .product-image
                         a(href='single-product.html')
-                          img(src=product.image[0], alt="Li's Product Image")
+                          img(src=product.image[0], alt=product.name)
                         |
                         span.sticker New
                       |
@@ -39,7 +39,7 @@ html
                         .product_desc_info
                           .product-review
                             h5.manufacturer
-                              a(href='shop-left-sidebar.html')= product.name
+                              a(href='/products/'+product.id_detail_category._id)= product.id_detail_category.name
                             |
                             .rating-box
                               ul.rating
@@ -72,7 +72,7 @@ html
                               a(href='/products/add-to-cart/'+product._id) Add to cart
                             |
                             li
-                              a.links-details(href='/products/add-to-wishlist/'+product._id)
+                              a.links-details.add-wishlist(href='#')
                                 i.fa.fa-heart-o
                             |
                             li
@@ -97,7 +97,7 @@ html
                         .product_desc_info
                           .product-review
                             h5.manufacturer
-                              a(href='shop-left-sidebar.html')= product.name
+                              a(href='/products/'+product.id_detail_category._id)= product.id_detail_category.name
                             |
                             .rating-box
                               ul.rating
@@ -130,7 +130,7 @@ html
                               a(href='/products/add-to-cart/'+product._id) Add to cart
                             |
                             li
-                              a.links-details(href='/products/add-to-wishlist/'+product._id)
+                              a.links-details.add-wishlist(href='#')
                                 i.fa.fa-heart-o
                             |
                             li
@@ -155,7 +155,7 @@ html
                         .product_desc_info
                           .product-review
                             h5.manufacturer
-                              a(href='shop-left-sidebar.html')= product.name
+                              a(href='/products/'+product.id_detail_category._id)= product.id_detail_category.name
                             |
                             .rating-box
                               ul.rating
@@ -188,11 +188,12 @@ html
                               a(href='/products/add-to-cart/'+product._id) Add to cart
                             |
                             li
-                              a.links-details(href='/products/add-to-wishlist/'+product._id)
+                              a.links-details.add-wishlist(href='#')
                                 i.fa.fa-heart-o
                             |
                             li
                               a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
                                 i.fa.fa-eye
                     // single-product-wrap end
+                    //include ../compornents/quickview
 // Product Area End Here

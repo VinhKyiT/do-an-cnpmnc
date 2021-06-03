@@ -2,6 +2,7 @@ var data = require('../layout.data');
 var Account = require('../models/account.model');
 var md5 = require('md5');
 const { response } = require('express');
+var Role = require('../models/role.model');
 
 module.exports.get = async function(req, res) {
 
@@ -14,6 +15,7 @@ module.exports.postLogin = async function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var user = await Account.findOne({ email: email });
+    var role = await Role.findOne({_id: user.id_role});
 
     if (!user) {
         res.render('./authentication/index', {
@@ -36,7 +38,11 @@ module.exports.postLogin = async function(req, res) {
     res.cookie('userID', user.id, {
         signed: true
     });
-    res.redirect('/home');
+    if (role.name === "admin" || role.name === "staff"){
+        res.redirect('/admin');
+    }else if(role.name === "customer"){
+        res.redirect('/home');
+    }
 };
 
 module.exports.logout = function(req, res) {
@@ -51,11 +57,11 @@ module.exports.postSignUp = async function(req, res) {
     var password = req.body.passwordSignUp;
     var confirmPass = req.body.confirmPassword;
     var errorSignUp = "";
-    var role = "customer";
     var address = "";
     var delivery_address = "";
 
     var user = await Account.findOne({ email: email });
+    var role = await Role.findOne({name: "customer"});
 
     if (user) {
         errorSignUp = "Account already exist!";
@@ -94,7 +100,7 @@ module.exports.postSignUp = async function(req, res) {
     newUser.name = name;
     newUser.password = md5(md5(password));
     newUser.phone = phone;
-    newUser.role = role;
+    newUser.id_role = role._id;
     newUser.address = address;
     newUser.delivery_address = delivery_address;
 

@@ -13,7 +13,7 @@ html.no-js(lang='zxx')
     |
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // Favicon
-    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.png')
+    link(rel='shortcut icon', type='image/x-icon', href='/images/favicon.png')
     // Material Design Iconic Font-V2.2.0
     link(rel='stylesheet', href='css/material-design-iconic-font.min.css')
     // Font Awesome
@@ -107,12 +107,12 @@ html.no-js(lang='zxx')
                         ul.ht-setting-list
                           li.active
                             a(href='#')
-                              img(src='images/menu/flag-icon/1.jpg', alt='')
+                              img(src='/images/menu/flag-icon/1.jpg', alt='')
                               | English
                           |
                           li
                             a(href='#')
-                              img(src='images/menu/flag-icon/2.jpg', alt='')
+                              img(src='/images/menu/flag-icon/2.jpg', alt='')
                               | Fran&ccedil;ais
                     // Language Area End Here
                     // Begin Login Area
@@ -134,18 +134,18 @@ html.no-js(lang='zxx')
               .col-lg-3
                 .logo.pb-sm-30.pb-xs-30
                   a(href='/home')
-                    img(src='../images/menu/logo/1.jpg', alt='')
+                    img(src='/images/menu/logo/1.jpg', alt='', width='190px', height='auto')
               // Header Logo Area End Here
               // Begin Header Middle Right Area
               .col-lg-9.pl-0.ml-sm-15.ml-xs-15
                 // Begin Header Middle Searchbox Area
-                form.hm-searchbox(action='#')
+                form.hm-searchbox(action='/products/search', method='GET')
                   select.nice-select.select-search-category
                     option(value='0') Tìm kiếm
                   |
-                  input(type='text', placeholder='Nhập tên sản phẩm cần tìm')
+                  input(type='text', placeholder='Nhập tên sản phẩm cần tìm', name='product')
                   |
-                  button.li-btn(type='submit' action='/search')
+                  button.li-btn(type='submit')
                     i.fa.fa-search
                 // Header Middle Searchbox Area End Here
                 // Begin Header Middle Right Area
@@ -153,7 +153,7 @@ html.no-js(lang='zxx')
                   ul.hm-menu
                     // Begin Header Middle Wishlist Area
                     li.hm-wishlist
-                      a(href='wishlist.html')
+                      a(href='/wishlist')
                         span.cart-item-count.wishlist-item-count 0
                         |
                         i.fa.fa-heart-o
@@ -183,7 +183,8 @@ html.no-js(lang='zxx')
                                   h6
                                     a(href='/products/detail/'+item._id)= item.name
                                   |
-                                  span= item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span= (item.price - (item.price*item.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                    span.item-quantity= ' x ' + item.quantity
                                 |
                                 button.close(title='Remove')
                                   a(href='/products/remove-from-cart/'+item._id)
@@ -194,10 +195,10 @@ html.no-js(lang='zxx')
                           span= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
                         |
                         .minicart-button
-                          a.li-button.li-button-fullwidth.li-button-dark(href='shopping-cart.html')
+                          a.li-button.li-button-fullwidth.li-button-dark(href='/cart')
                             span View Full Cart
                           |
-                          a.li-button.li-button-fullwidth(href='checkout.html')
+                          a.li-button.li-button-fullwidth(href='/checkout')
                             span Checkout
                     // Header Mini Cart Area End Here
                 // Header Middle Right Area End Here
@@ -285,7 +286,7 @@ html.no-js(lang='zxx')
                 .col-lg-3.col-md-6.col-sm-6.pb-sm-55.pb-xs-55
                   .li-shipping-inner-box
                     .shipping-icon
-                      img(src='images/shipping-icon/1.png', alt='Shipping Icon')
+                      img(src='/images/shipping-icon/1.png', alt='Shipping Icon')
                     |
                     .shipping-text
                       h2 Free Delivery
@@ -296,7 +297,7 @@ html.no-js(lang='zxx')
                 .col-lg-3.col-md-6.col-sm-6.pb-sm-55.pb-xs-55
                   .li-shipping-inner-box
                     .shipping-icon
-                      img(src='images/shipping-icon/2.png', alt='Shipping Icon')
+                      img(src='/images/shipping-icon/2.png', alt='Shipping Icon')
                     |
                     .shipping-text
                       h2 Safe Payment
@@ -307,7 +308,7 @@ html.no-js(lang='zxx')
                 .col-lg-3.col-md-6.col-sm-6.pb-xs-30
                   .li-shipping-inner-box
                     .shipping-icon
-                      img(src='images/shipping-icon/3.png', alt='Shipping Icon')
+                      img(src='/images/shipping-icon/3.png', alt='Shipping Icon')
                     |
                     .shipping-text
                       h2 Shop with Confidence
@@ -318,7 +319,7 @@ html.no-js(lang='zxx')
                 .col-lg-3.col-md-6.col-sm-6.pb-xs-30
                   .li-shipping-inner-box
                     .shipping-icon
-                      img(src='images/shipping-icon/4.png', alt='Shipping Icon')
+                      img(src='/images/shipping-icon/4.png', alt='Shipping Icon')
                     |
                     .shipping-text
                       h2 24/7 Help Center
@@ -335,43 +336,43 @@ html.no-js(lang='zxx')
                 // Begin Footer Logo Area
                 .col-lg-4.col-md-6
                   .footer-logo
-                    img(src='/images/menu/logo/1.jpg', alt='Footer Logo')
+                    img(src='/images/menu/logo/1.jpg', alt='Footer Logo', width="190px", height="auto")
                     |
                     p.info
-                      | We are a team of designers and developers that create high quality HTML Template &amp; Woocommerce, Shopify Theme.
+                      | Công Ty TNHH Công Nghệ và Truyền Thông KTT. Số giấy chứng nhận đăng ký kinh doanh: 0123456789, ngày cấp: 10/01/2020, nơi cấp: Sở kế hoạch và đầu tư thành phố Hồ Chí Minh MST:0123456789. Chủ sở hữu: Kỳ Tín Triều.
                   |
                   ul.des
                     li
                       span Address:
-                      |                                             6688Princess Road, London, Greater London BAS 23JK, UK
+                      |                                             828 Sư Vạn Hạnh, P13, Quận 10.
                     |
                     li
                       span Phone:
                       |
-                      a(href='#') (+123) 123 321 345
+                      a(href='tel:0378383986')  037 8383 986
                     |
                     li
                       span Email:
                       |
-                      a(href='mailto://info@yourdomain.com') info@yourdomain.com
+                      a(href='mailto://vinhkyit2905@gmail.com')  support@kttstore.com
                 // Footer Logo Area End Here
                 // Begin Footer Block Area
                 .col-lg-2.col-md-3.col-sm-6
                   .footer-block
-                    h3.footer-block-title Product
+                    h3.footer-block-title Điện thoại
                     |
                     ul
                       li
-                        a(href='#') Prices drop
+                        a(href='/products/6098da828b869811e5d1b590') iPhone
                       |
                       li
-                        a(href='#') New products
+                        a(href='/products/6098da828b869811e5d1b591') Samsung
                       |
                       li
-                        a(href='#') Best sales
+                        a(href='/products/6098da828b869811e5d1b594') Vsmart
                       |
                       li
-                        a(href='#') Contact us
+                        a(href='/products/6098da828b869811e5d1b595') Xiaomi
                 // Footer Block Area End Here
                 // Begin Footer Block Area
                 .col-lg-2.col-md-3.col-sm-6
@@ -420,17 +421,17 @@ html.no-js(lang='zxx')
                       li.instagram
                         a(href='https://www.instagram.com/', data-toggle='tooltip', target='_blank', title='Instagram')
                           i.fa.fa-instagram
-                  // Begin Footer Newsletter Area
-                  .footer-newsletter
-                    h4 Sign up to newsletter
-                    |
-                    form#mc-embedded-subscribe-form.footer-subscribe-form.validate(action='#', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
-                      #mc_embed_signup_scroll
-                        #mc-form.mc-form.subscribe-form.form-group
-                          input#mc-email(type='email', autocomplete='off', placeholder='Enter your email')
-                          |
-                          button#mc-submit.btn Subscribe
-                  // Footer Newsletter Area End Here
+                  //- // Begin Footer Newsletter Area
+                  //- .footer-newsletter
+                  //-   h4 Sign up to newsletter
+                  //-   |
+                  //-   form#mc-embedded-subscribe-form.footer-subscribe-form.validate(action='#', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+                  //-     #mc_embed_signup_scroll
+                  //-       #mc-form.mc-form.subscribe-form.form-group
+                  //-         input#mc-email(type='email', autocomplete='off', placeholder='Enter your email')
+                  //-         |
+                  //-         button#mc-submit.btn Subscribe
+                  //- // Footer Newsletter Area End Here
                 // Footer Block Area End Here
         // Footer Static Middle Area End Here
         // Begin Footer Static Bottom Area
@@ -438,70 +439,10 @@ html.no-js(lang='zxx')
           .container
             .row
               .col-lg-12
-                // Begin Footer Links Area
-                .footer-links
-                  ul
-                    li
-                      a(href='#') Online Shopping
-                    |
-                    li
-                      a(href='#') Promotions
-                    |
-                    li
-                      a(href='#') My Orders
-                    |
-                    li
-                      a(href='#') Help
-                    |
-                    li
-                      a(href='#') Customer Service
-                    |
-                    li
-                      a(href='#') Support
-                    |
-                    li
-                      a(href='#') Most Populars
-                    |
-                    li
-                      a(href='#') New Arrivals
-                    |
-                    li
-                      a(href='#') Special Products
-                    |
-                    li
-                      a(href='#') Manufacturers
-                    |
-                    li
-                      a(href='#') Our Stores
-                    |
-                    li
-                      a(href='#') Shipping
-                    |
-                    li
-                      a(href='#') Payments
-                    |
-                    li
-                      a(href='#') Warantee
-                    |
-                    li
-                      a(href='#') Refunds
-                    |
-                    li
-                      a(href='#') Checkout
-                    |
-                    li
-                      a(href='#') Discount
-                    |
-                    li
-                      a(href='#') Refunds
-                    |
-                    li
-                      a(href='#') Policy Shipping
-                // Footer Links Area End Here
                 // Begin Footer Payment Area
                 .copyright.text-center
                   a(href='#')
-                    img(src='images/payment/1.png', alt='')
+                    img(src='../images/payment/1.png', alt='')
                 // Footer Payment Area End Here
                 // Begin Copyright Area
                 .copyright.text-center.pt-25
@@ -655,45 +596,46 @@ html.no-js(lang='zxx')
       //- // Quick View | Modal Area End Here
     // Body Wrapper End Here
     // jQuery-V1.12.4
-    script(src='js/vendor/jquery-1.12.4.min.js')
+    script(src='/js/vendor/jquery-1.12.4.min.js')
     // Popper js
-    script(src='js/vendor/popper.min.js')
+    script(src='/js/vendor/popper.min.js')
     // Bootstrap V4.1.3 Fremwork js
-    script(src='js/bootstrap.min.js')
+    script(src='/js/bootstrap.min.js')
     // Ajax Mail js
-    script(src='js/ajax-mail.js')
+    script(src='/js/ajax-mail.js')
     // Meanmenu js
-    script(src='js/jquery.meanmenu.min.js')
+    script(src='/js/jquery.meanmenu.min.js')
     // Wow.min js
-    script(src='js/wow.min.js')
+    script(src='/js/wow.min.js')
     // Slick Carousel js
-    script(src='js/slick.min.js')
+    script(src='/js/slick.min.js')
     // Owl Carousel-2 js
-    script(src='js/owl.carousel.min.js')
+    script(src='/js/owl.carousel.min.js')
     // Magnific popup js
-    script(src='js/jquery.magnific-popup.min.js')
+    script(src='/js/jquery.magnific-popup.min.js')
     // Isotope js
-    script(src='js/isotope.pkgd.min.js')
+    script(src='/js/isotope.pkgd.min.js')
     // Imagesloaded js
-    script(src='js/imagesloaded.pkgd.min.js')
+    script(src='/js/imagesloaded.pkgd.min.js')
     // Mixitup js
-    script(src='js/jquery.mixitup.min.js')
+    script(src='/js/jquery.mixitup.min.js')
     // Countdown
-    script(src='js/jquery.countdown.min.js')
+    script(src='/js/jquery.countdown.min.js')
     // Counterup
-    script(src='js/jquery.counterup.min.js')
+    script(src='/js/jquery.counterup.min.js')
     // Waypoints
-    script(src='js/waypoints.min.js')
+    script(src='/js/waypoints.min.js')
     // Barrating
-    script(src='js/jquery.barrating.min.js')
+    script(src='/js/jquery.barrating.min.js')
     // Jquery-ui
-    script(src='js/jquery-ui.min.js')
+    script(src='/js/jquery-ui.min.js')
     // Venobox
-    script(src='js/venobox.min.js')
+    script(src='/js/venobox.min.js')
     // Nice Select js
-    script(src='js/jquery.nice-select.min.js')
+    script(src='/js/jquery.nice-select.min.js')
     // ScrollUp js
-    script(src='js/scrollUp.min.js')
+    script(src='/js/scrollUp.min.js')
     // Main/Activator js
-    script(src='js/main.js')
+    script(src='/js/main.js')
     // index30:23
+    //script(src='/add-to-wishlist.js')

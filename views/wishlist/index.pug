@@ -1,0 +1,64 @@
+extends ../layouts/layout
+block contents
+  .breadcrumb-area
+    .container
+      .breadcrumb-content
+        ul
+          li
+            a(href='/home') Home
+          |
+          li.active Wishlist
+  // Li's Breadcrumb Area End Here
+  // Wishlist Area Strat
+  .wishlist-area.pt-60.pb-60
+    .container
+      .row
+        .col-12
+          form(action='#')
+            if (!products || products.length === 0 )
+              h1 Bạn chưa thêm sản phẩm vào danh sách yêu thích
+            else
+              .table-content.table-responsive
+                table.table
+                  thead
+                    tr
+                      th.li-product-remove remove
+                      |
+                      th.li-product-thumbnail images
+                      |
+                      th.cart-product-name Product
+                      |
+                      th.li-product-price Unit Price
+                      |
+                      th.li-product-stock-status Stock Status
+                      |
+                      th.li-product-add-cart add to cart
+                  |
+                  tbody
+                    each product in products
+                      tr
+                        td.li-product-remove
+                          a(href='#')
+                            i.fa.fa-times
+                        |
+                        td.li-product-thumbnail
+                          a(href='/products/detail/'+product._id)
+                            img(src=product.image[0], alt=product.name, width="150px", height="auto")
+                        |
+                        td.li-product-name
+                          a(href='/products/detail/'+product._id)= product.name
+                        |
+                        td.li-product-price
+                          span.amount= (product.price - (product.price*product.sale) / 100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                        |
+                        td.li-product-stock-status
+                          if (product.count > 10)
+                            span.in-stock Còn hàng
+                          else if (product.count <= 10 && product.count > 0)
+                            span.nearly-out Sắp hết hàng
+                          else
+                            span.out-stock Hết hàng
+                        |
+                        td.li-product-add-cart
+                          a(href='/products/add-to-cart/'+product._id) add to cart
+  // Wishlist Area End

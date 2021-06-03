@@ -1,7 +1,11 @@
 var mongoose = require('mongoose');
+var detail_category = require('./detail_category.model')
 
 var productSchema = new mongoose.Schema({
-    id_detail_category: String,
+    id_detail_category: {
+        type: String,
+        ref: 'DetailCategory'
+    },
     name: String,
     price: Number,
     count: Number,
@@ -10,7 +14,6 @@ var productSchema = new mongoose.Schema({
     image: Array,
     code: String,
     sale: Number,
-    weight: Number,
     quantity: Number
 });
 

@@ -2,6 +2,7 @@ var Category = require('./models/category.model');
 var DetailCategory = require('./models/detail_category.model');
 var Product = require('./models/products.model');
 
+
 var category;
 var detail_device;
 var detail_tablet;
@@ -23,15 +24,19 @@ async function Data(){
     detail_smartwatch = await DetailCategory.find({id_category: smartwatch.id});
     detail_other = await DetailCategory.find({id_category: other.id});
 
-    var newProducts = await Product.find();
+    var newProducts = await Product.find()
+        .populate('id_detail_category')
 
     newProducts = newProducts.slice(newProducts.length - 11, newProducts.length - 1);
 
-    var bestSeller = await Product.find();
+    var bestSeller = await Product.find()
+        .populate('id_detail_category')
 
-    var saleProducts = await Product.find();
+    var saleProducts = await Product.find()
+        .populate('id_detail_category')
 
-    var specialProducts = await Product.find().limit(5);
+    var specialProducts = await Product.find().limit(5)
+        .populate('id_detail_category')
 
     var products = await Product.find();
 

@@ -1,0 +1,95 @@
+extends ../layouts/layout
+block contents
+  .breadcrumb-area
+    .container
+      .breadcrumb-content
+        ul
+          li
+            a(href='/home') Home
+          |
+          li.active Shopping Cart
+  // Li's Breadcrumb Area End Here
+  // Shopping Cart Area Strat
+  .Shopping-cart-area.pt-60.pb-60
+    .container
+      .row
+        .col-12
+          form(action='#')
+            if (!products || products.length ===0)
+              h1 Bạn chưa thêm sản phẩm vào giỏ hàng
+            else
+              .table-content.table-responsive
+                table.table
+                  thead
+                    tr
+                      th.li-product-remove remove
+                      |
+                      th.li-product-thumbnail images
+                      |
+                      th.cart-product-name Product
+                      |
+                      th.li-product-price Unit Price
+                      |
+                      th.li-product-quantity Quantity
+                      |
+                      th.li-product-subtotal Total
+                  |
+                  tbody
+                    each product in products
+                      tr
+                        td.li-product-remove
+                          a(href='#')
+                            i.fa.fa-times
+                        |
+                        td.li-product-thumbnail
+                          a(href='/products/detail/'+product.code)
+                            img(src=product.image[0], alt=product.name, width="150px", height="auto")
+                        |
+                        td.li-product-name
+                          a(href='/products/detail/'+product.code)= product.name
+                        |
+                        td.li-product-price
+                          span.amount= (product.price - (product.price*product.sale) / 100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                        |
+                        td.quantity
+                          label Quantity
+                          |
+                          .cart-plus-minus
+                            input.cart-plus-minus-box(value=product.quantity, type='text')
+                            |
+                            .dec.qtybutton
+                              i.fa.fa-angle-down
+                            |
+                            .inc.qtybutton
+                              i.fa.fa-angle-up
+                        |
+                        td.product-subtotal
+                          span.amount= ((product.price - (product.price*product.sale) / 100)*product.quantity).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+            |
+            .row
+              .col-12
+                .coupon-all
+                  //- .coupon
+                  //-   input#coupon_code.input-text(name='coupon_code', value='', placeholder='Coupon code', type='text')
+                  //-   |
+                  //-   input.button(name='apply_coupon', value='Apply coupon', type='submit')
+                  //- |
+                  .coupon2
+                    input.button(name='update_cart', value='Update cart', type='submit')
+            |
+            .row
+              .col-md-5.ml-auto
+                .cart-page-total
+                  h2 Cart totals
+                  |
+                  ul
+                    li
+                      | Subtotal
+                      span= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                    |
+                    li
+                      | Total
+                      span= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                  |
+                  a(href='#') Proceed to checkout
+  // Shopping Cart Area End
