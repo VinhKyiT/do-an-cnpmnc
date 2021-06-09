@@ -24,7 +24,7 @@ module.exports.getHistory = async function (req, res) {
     res.render("./account/orders", {
         data: data.data,
         currentAccount: res.locals.currentAccount,
-        orders
+        orders,
     });
 };
 
