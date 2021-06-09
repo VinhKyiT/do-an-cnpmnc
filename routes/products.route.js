@@ -14,9 +14,11 @@ router.get('/cate/:cateId', controller.getCategory);
 
 router.get('/add-to-cart/:productID', controller.addToCart);
 
-//router.get('/remove-from-cart/:productID', controller.removeFromCart);
+router.get('/remove-from-cart/:productID', controller.removeFromCart);
 
 router.get('/add-to-wishlist/:productID', controller.addToWishList);
+
+router.post('/rating/:productId', controller.postRating);
 
 
 module.exports = router;

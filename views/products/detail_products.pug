@@ -17,33 +17,19 @@ block contents
           // Product Details Left
           .product-details-left
             .product-details-images.slider-navigation-1
-              .lg-image
-                a.popup-img.venobox.vbox-item(href= product.image, data-gall='myGallery')
-                  img(src= product.image[0], alt='product image')
-              //- |
-              //- .lg-image
-              //-   a.popup-img.venobox.vbox-item(href='images/product/large-size/2.jpg', data-gall='myGallery')
-              //-     img(src='images/product/large-size/2.jpg', alt='product image')
-              //- |
-              //- .lg-image
-              //-   a.popup-img.venobox.vbox-item(href='images/product/large-size/3.jpg', data-gall='myGallery')
-              //-     img(src='images/product/large-size/3.jpg', alt='product image')
-              //- |
-              //- .lg-image
-              //-   a.popup-img.venobox.vbox-item(href='images/product/large-size/4.jpg', data-gall='myGallery')
-              //-     img(src='images/product/large-size/4.jpg', alt='product image')
-              //- |
-              //- .lg-image
-              //-   a.popup-img.venobox.vbox-item(href='images/product/large-size/5.jpg', data-gall='myGallery')
-              //-     img(src='images/product/large-size/5.jpg', alt='product image')
-              //- |
-              //- .lg-image
-              //-   a.popup-img.venobox.vbox-item(href='images/product/large-size/6.jpg', data-gall='myGallery')
-              //-     img(src='images/product/large-size/6.jpg', alt='product image')
-            //- |
-            //- .product-details-thumbs.slider-thumbs-1
-            //-   .sm-image
-            //-     img(src='images/product/small-size/1.jpg', alt='product image thumb')
+              -var i = 0;
+              while (i < product.image.length)
+                .lg-image
+                  a.popup-img.venobox.vbox-item(href=product.image[i], data-gall='myGallery')
+                    img(src=product.image[i++], alt='product image')
+                |
+            |
+            .product-details-thumbs.slider-thumbs-1
+              -var k = 0;
+              while (k < product.image.length)
+                .sm-image
+                  img(src=product.image[k++], alt='product image thumb')
+                |
             //-   |
             //-   .sm-image
             //-     img(src='images/product/small-size/2.jpg', alt='product image thumb')
@@ -70,34 +56,92 @@ block contents
               |
               .rating-box.pt-20
                 ul.rating.rating-with-review-item
-                  li
-                    i.fa.fa-star-o
+                  if (everageRating == 1)
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                  else if (everageRating == 2)
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                  else if (everageRating == 3)
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                  else if (everageRating == 4)
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li.no-star
+                      i.fa.fa-star-o
+                  else
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
+                    |
+                    li
+                      i.fa.fa-star-o
                   |
-                  li
-                    i.fa.fa-star-o
-                  |
-                  li
-                    i.fa.fa-star-o
-                  |
-                  li.no-star
-                    i.fa.fa-star-o
-                  |
-                  li.no-star
-                    i.fa.fa-star-o
-                  |
-                  li.review-item
-                    a(href='#') Read Review
-                  |
-                  li.review-item
-                    a(href='#') Write Review
               |
               .price-box.pt-20
                 span.new-price.new-price-2= product.priceSale.toLocaleString('vi', {style : 'currency', currency : 'VND'})
                 span.old-price.old-price-2= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
               |
               .product-desc
-                p
-                  span= product.description
+                -var n = 0
+                while (n < product.description.length)
+                  p
+                    span= product.description[n++]
               |
               //- .product-variants
               //-   .produt-variants-size
@@ -199,55 +243,121 @@ block contents
       .tab-content
         #description.tab-pane.active.show(role='tabpanel')
           .product-description
-            span= product.description
+            -var n = 0
+            while (n < product.description.length)
+              p
+                span= product.description[n++]
         |
         #product-details.tab-pane(role='tabpanel')
           .product-details-manufacturer
             a(href='#')
-              img(src=product.image, alt='Product Manufacturer Image', width='200px', height='auto')
+              img(src=product.image[0], alt='Product Manufacturer Image', width='200px', height='auto')
             |
-            p
-              span Reference
-              |  demo_7
-            |
-            p
-              span Reference
-              |  demo_7
+            //- p
+            //-   span Reference
+            //-   |  demo_7
+            //- |
+            //- p
+            //-   span Reference
+            //-   |  demo_7
         |
         #reviews.tab-pane(role='tabpanel')
           .product-reviews
             .product-details-comment-block
-              .comment-review
-                span Grade
+              each rating in ratings
+                .comment-author-infos.pt-10
+                  span= rating.userId.name
                 |
-                ul.rating
-                  li
-                    i.fa.fa-star-o
+                .comment-review
+                  span Đánh giá
                   |
-                  li
-                    i.fa.fa-star-o
-                  |
-                  li
-                    i.fa.fa-star-o
-                  |
-                  li.no-star
-                    i.fa.fa-star-o
-                  |
-                  li.no-star
-                    i.fa.fa-star-o
-              |
-              .comment-author-infos.pt-25
-                span HTML 5
+                  ul.rating
+                    if (rating.grade == 1)
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                    else if (rating.grade == 2)
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                    else if (rating.grade == 3)
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                    else if (rating.grade == 4)
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li.no-star
+                        i.fa.fa-star-o
+                    else
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                      |
+                      li
+                        i.fa.fa-star-o
+                  p
+                    span= rating.date.toLocaleString()
                 |
-                em 01-12-18
-              |
-              .comment-details
-                h4.title-block Demo
+                .comment-details.mb-20
+                  h4.title-block= 'Nội dung: ' + rating.comment
                 |
-                p Plaza
-              |
-              .review-btn
-                a.review-links(href='#', data-toggle='modal', data-target='#mymodal') Write Your Review!
+              if (!isOrdered)
+                button.btn.btn-lg.btn-secondary(disabled) Please Order First!
+              else
+                .review-btn
+                  button.btn.btn-lg.btn-primary(href='#', data-toggle='modal', data-target='#mymodal') Write Your Review!
               // Begin Quick View | Modal Area
               #mymodal.modal.fade.modal-wrapper
                 .modal-dialog.modal-dialog-centered(role='document')
@@ -258,13 +368,15 @@ block contents
                       .modal-inner-area.row
                         .col-lg-6
                           .li-review-product
-                            img(src=product.image, alt="Li's Product", width="400px", height="auto")
+                            img(src=product.image[0], alt="Li's Product", width="350px", height="auto")
                             |
                             .li-review-product-desc
                               p.li-product-name= product.name
                               |
-                              p
-                                span= product.description
+                              -var n = 0;
+                              while (n < product.description.length)
+                                p
+                                  span= product.description[n++]
                         |
                         .col-lg-6
                           .li-review-content
@@ -273,12 +385,12 @@ block contents
                               .feedback
                                 h3.feedback-title Our Feedback
                                 |
-                                form(action='#')
+                                form(action='/products/rating/'+product._id, method='POST')
                                   p.your-opinion
                                     label Your Rating
                                     |
                                     span
-                                      select.star-rating
+                                      select.star-rating(name='grade')
                                         option(value='1') 1
                                         |
                                         option(value='2') 2
@@ -292,31 +404,11 @@ block contents
                                   p.feedback-form
                                     label(for='feedback') Your Review
                                     |
-                                    textarea#feedback(name='comment', cols='45', rows='8', aria-required='true')
-                                  |
-                                  .feedback-input
-                                    p.feedback-form-author
-                                      label(for='author')
-                                        | Name
-                                        span.required *
-                                      |
-                                      input#author(name='author', value='', size='30', aria-required='true', type='text')
-                                    |
-                                    p.feedback-form-author.feedback-form-email
-                                      label(for='email')
-                                        | Email
-                                        span.required *
-                                      |
-                                      input#email(name='email', value='', size='30', aria-required='true', type='text')
-                                      |
-                                      span.required
-                                        sub *
-                                        |  Required fields
+                                    textarea#feedback(name='comment', cols='45', rows='8', aria-required='true', onkeyup='checkComment()')
                                     |
                                     .feedback-btn.pb-15
-                                      a.close(href='#', data-dismiss='modal', aria-label='Close') Close
-                                      |
-                                      a(href='#') Submit
+                                      button#submit_btn.btn.btn-success(type='submit') Submit
+                                      button.btn.btn-secondary(data-dismiss='modal', style='margin-left:20px') Close
                             // Feedback Area End Here
               // Quick View | Modal Area End Here
   // Product Area End Here
@@ -337,3 +429,14 @@ block contents
                   include ../layouts/compornents/product-grid
         // Li's Section Area End Here
   // Li's Laptop Product Area End Here
+block script
+  script.
+    function checkComment() {
+            let submit_btn = document.querySelector('#submit_btn')
+            let comment = document.querySelector('#feedback')
+            if (feedback.value.length > 0){
+                submit_btn.disabled = false;
+            }else{
+                submit_btn.disabled = true;
+            }
+        }

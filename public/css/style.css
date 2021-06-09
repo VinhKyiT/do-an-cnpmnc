@@ -176,6 +176,11 @@ hr.mp-0 {
 	margin: 0;
 	border-bottom: 1px solid #eceff8;
 }
+hr.account-info {
+	margin: 15px 0;
+	border-bottom: 1px solid #eceff8;
+	border-top: 0px;
+}
 hr.mtb-40 {
 	margin: 40px 0;
 	border-bottom: 1px solid #eceff8;
@@ -362,6 +367,25 @@ a.review-links {
 }
 a.review-links:hover {
 	background: #fed700;
+}
+a.review-disabled {
+	background: #242424 none repeat scroll 0 0;
+	color: #fff;
+	display: inline-block;
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: 700;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	text-transform: uppercase;
+	transition: all 0.3s ease-in-out 0s;
+	width: 170px;
+	text-align: center;
+}
+a.review-disabled:hover {
+	cursor: not-allowed;
+	background-color: #242424;
 }
 /*----------------------------------------*/
 /*  1.5 Text Color
@@ -1465,7 +1489,7 @@ textarea:focus {
 	color: #242424;
 	font-size: 13px;
 	border-radius: 15px 0 0 15px;
-	font-family: 'Rubik',sans-serif;
+	font-family: 'Fira Sans',sans-serif;
 	font-weight: 400;
 	position: relative;
 }
@@ -2135,7 +2159,7 @@ textarea:focus {
 	color: #c8c8c8;
 	cursor: pointer;
 	display: inline-block;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Fira Sans', sans-serif;
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 18px;
@@ -4023,6 +4047,27 @@ thead {
 .register-button:hover {
 	background: #fed700;
 }
+.account-button {
+	display: block;
+	margin-top: 40px;
+	width: 140px;
+	border-radius: 0;
+	height: 36px;
+	border: none;
+	line-height: 24px;
+	padding: 6px 20px;
+	float: left;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #000;
+	background-color: #fed700;
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out;
+}
+.account-button:hover {
+	background: #363f4d;
+	color: #fff;
+}
 /*----------------------------------------*/
 /* 	6.6 Li's Shopping Cart
 /*----------------------------------------*/
@@ -5445,6 +5490,84 @@ span.required {
 .small-version {
   display: none;
 }
+/*payment*/
+.payment
+	{
+		border:2px solid #f2f2f2;
+        border-radius:20px;
+        background:#fff;
+		margin: 20px;
+	}
+   .payment_header
+   {
+	   background: #4BB543;
+	   padding:20px;
+       border-radius:20px 20px 0px 0px;
+
+   }
+
+   .check
+   {
+	   margin:0px auto;
+	   width:50px;
+	   height:50px;
+	   border-radius:100%;
+	   background:#fff;
+	   text-align:center;
+   }
+
+   .check i
+   {
+	   vertical-align:middle;
+	   line-height:50px;
+	   font-size:30px;
+   }
+
+    .content
+    {
+        text-align:center;
+		padding-bottom: 20px;
+    }
+
+    .content  h1
+    {
+        font-size:25px;
+        padding-top:25px;
+    }
+
+    .content a
+    {
+        width:200px;
+        height:35px;
+        color:#fff;
+        border-radius:30px;
+        padding:5px 10px;
+        background: #fed700;
+        transition:all ease-in-out 0.3s;
+    }
+
+    .content a:hover
+    {
+        text-decoration:none;
+        background:#000;
+    }
+
+	.container > .row > * > .card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		word-wrap: break-word;
+		background-color: #fff;
+		background-clip: border-box;
+		border: 0 solid transparent;
+		border-radius: .25rem;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+	}
+	.me-2 {
+		margin-right: .5rem!important;
+	}
 /*----------------------------------------------------------------------------------------------------*/
 /*------------------------------------------> The End <-----------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------*/

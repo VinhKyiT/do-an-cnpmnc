@@ -1,0 +1,96 @@
+extends ../layouts/layout
+block contents
+    .breadcrumb-area.mb-30
+        .container
+            .breadcrumb-content
+                ul
+                    li
+                        a(href='/home') Home
+                    |
+                    li.active Account
+    .container
+        .row.gutters-sm
+            .col-md-4.mb-10
+                .list-group.mb-30
+                    button.list-group-item.list-group-item-action(type='button')
+                        a(href='/account', style="color:black") Thông tin cá nhân
+                    |
+                    button.list-group-item.list-group-item-action.active(type='button') Lịch sử mua hàng
+                    |
+                    button.list-group-item.list-group-item-action(type='button')
+                        a(href='/authentication/logout', style="color:black") Đăng xuất
+                .card
+                    .card-body
+                        .d-flex.flex-column.align-items-center.text-center
+                            img.rounded-circle(src='https://bootdey.com/img/Content/avatar/avatar7.png', alt='Admin', width='150')
+                            |
+                            .mt-3
+                                h4= currentAccount.name
+                                |
+                                p.text-secondary.mb-1= currentAccount.phone
+                                |
+                                p.text-muted.font-size-sm= currentAccount.address
+            .col-md-8.grid-margin.stretch-card
+                .card
+                    .card-body
+                        h4.card-title Đơn hàng
+                        .table-responsive
+                            table.table.table-hover
+                                thead
+                                    tr
+                                        th Mã đơn hàng
+                                        th Ngày đặt hàng
+                                        th Địa chỉ
+                                        th Phương thức
+                                        th Trạng thái
+                                        th Thao tác
+                                        th
+                                tbody
+                                    each order in orders
+                                        tr
+                                            td= order.code
+                                            td= order.date.toLocaleString()
+                                            td= order.delivery_address
+                                            td= order.payment_method
+                                            td= order.status
+                                            td
+                                                if (order.status === 'pending')
+                                                    button.btn.btn-danger.btn-sm
+                                                        a(href='/account/history/cancel/'+order._id, style='color:white') Huỷ đơn hàng
+                                                else
+                                                    button.btn.btn-danger.btn-sm.disabled(style='cursor:not-allowed') Huỷ đơn hàng
+                                            td
+                                                button.btn.btn-primary.btn-sm(data-toggle="modal" data-target="#exampleModalCenter") Xem chi tiết
+
+        #exampleModalCenter.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+            .modal-dialog.modal-dialog-centered(role='document')
+                .modal-content
+                    .modal-header
+                        h5#exampleModalLongTitle.modal-title Modal title
+                        |
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                    |
+                    .modal-body
+                        .table-responsive
+                            table.table.table-hover
+                                thead
+                                    tr
+                                        th Mã đơn hàng
+                                        th Ngày đặt hàng
+                                        th Địa chỉ
+                                        th Phương thức
+                                        th Trạng thái
+                                tbody
+                                    each order in orders
+                                        tr
+                                            td= order.code
+                                            td= order.date.toLocaleString()
+                                            td= order.delivery_address
+                                            td= order.payment_method
+                                            td= order.status
+                    |
+                    .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+
+

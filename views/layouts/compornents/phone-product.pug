@@ -2,80 +2,202 @@
 html
   head
   body
-    section.product-area.li-laptop-product.pt-60.pb-45
+    section.product-area.li-trending-product.pt-60.pb-45
       .container
         .row
-          // Begin Li's Section Area
+          // Begin Li's Tab Menu Area
           .col-lg-12
-            .li-section-title
+            .li-product-tab.li-trending-product-tab
               h2
                 span Điện thoại
               |
-              ul.li-sub-category-list
-                li.active
-                  a(href='#') iPhone
+              ul.nav.li-product-menu.li-trending-product-menu
+                li
+                  a.active(data-toggle='tab', href='#phone1')
+                    span iPhone
                 |
                 li
-                  a(href='#') Samsung
+                  a(data-toggle='tab', href='#phone2')
+                    span Samsung
                 |
                 li
-                  a(href='#') Xiaomi
+                  a(data-toggle='tab', href='#phone3')
+                    span Xiaomi
             |
-            .row
-              .product-active.owl-carousel
-                each phone in phones
-                  .col-lg-12
-                    // single-product-wrap start
-                    .single-product-wrap
-                      .product-image
-                        a(href='/products/detail/'+phone.code)
-                          img(src=phone.image[0], alt=phone.name)
-                        |
-                        span.sticker HOT
-                      |
-                      .product_desc
-                        .product_desc_info
-                          .product-review
-                            h5.manufacturer
-                              a(href='/products/'+phone.id_detail_category._id)= phone.id_detail_category.name
+            .tab-content.li-tab-content.li-trending-product-content
+              #phone1.tab-pane.show.fade.in.active
+                .row
+                  .product-active.owl-carousel
+                    each phone in phones
+                      if (phone.id_detail_category.name === 'iPhone')
+                        .col-lg-12
+                          // single-product-wrap start
+                          .single-product-wrap
+                            .product-image
+                              a(href='/products/detail/'+phone.code)
+                                img(src=phone.image[0], alt=phone.name)
+                              |
+                              span.sticker HOT
                             |
-                            .rating-box
-                              ul.rating
-                                li
-                                  i.fa.fa-star-o
+                            .product_desc
+                              .product_desc_info
+                                .product-review
+                                  h5.manufacturer
+                                    a(href='/products/'+phone.id_detail_category._id)= phone.id_detail_category.name
+                                  |
+                                  .rating-box
+                                    ul.rating
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
                                 |
-                                li
-                                  i.fa.fa-star-o
+                                h4
+                                  a.product_name(href='/products/detail/'+phone.code)= phone.name
                                 |
-                                li
-                                  i.fa.fa-star-o
-                                |
-                                li.no-star
-                                  i.fa.fa-star-o
-                                |
-                                li.no-star
-                                  i.fa.fa-star-o
-                          |
-                          h4
-                            a.product_name(href='/products/detail/'+phone.code)= phone.name
-                          |
-                          .price-box
-                            span.new-price= (phone.price - (phone.price * phone.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                            span.old-price= phone.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                            span.discount-percentage= phone.sale+"%"
-                        |
-                        .add-actions
-                          ul.add-actions-link
-                            li.add-cart.active
-                              a(href='/products/add-to-cart/'+phone._id) Add to cart
+                                .price-box
+                                  span.new-price= (phone.price - (phone.price * phone.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.old-price= phone.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.discount-percentage= phone.sale+"%"
+                              |
+                              .add-actions
+                                ul.add-actions-link
+                                  li.add-cart.active
+                                    a(href='/products/add-to-cart/'+phone._id) Add to cart
+                                  |
+                                  li
+                                    a.links-details(href='/products/add-to-wishlist/'+phone._id)
+                                      i.fa.fa-heart-o
+                                  |
+                                  li
+                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                      i.fa.fa-eye
+                          // single-product-wrap end
+              #phone2.tab-pane.fade
+                .row
+                  .product-active.owl-carousel
+                    each phone in phones
+                      if (phone.id_detail_category.name === 'Samsung')
+                        .col-lg-12
+                          // single-product-wrap start
+                          .single-product-wrap
+                            .product-image
+                              a(href='/products/detail/'+phone.code)
+                                img(src=phone.image[0], alt=phone.name)
+                              |
+                              span.sticker HOT
                             |
-                            li
-                              a.links-details(href='/products/add-to-wishlist/'+phone._id)
-                                i.fa.fa-heart-o
+                            .product_desc
+                              .product_desc_info
+                                .product-review
+                                  h5.manufacturer
+                                    a(href='/products/'+phone.id_detail_category._id)= phone.id_detail_category.name
+                                  |
+                                  .rating-box
+                                    ul.rating
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                |
+                                h4
+                                  a.product_name(href='/products/detail/'+phone.code)= phone.name
+                                |
+                                .price-box
+                                  span.new-price= (phone.price - (phone.price * phone.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.old-price= phone.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.discount-percentage= phone.sale+"%"
+                              |
+                              .add-actions
+                                ul.add-actions-link
+                                  li.add-cart.active
+                                    a(href='/products/add-to-cart/'+phone._id) Add to cart
+                                  |
+                                  li
+                                    a.links-details(href='/products/add-to-wishlist/'+phone._id)
+                                      i.fa.fa-heart-o
+                                  |
+                                  li
+                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                      i.fa.fa-eye
+                          // single-product-wrap end
+              #phone3.tab-pane.fade
+                .row
+                  .product-active.owl-carousel
+                    each phone in phones
+                      if (phone.id_detail_category.name === 'Xiaomi')
+                        .col-lg-12
+                          // single-product-wrap start
+                          .single-product-wrap
+                            .product-image
+                              a(href='/products/detail/'+phone.code)
+                                img(src=phone.image[0], alt=phone.name)
+                              |
+                              span.sticker HOT
                             |
-                            li
-                              a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
-                                i.fa.fa-eye
-                    // single-product-wrap end
+                            .product_desc
+                              .product_desc_info
+                                .product-review
+                                  h5.manufacturer
+                                    a(href='/products/'+phone.id_detail_category._id)= phone.id_detail_category.name
+                                  |
+                                  .rating-box
+                                    ul.rating
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                |
+                                h4
+                                  a.product_name(href='/products/detail/'+phone.code)= phone.name
+                                |
+                                .price-box
+                                  span.new-price= (phone.price - (phone.price * phone.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.old-price= phone.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.discount-percentage= phone.sale+"%"
+                              |
+                              .add-actions
+                                ul.add-actions-link
+                                  li.add-cart.active
+                                    a(href='/products/add-to-cart/'+phone._id) Add to cart
+                                  |
+                                  li
+                                    a.links-details(href='/products/add-to-wishlist/'+phone._id)
+                                      i.fa.fa-heart-o
+                                  |
+                                  li
+                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                      i.fa.fa-eye
+                          // single-product-wrap end
           // Li's Section Area End Here
     // Li's Laptop Product Area End Here

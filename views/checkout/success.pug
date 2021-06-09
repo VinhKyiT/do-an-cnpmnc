@@ -1,0 +1,27 @@
+extends ../layouts/layout
+block contents
+    .col-md-6.mx-auto.mt-5
+      .payment
+        .payment_header
+          .check
+            i.fa.fa-check(aria-hidden='true')
+        |
+        .content
+          h1 Đặt hàng thành công !
+          |
+          p
+            | Mã đơn hàng: #{newOrder.code}
+          |
+          p
+            | Tên người nhận: #{newOrder.name}
+          |
+          p
+            | Địa chỉ: #{newOrder.delivery_address}
+          |
+          p
+            | Số điện thoại: #{newOrder.phone}
+          |
+          p
+            | Phương thức thanh toán: #{newOrder.payment_method}
+          |
+          a(href='/home') Go to Home

@@ -38,16 +38,17 @@ module.exports.postLogin = async function(req, res) {
     res.cookie('userID', user.id, {
         signed: true
     });
-    if (role.name === "admin" || role.name === "staff"){
-        res.redirect('/admin');
-    }else if(role.name === "customer"){
-        res.redirect('/home');
-    }
+    res.redirect('/home')
+    // if (role.name === "admin" || role.name === "staff"){
+    //     res.redirect('/admin');
+    // }else if(role.name === "customer"){
+    //     res.redirect('/home');
+    // }
 };
 
 module.exports.logout = function(req, res) {
     res.clearCookie("userID");
-    res.redirect('back');
+    res.redirect('/home');
 }
 
 module.exports.postSignUp = async function(req, res) {

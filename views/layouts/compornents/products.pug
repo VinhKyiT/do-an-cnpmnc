@@ -30,7 +30,7 @@ html
                     // single-product-wrap start
                     .single-product-wrap
                       .product-image
-                        a(href='single-product.html')
+                        a(href='/products/detail/'+product.code)
                           img(src=product.image[0], alt=product.name)
                         |
                         span.sticker New
@@ -59,7 +59,7 @@ html
                                   i.fa.fa-star-o
                           |
                           h4
-                            a.product_name(href='single-product.html')= product.name
+                            a.product_name(href='/products/detail/'+product.code)= product.name
                           |
                           .price-box
                             span.new-price= product.priceSale.toLocaleString('vi', {style : 'currency', currency : 'VND'})
@@ -72,7 +72,7 @@ html
                               a(href='/products/add-to-cart/'+product._id) Add to cart
                             |
                             li
-                              a.links-details.add-wishlist(href='#')
+                              a.links-details.add-wishlist(href='/products/add-to-wishlist/'+product._id)
                                 i.fa.fa-heart-o
                             |
                             li
@@ -88,7 +88,7 @@ html
                     // single-product-wrap start
                     .single-product-wrap
                       .product-image
-                        a(href='single-product.html')
+                        a(href='/products/detail/'+product.code)
                           img(src=product.image[0], alt="Li's Product Image")
                         |
                         span.sticker Best
@@ -117,7 +117,7 @@ html
                                   i.fa.fa-star-o
                           |
                           h4
-                            a.product_name(href='single-product.html')= product.name
+                            a.product_name(href='/products/detail/'+product.code)= product.name
                           |
                           .price-box
                             span.new-price= product.priceSale.toLocaleString('vi', {style : 'currency', currency : 'VND'})
@@ -146,7 +146,7 @@ html
                     // single-product-wrap start
                     .single-product-wrap
                       .product-image
-                        a(href='single-product.html')
+                        a(href='/products/detail/'+product.code)
                           img(src=product.image[0], alt="Li's Product Image")
                         |
                         span.sticker Fancy
@@ -175,7 +175,7 @@ html
                                   i.fa.fa-star-o
                           |
                           h4
-                            a.product_name(href='single-product.html')= product.name
+                            a.product_name(href='/products/detail/'+product.code)= product.name
                           |
                           .price-box
                             span.new-price= product.priceSale.toLocaleString('vi', {style : 'currency', currency : 'VND'})

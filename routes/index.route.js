@@ -5,6 +5,7 @@ var cartRoute = require('./cart.route');
 var authenticationRoute = require('./authentication.route');
 var adminRoute = require('./admin.route');
 var checkoutRoute = require('./checkout.route');
+let accountRoute = require('./account.route');
 
 var categoryAPI = require('../api/routes/category.route');
 var categoryDetailAPI = require('../api/routes/category-detail.route');
@@ -20,6 +21,7 @@ var route = function(app){
     app.use('/authentication', authenticationRoute);
     app.use('/admin', adminMiddleware,  adminRoute);
     app.use('/checkout', checkoutRoute);
+    app.use('/account', accountRoute);
 
     //api
     app.use('/api', categoryAPI)

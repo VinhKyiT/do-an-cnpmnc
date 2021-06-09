@@ -1,9 +1,11 @@
-var Category = require('../models/category.model');
-var DetailCategory = require('../models/detail_category.model');
-var Product = require('../models/products.model');
-var Account = require('../models/account.model')
-var Role = require('../models/role.model');
-var md5 = require('md5');
+let Category = require('../models/category.model');
+let DetailCategory = require('../models/detail_category.model');
+let Product = require('../models/products.model');
+let Account = require('../models/account.model')
+let Role = require('../models/role.model');
+let Order = require('../models/order.model');
+let OrderDetail = require('../models/order_detail.model');
+let md5 = require('md5');
 
 
 //Home
@@ -21,11 +23,11 @@ module.exports.logout = function(req, res) {
 
 //Products
 module.exports.product = async function(req, res){
-    var products = await Product.find();
+    let products = await Product.find();
 
     for(let i = 0; i<products.length; i++ ){
-        var detailCate = await DetailCategory.findById(products[i].id_detail_category);
-        var category = await Category.findById(detailCate.id_category);
+        let detailCate = await DetailCategory.findById(products[i].id_detail_category);
+        let category = await Category.findById(detailCate.id_category);
         products[i].type = category.name
     }
 
@@ -36,20 +38,20 @@ module.exports.product = async function(req, res){
 }
 
 module.exports.createProduct = async function(req, res){
-    var name = req.body.productName;
-    var price = req.body.price;
-    var code = req.body.code;
-    var id_detail_category = req.body.categoryDetail;
-    var description = req.body.description;
+    let name = req.body.productName;
+    let price = req.body.price;
+    let code = req.body.code;
+    let id_detail_category = req.body.categoryDetail;
+    let description = req.body.description;
     req.body.avatar = []
 
     req.files.forEach(file => {
-        var path = '/' + file.path.split('\\').slice(1).join('/');
+        let path = '/' + file.path.split('\\').slice(1).join('/');
         req.body.avatar.push(path)
     })
     description = description.split('\r').join('').split('\n');
 
-    var product = new Product({
+    let product = new Product({
         id_detail_category: id_detail_category,
         name: name,
         price: price,
@@ -65,8 +67,8 @@ module.exports.createProduct = async function(req, res){
 }
 
 module.exports.getEditProduct = async function(req, res){
-    var productID = req.params.productID;
-    var product = await Product.findById(productID)
+    let productID = req.params.productID;
+    let product = await Product.findById(productID)
 
     product.description = product.description.join('\n');
 
@@ -77,9 +79,9 @@ module.exports.getEditProduct = async function(req, res){
 }
 
 module.exports.postEditProduct = async function(req, res){
-    var productID = req.params.productID;
-    var product = await Product.findById(productID);
-    var description = req.body.description;
+    let productID = req.params.productID;
+    let product = await Product.findById(productID);
+    let description = req.body.description;
     description = description.split('\r').join('').split('\n');
 
     product.name = req.body.nameProduct;
@@ -89,9 +91,9 @@ module.exports.postEditProduct = async function(req, res){
     product.description = description;
 
     for (let file of Object.keys(req.files)) {
-        var index = parseInt(file.split('avatar-').join(''));
-        var data = req.files[file];
-        var path = '/' + data[0].path.split('\\').slice(1).join('/');
+        let index = parseInt(file.split('avatar-').join(''));
+        let data = req.files[file];
+        let path = '/' + data[0].path.split('\\').slice(1).join('/');
         product.image[index] = path;
         product.markModified('image')
     }
@@ -102,7 +104,7 @@ module.exports.postEditProduct = async function(req, res){
 }
 
 module.exports.deleteProduct = async function(req, res){
-    var productID = req.params.productID;
+    let productID = req.params.productID;
 
     await Product.findByIdAndDelete(productID);
 
@@ -111,22 +113,22 @@ module.exports.deleteProduct = async function(req, res){
 
 //Category
 module.exports.category = async function(req, res){
-    var category = await Category.find();
-    var cateObj = [];
-    var detailObj = [];
+    let category = await Category.find();
+    let cateObj = [];
+    let detailObj = [];
 
     for(let i = 0; i < category.length; i++){
-        var detailCate = await DetailCategory.find({id_category: category[i]._id});
+        let detailCate = await DetailCategory.find({id_category: category[i]._id});
 
         for(let i = 0; i<detailCate.length; i++){
-            var products = await Product.find({id_detail_category: detailCate[i]._id});
+            let products = await Product.find({id_detail_category: detailCate[i]._id});
 
 
             detailCate[i].countItems = products.length;
         }
 
-        var myCateObj = {id: category[i]._id,name: category[i].name, countItems: detailCate.length};
-        var myDetailObj = {
+        let myCateObj = {id: category[i]._id,name: category[i].name, countItems: detailCate.length};
+        let myDetailObj = {
             id: category[i]._id,
             name: category[i].name,
             detailCate: detailCate
@@ -143,9 +145,9 @@ module.exports.category = async function(req, res){
 }
 
 module.exports.createCategory = async function(req, res){
-    var name = req.body.categoryName;
+    let name = req.body.categoryName;
 
-    var category = new Category();
+    let category = new Category();
     category.name= name;
 
     await Category.create(category);
@@ -154,9 +156,9 @@ module.exports.createCategory = async function(req, res){
 }
 
 module.exports.getEditCate = async function(req, res){
-    var cateID = req.params.cateID;
+    let cateID = req.params.cateID;
 
-    var category = await Category.findById(cateID);
+    let category = await Category.findById(cateID);
 
     res.render('./admin/category/editCategory', {
         category,
@@ -165,8 +167,8 @@ module.exports.getEditCate = async function(req, res){
 }
 
 module.exports.postEditCate = async function(req, res){
-    var cateID = req.params.cateID;
-    var name = req.body.cateName;
+    let cateID = req.params.cateID;
+    let name = req.body.cateName;
 
     await Category.findOneAndUpdate(
         {_id: cateID},
@@ -177,7 +179,7 @@ module.exports.postEditCate = async function(req, res){
 }
 
 module.exports.deleteCate = async function(req, res){
-    var cateID = req.params.cateID;
+    let cateID = req.params.cateID;
 
     await Category.findByIdAndDelete(cateID);
 
@@ -186,10 +188,10 @@ module.exports.deleteCate = async function(req, res){
 
 //Category Detail
 module.exports.createDetailCate = async function(req, res){
-    var name = req.body.detailName;
-    var categoryID = req.params.categoryID;
+    let name = req.body.detailName;
+    let categoryID = req.params.categoryID;
 
-    var detailCate = new DetailCategory();
+    let detailCate = new DetailCategory();
     detailCate.name = name;
     detailCate.id_category = categoryID
 
@@ -199,7 +201,7 @@ module.exports.createDetailCate = async function(req, res){
 }
 
 module.exports.deleteDetailCate =async function(req, res){
-    var detailCateID = req.params.detailCate;
+    let detailCateID = req.params.detailCate;
 
     await DetailCategory.findByIdAndDelete(detailCateID);
 
@@ -207,10 +209,10 @@ module.exports.deleteDetailCate =async function(req, res){
 }
 
 module.exports.getEditDetailCate = async function(req, res){
-    var detailCateID = req.params.detailCate;
+    let detailCateID = req.params.detailCate;
 
-    var detailCate = await DetailCategory.findById(detailCateID);
-    var category = await Category.find();
+    let detailCate = await DetailCategory.findById(detailCateID);
+    let category = await Category.find();
 
     res.render('./admin/category/editDetailCategory',{
         detailCate,
@@ -220,11 +222,11 @@ module.exports.getEditDetailCate = async function(req, res){
 }
 
 module.exports.postEditDetailCate = async function(req, res){
-    var nameDetail = req.body.detailCateName;
-    var categoryID = req.body.category;
-    var detailCateID = req.params.detailCate;
+    let nameDetail = req.body.detailCateName;
+    let categoryID = req.body.category;
+    let detailCateID = req.params.detailCate;
 
-    var detailCate = await DetailCategory.findById(detailCateID);
+    let detailCate = await DetailCategory.findById(detailCateID);
 
     detailCate.name = nameDetail;
     detailCate.id_category = categoryID;
@@ -236,10 +238,10 @@ module.exports.postEditDetailCate = async function(req, res){
 
 //Users
 module.exports.user = async function(req, res){
-    var accounts = await Account.find();
-    var roles = await Role.find();
+    let accounts = await Account.find();
+    let roles = await Role.find();
     for(let i = 0; i<accounts.length; i++){
-        var role = await Role.findById(accounts[i].id_role);
+        let role = await Role.findById(accounts[i].id_role);
         accounts[i].role = role.name
     }
     res.render('./admin/users/index', {
@@ -251,20 +253,20 @@ module.exports.user = async function(req, res){
 
 module.exports.createUser = async function(req, res){
     req.body.password = md5("123");
-    var newAccount = new Account(req.body);
+    let newAccount = new Account(req.body);
     Account.create(newAccount);
     res.redirect('back')
 }
 
 module.exports.deleteUser = async function(req, res){
-    var accountID = req.params.accountID
+    let accountID = req.params.accountID
     await Account.findByIdAndDelete(accountID)
     res.redirect('back')
 }
 
 module.exports.getEditUser = async function(req, res){
-    var acc = await Account.findById(req.params.accountID);
-    var roles = await Role.find();
+    let acc = await Account.findById(req.params.accountID);
+    let roles = await Role.find();
     res.render('./admin/users/editUser', {
         acc,
         roles
@@ -272,7 +274,7 @@ module.exports.getEditUser = async function(req, res){
 }
 
 module.exports.postEditUser = async function(req, res){
-    var account = await Account.findById(req.params.accountID);
+    let account = await Account.findById(req.params.accountID);
     account.name = req.body.name;
     account.email = req.body.email;
     account.phone = req.body.phone;
@@ -283,7 +285,7 @@ module.exports.postEditUser = async function(req, res){
 
 //Role
 module.exports.getRole = async function(req, res){
-    var roles = await Role.find();
+    let roles = await Role.find();
 
     res.render('./admin/role/index', {
         roles
@@ -291,13 +293,13 @@ module.exports.getRole = async function(req, res){
 }
 
 module.exports.createRole = async function(req, res){
-    var role = new Role(req.body);
+    let role = new Role(req.body);
     await Role.create(role);
     res.redirect('back');
 }
 
 module.exports.getEditRole = async function(req, res){
-    var editRole = await Role.findById(req.params.roleID);
+    let editRole = await Role.findById(req.params.roleID);
 
     res.render('./admin/role/editRole', {
         editRole,
@@ -306,7 +308,7 @@ module.exports.getEditRole = async function(req, res){
 }
 
 module.exports.postEditRole = async function(req, res){
-    var role = await Role.findById(req.params.roleID);
+    let role = await Role.findById(req.params.roleID);
     role.name = req.body.name;
     role.markModified('name');
     role.save();
@@ -318,6 +320,41 @@ module.exports.deleteRole = async function(req, res){
     res.redirect('back')
 }
 
+//Orders
+module.exports.getOrders = async function(req, res){
+    let orders = await Order.find().sort({
+        'date': -1,
+        'status': 1,
+        'payment_method': 1,
+    })
+        .populate('userId');
+
+    res.render('./admin/orders/index', {
+        orders
+    })
+}
+
+module.exports.getOrder = async function(req, res){
+    let order = await Order.findById(req.params.orderID)
+    res.render('./admin/orders/editOrder',{
+        order
+    })
+}
+
+module.exports.postEditOrder = async function(req, res){
+    let orderToEdit = await Order.findById(req.params.orderID)
+
+    orderToEdit.payment_method = req.body.payment_method;
+    orderToEdit.delivery_address = req.body.delivery_address;
+    orderToEdit.status = req.body.status;
+
+    orderToEdit.markModified('payment_method');
+    orderToEdit.markModified('delivery_address');
+    orderToEdit.markModified('status');
+
+    orderToEdit.save();
+    res.redirect('back')
+}
 
 
 

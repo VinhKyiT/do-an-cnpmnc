@@ -1,0 +1,39 @@
+extends ../layouts/layout
+block contents
+    .col-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title= 'Edit '
+          form.forms-sample(method="POST", action="/admin/orders/edit/"+order._id)
+            .form-group
+                label Ngày đặt hàng
+                input.form-control(type="text" value= order.date.toLocaleString() readonly)
+            .form-group
+                label(for="payment_method_selector") Phương thức thanh toán
+                select(class="form-control" id="payment_method_selector" name="payment_method")
+                    option(value='COD') Ship COD
+                    option(value='VISA') VISA
+                    option(value='ATM') Bank transfer
+            .form-group
+                label(for="delivery_address") Địa chỉ
+                input.form-control(type="text" value= order.delivery_address, name='delivery_address', id="delivery_address", onkeyup="checkAddress()")
+            .form-group
+                label(for="status_selector") Trạng thái đơn hàng
+                select(class="form-control" id="status_selector" name="status")
+                    option(value="pending") Chờ xác nhận
+                    option(value="shipping") Đang giao hàng
+                    option(value="complete") Hoàn thành
+                    option(value="canceled") Đã hủy
+            button(type="submit" class="btn btn-primary mr-2", id='submit_btn') Submit
+            button(class="btn btn-light", href='/admin/orders') Cancel
+block script
+    script.
+        function checkAddress() {
+            let submit_btn = document.querySelector('#submit_btn')
+            let address = document.querySelector('#delivery_address')
+            if (address.value.length > 0){
+                submit_btn.disabled = false;
+            }else{
+                submit_btn.disabled = true;
+            }
+        }

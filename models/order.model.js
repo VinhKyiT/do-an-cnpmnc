@@ -9,6 +9,11 @@ let orderSchema = new mongoose.Schema({
     status: String,
     payment_method: String,
     delivery_address: String,
+    code: String,
+    name: String,
+    phone: String,
+    email: String,
+    companyName: String,
 })
 
 let Order = mongoose.model('Order', orderSchema, 'order')

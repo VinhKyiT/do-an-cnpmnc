@@ -19,7 +19,7 @@ html.no-js(lang='zxx')
     // Font Awesome
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
     // Font Awesome Stars
-    //link(rel='stylesheet', href='/css/fontawesome-stars.css')
+    link(rel='stylesheet', href='/css/fontawesome-stars.css')
     // Meanmenu CSS
     link(rel='stylesheet', href='/css/meanmenu.css')
     // owl carousel CSS
@@ -78,23 +78,20 @@ html.no-js(lang='zxx')
                     // Begin Setting Area
                     li
                       .ht-setting-trigger
-                        span Setting
+                        span Menu
                       |
                       .setting.ht-setting
                         ul.ht-setting-list
-                          li
-                            if (!checkLogin)
-                              a(href='/authentication')
-                                span Please Login
-                            else
-                              a(href='/profile')
-                                span My Account
-                          |
-                          li
-                            a(href='checkout.html') Checkout
-                          |
-                          li
-                            a(href='/admin') Control Panel
+                          if (!checkLogin)
+                            li
+                              a(href='/authentication') Please Login
+                          else
+                            li
+                              a(href='/account') My Account
+                            li
+                              a(href='/checkout') Checkout
+                            li
+                              a(href='/admin') Control Panel
                     // Setting Area End Here
                     // Begin Language Area
                     li
@@ -435,19 +432,19 @@ html.no-js(lang='zxx')
                 // Footer Block Area End Here
         // Footer Static Middle Area End Here
         // Begin Footer Static Bottom Area
-        .footer-static-bottom.pt-55.pb-55
-          .container
-            .row
-              .col-lg-12
-                // Begin Footer Payment Area
-                .copyright.text-center
-                  a(href='#')
-                    img(src='../images/payment/1.png', alt='')
-                // Footer Payment Area End Here
-                // Begin Copyright Area
-                .copyright.text-center.pt-25
-                  span
-                    a(target='_blank', href='https://www.templateshub.net') Templates Hub
+        //- .footer-static-bottom.pt-55.pb-55
+        //-   .container
+        //-     .row
+        //-       .col-lg-12
+        //-         // Begin Footer Payment Area
+        //-         .copyright.text-center
+        //-           a(href='#')
+        //-             img(src='../images/payment/1.png', alt='')
+        //-         // Footer Payment Area End Here
+        //-         // Begin Copyright Area
+        //-         .copyright.text-center.pt-25
+        //-           span
+        //-             a(target='_blank', href='https://www.templateshub.net') Templates Hub
                 // Copyright Area End Here
         // Footer Static Bottom Area End Here
       // Footer Area End Here
@@ -638,4 +635,5 @@ html.no-js(lang='zxx')
     // Main/Activator js
     script(src='/js/main.js')
     // index30:23
-    //script(src='/add-to-wishlist.js')
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+    block script

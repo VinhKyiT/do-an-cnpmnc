@@ -1,41 +1,44 @@
-var data = require('../layout.data');
-var Product = require('../models/products.model');
-var Category = require('../models/category.model');
-var DetailCategory = require('../models/detail_category.model');
-var Cart = require('../models/cart.model');
-var Wishlist = require('../models/wishlist.model');
+let data = require('../layout.data');
+let Product = require('../models/products.model');
+let Category = require('../models/category.model');
+let DetailCategory = require('../models/detail_category.model');
+let Cart = require('../models/cart.model');
+let Wishlist = require('../models/wishlist.model');
+let Order = require('../models/order.model')
+let OrderDetail = require('../models/order_detail.model')
+let Rating = require('../models/rating.model')
 
 module.exports.get = function(req, res) {
 
 }
 
-var AdjustProductsPriceSale = function(products) {
+let AdjustProductsPriceSale = function(products) {
     products.forEach(product => {
         product.priceSale = product.price - (product.price * product.sale) / 100;
     });
 }
 
 module.exports.getByCategory = async function(req, res) {
-    var cateID = req.params.cateID;
-    var page = req.query.page || 1;
-    var limit = 9;
+    let cateID = req.params.cateID;
+    let page = req.query.page || 1;
+    let limit = 9;
 
-    var detail_category = await DetailCategory.findOne({_id: cateID});
+    let detail_category = await DetailCategory.findOne({_id: cateID});
 
-    var totalProducts = await Product.find({ id_detail_category: cateID });
-    var products = await Product.find({ id_detail_category: cateID })
+    let totalProducts = await Product.find({ id_detail_category: cateID });
+    let products = await Product.find({ id_detail_category: cateID })
         .skip((page * limit) - limit)
         .limit(limit);
 
     AdjustProductsPriceSale(products);
 
-    var maxPage = Math.floor(totalProducts.length / limit)
+    let maxPage = Math.floor(totalProducts.length / limit)
 
     if ((totalProducts.length % limit) !== 0) {
         ++maxPage;
     }
 
-    var count = (await Product.find({ id_detail_category: cateID })).length;
+    let count = (await Product.find({ id_detail_category: cateID })).length;
 
     res.render('./products/index', {
         data: data.data,
@@ -54,26 +57,26 @@ module.exports.getByCategory = async function(req, res) {
 };
 
 module.exports.getCategory = async function(req, res) {
-    var page = req.query.page || 1;
-    var cateId = req.params.cateId;
-    var limit = 8;
-    var sessionId = req.signedCookies.sessionId;
+    let page = req.query.page || 1;
+    let cateId = req.params.cateId;
+    let limit = 8;
+    let sessionId = req.signedCookies.sessionId;
 
-    var category = await Category.findOne({ _id: cateId });
+    let category = await Category.findOne({ _id: cateId });
 
-    var detail_category = await DetailCategory.find({ id_category: category._id })
+    let detail_category = await DetailCategory.find({ id_category: category._id })
 
-    var list_id_detail = detail_category.map(function(cate) {
+    let list_id_detail = detail_category.map(function(cate) {
         return cate._id;
     });
 
-    var products = await Product.find({ id_detail_category: { "$in": list_id_detail } })
+    let products = await Product.find({ id_detail_category: { "$in": list_id_detail } })
         .skip((page * limit) - limit)
         .limit(limit);
 
     AdjustProductsPriceSale(products)
 
-    var count = await (await Product.find({ id_detail_category: { "$in": list_id_detail } })).length;
+    let count = await (await Product.find({ id_detail_category: { "$in": list_id_detail } })).length;
 
     res.render('./products/index', {
         data: data.data,
@@ -89,16 +92,43 @@ module.exports.getCategory = async function(req, res) {
 };
 
 module.exports.getDetail = async function(req, res) {
-    var code = req.params.code;
-    var product = await Product.findOne({ code: code });
-    var detailCateId = product.id_detail_category;
+    let code = req.params.code;
+    let product = await Product.findOne({ code: code });
+    let detailCateId = product.id_detail_category;
+    let totalRating = 0;
 
-    var detail_category = await DetailCategory.findOne({_id: detailCateId});
+    let ratings = await Rating.find({productId: product._id.toString()})
+        .populate('userId')
+        .sort({
+            'date': -1
+        })
+
+    for (let i = 0; i < ratings.length; i++) {
+        totalRating = totalRating + ratings[i].grade
+    }
+    let everageRating = Math.round(totalRating / ratings.length)
+
+    let userOrders = await Order.find({userId: req.signedCookies.userID});
+
+    let list_order_id = userOrders.map(function(order) {
+        return order._id;
+    })
+
+    let orderDetails = await OrderDetail.find({orderId: {"$in": list_order_id}})
+
+    let isOrdered = false;
+
+    for (let i = 0; i < orderDetails.length; i++) {
+        if (orderDetails[i].productId == product._id)
+            isOrdered = true;
+    }
+
+    let detail_category = await DetailCategory.findOne({_id: detailCateId});
 
     product.priceSale = product.price - (product.price * product.sale) / 100;
 
-    var relatedProducts = await Product.find({ id_detail_category: detailCateId });
-    var relatedCount = relatedProducts.length - 1;
+    let relatedProducts = await Product.find({ id_detail_category: detailCateId });
+    let relatedCount = relatedProducts.length - 1;
 
     AdjustProductsPriceSale(relatedProducts)
 
@@ -110,14 +140,17 @@ module.exports.getDetail = async function(req, res) {
         detail_category,
         cartLength: res.locals.cartLength,
         cartItems: res.locals.cartItems,
-        finalPrice: res.locals.finalPrice
+        finalPrice: res.locals.finalPrice,
+        isOrdered,
+        ratings,
+        everageRating
     })
 };
 
 module.exports.addToCart = async function(req, res) {
-    var productID = req.params.productID;
+    let productID = req.params.productID;
 
-    var product = await Product.findOne({_id: productID});
+    let product = await Product.findOne({_id: productID});
     product.priceSale = product.price - (product.price * product.sale) / 100;
 
     Cart.add(product);
@@ -127,9 +160,9 @@ module.exports.addToCart = async function(req, res) {
 };
 
 module.exports.removeFromCart = async function(req, res) {
-    var productID = req.params.productID;
+    let productID = req.params.productID;
 
-    var product = await Product.findOne({_id: productID});
+    let product = await Product.findOne({_id: productID});
     product.priceSale = product.price - (product.price * product.sale) / 100;
 
     req.session.cart = Cart.removeCart();
@@ -138,9 +171,9 @@ module.exports.removeFromCart = async function(req, res) {
 };
 
 module.exports.addToWishList = async function(req, res) {
-    var productID = req.params.productID;
+    let productID = req.params.productID;
 
-    var product = await Product.findOne({_id: productID});
+    let product = await Product.findOne({_id: productID});
 
     Wishlist.add(product);
 
@@ -149,12 +182,12 @@ module.exports.addToWishList = async function(req, res) {
 };
 
 module.exports.search = async function(req, res) {
-    var productName = req.query.product.toLowerCase();
+    let productName = req.query.product.toLowerCase();
 
-    var results = await Product.find()
+    let results = await Product.find()
         .populate('id_detail_category')
 
-    var products = results.filter(product => {
+    let products = results.filter(product => {
         return product.name.toLowerCase().indexOf(productName) !== -1;
     })
 
@@ -168,4 +201,24 @@ module.exports.search = async function(req, res) {
         cartItems: res.locals.cartItems,
         finalPrice: res.locals.finalPrice
     })
+}
+
+module.exports.postRating = async function(req, res) {
+    let grade = req.body.grade;
+    let comment = req.body.comment;
+    let date = new Date();
+    let productId = req.params.productId;
+
+    console.log(grade)
+
+    let newRating = new Rating();
+    newRating.userId = req.signedCookies.userID;
+    newRating.grade = grade;
+    newRating.comment = comment;
+    newRating.date = date;
+    newRating.productId = productId;
+
+    Rating.create(newRating);
+
+    res.redirect('back');
 }

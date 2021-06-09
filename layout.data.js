@@ -1,22 +1,22 @@
-var Category = require('./models/category.model');
-var DetailCategory = require('./models/detail_category.model');
-var Product = require('./models/products.model');
+let Category = require('./models/category.model');
+let DetailCategory = require('./models/detail_category.model');
+let Product = require('./models/products.model');
 
 
-var category;
-var detail_device;
-var detail_tablet;
-var detail_accessories;
-var detail_other;
-var detail_smartwatch;
+let category;
+let detail_device;
+let detail_tablet;
+let detail_accessories;
+let detail_other;
+let detail_smartwatch;
 
 async function Data(){
     category = await Category.find();
-    var device = await Category.findOne({name: "Điện thoại"});
-    var tablet = await Category.findOne({name: "Máy tính bảng"});
-    var accessories = await Category.findOne({name: "Phụ kiện"});
-    var other = await Category.findOne({name: "Sản phẩm khác"});
-    var smartwatch = await Category.findOne({name: "Đồng hồ"});
+    let device = await Category.findOne({name: "Điện thoại"});
+    let tablet = await Category.findOne({name: "Máy tính bảng"});
+    let accessories = await Category.findOne({name: "Phụ kiện"});
+    let other = await Category.findOne({name: "Sản phẩm khác"});
+    let smartwatch = await Category.findOne({name: "Đồng hồ"});
 
     detail_device = await DetailCategory.find({id_category: device.id});
     detail_tablet = await DetailCategory.find({id_category: tablet.id});
@@ -24,21 +24,23 @@ async function Data(){
     detail_smartwatch = await DetailCategory.find({id_category: smartwatch.id});
     detail_other = await DetailCategory.find({id_category: other.id});
 
-    var newProducts = await Product.find()
+    let newProducts = await Product.find()
         .populate('id_detail_category')
 
     newProducts = newProducts.slice(newProducts.length - 11, newProducts.length - 1);
 
-    var bestSeller = await Product.find()
+    let bestSellers = await Product.find()
         .populate('id_detail_category')
 
-    var saleProducts = await Product.find()
+    let bestSeller = bestSellers.filter(c => c.count > 0);
+
+    let saleProducts = await Product.find()
         .populate('id_detail_category')
 
-    var specialProducts = await Product.find().limit(5)
+    let specialProducts = await Product.find().limit(5)
         .populate('id_detail_category')
 
-    var products = await Product.find();
+    let products = await Product.find();
 
     newProducts.forEach(product => {
         product.priceSale = product.price - (product.price*product.sale)/100;
@@ -56,7 +58,7 @@ async function Data(){
         product.priceSale = product.price - (product.price*product.sale)/100;
     });
 
-    var data = [category, detail_device, detail_tablet, detail_accessories, detail_other, newProducts, bestSeller, saleProducts, specialProducts, detail_smartwatch, products]
+    let data = [category, detail_device, detail_tablet, detail_accessories, detail_other, newProducts, bestSeller, saleProducts, specialProducts, detail_smartwatch, products]
 
     module.exports.data = data
 }

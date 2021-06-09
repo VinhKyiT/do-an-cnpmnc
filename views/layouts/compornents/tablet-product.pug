@@ -5,77 +5,199 @@ html
     section.product-area.li-laptop-product.li-tv-audio-product.pb-45
       .container
         .row
-          // Begin Li's Section Area
+          // Begin Li's Tab Menu Area
           .col-lg-12
-            .li-section-title
+            .li-product-tab.li-trending-product-tab
               h2
                 span Máy tính bảng
               |
-              ul.li-sub-category-list
-                li.active
-                  a(href='#') iPad
+              ul.nav.li-product-menu.li-trending-product-menu
+                li
+                  a.active(data-toggle='tab', href='#tablet1')
+                    span iPad
                 |
                 li
-                  a(href='#') Galaxy Tabs
+                  a(data-toggle='tab', href='#tablet2')
+                    span Galaxy Tab
                 |
                 li
-                  a(href='#') Huawei Tabs
+                  a(data-toggle='tab', href='#tablet3')
+                    span Huawei Tab
             |
-            .row
-              .product-active.owl-carousel
-                each tablet in tablets
-                  .col-lg-12
-                    // single-product-wrap start
-                    .single-product-wrap
-                      .product-image
-                        a(href='/products/detail/'+tablet.code)
-                          img(src=tablet.image[0], alt=tablet.name)
-                        |
-                        span.sticker HOT
-                      |
-                      .product_desc
-                        .product_desc_info
-                          .product-review
-                            h5.manufacturer
-                              a(href='/products/'+tablet.id_detail_category._id)= tablet.id_detail_category.name
+            .tab-content.li-tab-content.li-trending-product-content
+              #tablet1.tab-pane.show.fade.in.active
+                .row
+                  .product-active.owl-carousel
+                    each tablet in tablets
+                      if (tablet.id_detail_category.name === 'iPad')
+                        .col-lg-12
+                          // single-product-wrap start
+                          .single-product-wrap
+                            .product-image
+                              a(href='/products/detail/'+tablet.code)
+                                img(src=tablet.image[0], alt=tablet.name)
+                              |
+                              span.sticker HOT
                             |
-                            .rating-box
-                              ul.rating
-                                li
-                                  i.fa.fa-star-o
+                            .product_desc
+                              .product_desc_info
+                                .product-review
+                                  h5.manufacturer
+                                    a(href='/products/'+tablet.id_detail_category._id)= tablet.id_detail_category.name
+                                  |
+                                  .rating-box
+                                    ul.rating
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
                                 |
-                                li
-                                  i.fa.fa-star-o
+                                h4
+                                  a.product_name(href='/products/detail/'+tablet.code)= tablet.name
                                 |
-                                li
-                                  i.fa.fa-star-o
-                                |
-                                li.no-star
-                                  i.fa.fa-star-o
-                                |
-                                li.no-star
-                                  i.fa.fa-star-o
-                          |
-                          h4
-                            a.product_name(href='/products/detail/'+tablet.code)= tablet.name
-                          |
-                          .price-box
-                            span.new-price= (tablet.price - (tablet.price * tablet.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                            span.old-price= tablet.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                            span.discount-percentage= tablet.sale+"%"
-                        |
-                        .add-actions
-                          ul.add-actions-link
-                            li.add-cart.active
-                              a(href='/products/add-to-cart/'+tablet._id) Add to cart
+                                .price-box
+                                  span.new-price= (tablet.price - (tablet.price * tablet.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.old-price= tablet.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.discount-percentage= tablet.sale+"%"
+                              |
+                              .add-actions
+                                ul.add-actions-link
+                                  li.add-cart.active
+                                    a(href='/products/add-to-cart/'+tablet._id) Add to cart
+                                  |
+                                  li
+                                    a.links-details(href='/products/add-to-wishlist/'+tablet._id)
+                                      i.fa.fa-heart-o
+                                  |
+                                  li
+                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                      i.fa.fa-eye
+                          // single-product-wrap end
+              #tablet2.tab-pane.fade
+                .row
+                  .product-active.owl-carousel
+                    each tablet in tablets
+                      if (tablet.id_detail_category.name === 'Galaxy Tab')
+                        .col-lg-12
+                          // single-product-wrap start
+                          .single-product-wrap
+                            .product-image
+                              a(href='/products/detail/'+tablet.code)
+                                img(src=tablet.image[0], alt=tablet.name)
+                              |
+                              span.sticker HOT
                             |
-                            li
-                              a.links-details(href='/products/add-to-wishlist/'+tablet._id)
-                                i.fa.fa-heart-o
+                            .product_desc
+                              .product_desc_info
+                                .product-review
+                                  h5.manufacturer
+                                    a(href='/products/'+tablet.id_detail_category._id)= tablet.id_detail_category.name
+                                  |
+                                  .rating-box
+                                    ul.rating
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                |
+                                h4
+                                  a.product_name(href='/products/detail/'+tablet.code)= tablet.name
+                                |
+                                .price-box
+                                  span.new-price= (tablet.price - (tablet.price * tablet.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.old-price= tablet.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.discount-percentage= tablet.sale+"%"
+                              |
+                              .add-actions
+                                ul.add-actions-link
+                                  li.add-cart.active
+                                    a(href='/products/add-to-cart/'+tablet._id) Add to cart
+                                  |
+                                  li
+                                    a.links-details(href='/products/add-to-wishlist/'+tablet._id)
+                                      i.fa.fa-heart-o
+                                  |
+                                  li
+                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                      i.fa.fa-eye
+                          // single-product-wrap end
+              #tablet3.tab-pane.fade
+                .row
+                  .product-active.owl-carousel
+                    each tablet in tablets
+                      if (tablet.id_detail_category.name === 'Huawei Tab')
+                        .col-lg-12
+                          // single-product-wrap start
+                          .single-product-wrap
+                            .product-image
+                              a(href='/products/detail/'+tablet.code)
+                                img(src=tablet.image[0], alt=tablet.name)
+                              |
+                              span.sticker HOT
                             |
-                            li
-                              a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
-                                i.fa.fa-eye
-                    // single-product-wrap end
+                            .product_desc
+                              .product_desc_info
+                                .product-review
+                                  h5.manufacturer
+                                    a(href='/products/'+tablet.id_detail_category._id)= tablet.id_detail_category.name
+                                  |
+                                  .rating-box
+                                    ul.rating
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                      |
+                                      li.no-star
+                                        i.fa.fa-star-o
+                                |
+                                h4
+                                  a.product_name(href='/products/detail/'+tablet.code)= tablet.name
+                                |
+                                .price-box
+                                  span.new-price= (tablet.price - (tablet.price * tablet.sale)/100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.old-price= tablet.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                                  span.discount-percentage= tablet.sale+"%"
+                              |
+                              .add-actions
+                                ul.add-actions-link
+                                  li.add-cart.active
+                                    a(href='/products/add-to-cart/'+tablet._id) Add to cart
+                                  |
+                                  li
+                                    a.links-details(href='/products/add-to-wishlist/'+tablet._id)
+                                      i.fa.fa-heart-o
+                                  |
+                                  li
+                                    a.quick-view-btn(href='#', title='quick view', data-toggle='modal', data-target='#exampleModalCenter')
+                                      i.fa.fa-eye
+                          // single-product-wrap end
           // Li's Section Area End Here
     // Li's TV & Audio Product Area End Here

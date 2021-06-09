@@ -1,0 +1,80 @@
+extends ../layouts/layout
+block contents
+    .breadcrumb-area.mb-30
+        .container
+            .breadcrumb-content
+                ul
+                    li
+                        a(href='/home') Home
+                    |
+                    li.active Account
+    .container
+        .row.gutters-sm
+            .col-md-4.mb-10
+                .list-group.mb-30
+                    button.list-group-item.list-group-item-action.active(type='button') Thông tin cá nhân
+                    |
+                    button.list-group-item.list-group-item-action(type='button')
+                        a( href='/account/history', style="color:black") Lịch sử mua hàng
+                    |
+                    button.list-group-item.list-group-item-action(type='button', href='/authentication/logout')
+                        a(href='/authentication/logout', style="color:black") Đăng xuất
+                .card
+                    .card-body
+                        .d-flex.flex-column.align-items-center.text-center
+                            img.rounded-circle(src='https://bootdey.com/img/Content/avatar/avatar7.png', alt='Admin', width='150')
+                            |
+                            .mt-3
+                                h4= currentAccount.name
+                                |
+                                p.text-secondary.mb-1= currentAccount.phone
+                                |
+                                p.text-muted.font-size-sm= currentAccount.address
+            .col-md-8.mb-10
+                .card.mb-3
+                    .card-body
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Họ tên
+                            |
+                            .col-sm-9.text-secondary= currentAccount.name
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Email
+                            |
+                            .col-sm-9.text-secondary= currentAccount.email
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Điện thoại
+                            |
+                            .col-sm-9.text-secondary= currentAccount.phone
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Địa chỉ
+                            |
+                            .col-sm-9.text-secondary= currentAccount.address
+                            |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Địa chỉ giao hàng
+                            |
+                            .col-sm-9.text-secondary= currentAccount.delivery_address
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-12
+                                a.btn.btn-info(target='__blank', href='') Edit
+
+

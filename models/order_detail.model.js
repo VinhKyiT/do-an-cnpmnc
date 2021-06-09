@@ -10,6 +10,7 @@ let orderDetailSchema = new mongoose.Schema({
         ref: 'Product',
     },
     quantity: String,
+    price: Number,
 })
 
 let OrderDetail = mongoose.model('OrderDetail', orderDetailSchema, 'order_detail')

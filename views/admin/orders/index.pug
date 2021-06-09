@@ -1,0 +1,28 @@
+extends ../layouts/layout
+block contents
+  .row
+    .col-lg-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title Đơn hàng
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr
+                  th Mã đơn hàng
+                  th Ngày đặt hàng
+                  th Địa chỉ
+                  th Phương thức
+                  th Trạng thái
+                  th Người đặt hàng
+                  th
+              tbody
+                each order in orders
+                  tr
+                    td
+                      a(href="/admin/orders/"+order._id )= order.code
+                    td= order.date.toLocaleString()
+                    td= order.delivery_address
+                    td= order.payment_method
+                    td= order.status
+                    td= order.userId.name

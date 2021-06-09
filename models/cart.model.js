@@ -27,8 +27,8 @@ module.exports = class Cart{
     static getCart(){
         return cart;
     };
-};
 
-module.exports.removeCart = async function(req, res) {
-    var productID = req.params.productID;
-}
+    static removeCart(){
+        cart = null;
+    }
+};

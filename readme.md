@@ -15,8 +15,8 @@ const vinhkyit.tech/cps = {
             developer: ["VinhKyIT, HoangTrieu, ThayPhapHuTi"],
             technologies: {
                 frontEnd: {
-                    js: "Node, PugJS",
-                    css: ["materialize", "bootstrap"]
+                    js: "jquery, PugJS",
+                    css: ["materialize", "bootstrap", "fontawesome"]
                 },
                 backEnd: {
                     js: ["node", "express"],
