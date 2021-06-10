@@ -37,4 +37,8 @@ module.exports.cancelOrder = async function (req, res) {
     res.redirect('back')
 }
 
-
+module.exports.getEdit = async function (req, res) {
+    res.render('./account/edit', {
+        data: data.data,
+    })
+}

@@ -5,6 +5,7 @@ var router = express.Router();
 router.get("/", controller.getProfile);
 //router.get("/change-password", controller.getChangePass);
 router.get("/history", controller.getHistory);
+router.get("/edit/:userId", controller.getEdit);
 router.get("/history/cancel/:orderId", controller.cancelOrder)
 
 module.exports = router;

@@ -6,14 +6,29 @@ let Role = require('../models/role.model');
 let Order = require('../models/order.model');
 let OrderDetail = require('../models/order_detail.model');
 let md5 = require('md5');
+let data = require('../layout.data');
 
 
 //Home
 module.exports.get = async function(req, res){
-    res.render('./admin/layouts/layout', {
-        role: res.locals.role,
-        account: res.locals.account
-    })
+    let orders = await Order.find().limit(5).populate('userId').sort({'date': -1});
+    let orderDetails = await OrderDetail.find()
+        .populate('orderId');
+
+    let topProducts = await Product.find().limit(5);
+    if (res.locals.role === 'customer'){
+        res.redirect('/home')
+    }
+    else{
+        res.render('./admin/home/index', {
+            role: res.locals.role,
+            account: res.locals.account,
+            data: data.data,
+            orders,
+            orderDetails,
+            topProducts
+        })
+    }
 }
 
 module.exports.logout = function(req, res) {

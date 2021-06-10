@@ -1,0 +1,34 @@
+extends ../layouts/layout
+block contents
+  .breadcrumb-area
+    .container
+      .breadcrumb-content
+        ul
+          li
+            a(href='/home') Home
+          |
+          li.active Forgot Password
+  // Li's Breadcrumb Area End Here
+  // Begin Login Content Area
+  .page-section.mb-60
+    .container
+      .row
+        .col-sm-12.col-md-12.col-xs-12.col-lg-12.mb-30
+          // Login Form s
+          form(action='/authentication/forgot-pass', role='form', method='POST')
+            .login-form
+              h4.login-title Forgot Password
+              |
+              .row
+                .col-md-12.col-12.mb-20
+                  label Email Address*
+                  |
+                  input.mb-0(type='email', name="email", placeholder='Email Address', required, value= values ? values.email : "")
+                |
+                .col-12.mb-20
+                  label Confirm Email Address*
+                  |
+                  input.mb-0(type='email', name="confirm_email", placeholder='Confirm Email Address', required, value= values ? values.confirm_email : "")
+                |
+                .col-md-12
+                  button.register-button.mt-0 Reset

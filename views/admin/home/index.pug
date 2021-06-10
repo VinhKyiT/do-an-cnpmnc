@@ -1,0 +1,216 @@
+extends ../layouts/layout
+block contents
+      section.section
+        .row
+          .col-lg-4.col-md-4.col-sm-12
+            .card.card-statistic-2
+              .card-stats
+                .card-stats-title
+                  | Order Statistics -
+                  .dropdown.d-inline
+                    a#orders-month.font-weight-600.dropdown-toggle(data-toggle='dropdown', href='#') June
+                    |
+                    ul.dropdown-menu.dropdown-menu-sm
+                      li.dropdown-title Select Month
+                      |
+                      li
+                        a.dropdown-item(href='#') January
+                      |
+                      li
+                        a.dropdown-item(href='#') February
+                      |
+                      li
+                        a.dropdown-item(href='#') March
+                      |
+                      li
+                        a.dropdown-item(href='#') April
+                      |
+                      li
+                        a.dropdown-item(href='#') May
+                      |
+                      li
+                        a.dropdown-item(href='#') June
+                      |
+                      li
+                        a.dropdown-item(href='#') July
+                      |
+                      li
+                        a.dropdown-item.active(href='#') August
+                      |
+                      li
+                        a.dropdown-item(href='#') September
+                      |
+                      li
+                        a.dropdown-item(href='#') October
+                      |
+                      li
+                        a.dropdown-item(href='#') November
+                      |
+                      li
+                        a.dropdown-item(href='#') December
+                |
+                .card-stats-items
+                  .card-stats-item
+                    .card-stats-item-count 2
+                    |
+                    .card-stats-item-label Pending
+                  |
+                  .card-stats-item
+                    .card-stats-item-count 1
+                    |
+                    .card-stats-item-label Shipping
+                  |
+                  .card-stats-item
+                    .card-stats-item-count 5
+                    |
+                    .card-stats-item-label Completed
+              |
+              .card-icon.shadow-primary.bg-primary
+                i.fas.fa-archive
+              |
+              .card-wrap
+                .card-header
+                  h4 Total Orders
+                |
+                .card-body= orders.length
+          |
+          .col-lg-4.col-md-4.col-sm-12
+            .card.card-statistic-2
+              .card-chart
+                canvas#balance-chart(height='80')
+              |
+              .card-icon.shadow-primary.bg-primary
+                i.fas.fa-dollar-sign
+              |
+              .card-wrap
+                .card-header
+                  h4 Balance
+                |
+                -var balance = 59650000
+                .card-body= balance.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+          |
+          .col-lg-4.col-md-4.col-sm-12
+            .card.card-statistic-2
+              .card-chart
+                canvas#sales-chart(height='80')
+              |
+              .card-icon.shadow-primary.bg-primary
+                i.fas.fa-shopping-bag
+              |
+              .card-wrap
+                .card-header
+                  h4 Products
+                |
+                .card-body= data[10].length
+        |
+        .row.row-deck
+          .col-md-8
+            .card
+              .card-header
+                h4 Invoices
+                |
+                .card-header-action
+                  a.btn.btn-danger(href='#')
+                    | View More
+                    i.fas.fa-chevron-right
+              |
+              .card-body.p-0
+                .table-responsive.table-invoice
+                  table.table.table-striped
+                    tbody
+                      tr
+                        th Invoice ID
+                        |
+                        th Customer
+                        |
+                        th Status
+                        |
+                        th Due Date
+                        |
+                        th Action
+                      |
+                      each order in orders
+                        tr
+                            td
+                                a(href='#')= order.code
+                            |
+                            td.font-weight-600= order.userId.name
+                            |
+                            td
+                                .badge.badge-success= order.status
+                            |
+                            td= order.date.toLocaleString()
+                            |
+                            td
+                                a.btn.btn-primary(href='#') Detail
+          |
+          .col-lg-4
+            .card.gradient-bottom
+              .card-header
+                h4 Top 5 Products
+                |
+                .card-header-action.dropdown
+                  a.btn.btn-danger.dropdown-toggle(href='#', data-toggle='dropdown') Month
+                  |
+                  ul.dropdown-menu.dropdown-menu-sm.dropdown-menu-right
+                    li.dropdown-title Select Period
+                    |
+                    li
+                      a.dropdown-item(href='#') Today
+                    |
+                    li
+                      a.dropdown-item(href='#') Week
+                    |
+                    li
+                      a.dropdown-item.active(href='#') Month
+                    |
+                    li
+                      a.dropdown-item(href='#') This Year
+              |
+              #top-5-scroll.card-body
+                ul.list-unstyled.list-unstyled-border
+                  each topProduct in topProducts
+                    li.media
+                        img.mr-3.rounded(width='55', src=topProduct.image[0], alt='product')
+                        |
+                        .media-body
+                            .float-right
+                                .font-weight-600.text-muted.text-small 86 Sales
+                            |
+                            .media-title= topProduct.name
+                            |
+                            .mt-1
+                            .budget-price
+                                .budget-price-square.bg-primary(data-width='64%')
+                                |
+                                .budget-price-label $68,714
+                            |
+                            .budget-price
+                                .budget-price-square.bg-danger(data-width='43%')
+                                |
+                                .budget-price-label $38,700
+              |
+              .card-footer.pt-3.d-flex.justify-content-center
+                .budget-price.justify-content-center
+                  .budget-price-square.bg-primary(data-width='20')
+                  |
+                  .budget-price-label Selling Price
+                |
+                .budget-price.justify-content-center
+                  .budget-price-square.bg-danger(data-width='20')
+                  |
+                  .budget-price-label Budget Price
+block script
+    script(src='/admin/assets/bundles/lib.vendor.bundle.js')
+    script(src='/admin/js/CodiePie.js')
+    // JS Libraies
+    script(src='/admin/assets/modules/jquery.sparkline.min.js')
+    script(src='/admin/assets/modules/chart.min.js')
+    script(src='/admin/assets/modules/owlcarousel2/dist/owl.carousel.min.js')
+    script(src='/admin/assets/modules/summernote/summernote-bs4.js')
+    script(src='/admin/assets/modules/chocolat/dist/js/jquery.chocolat.min.js')
+    // Page Specific JS File
+    script(src='/admin/js/page/index.js')
+    // Template JS File
+    script(src='/admin/js/scripts.js')
+    script(src='/admin/js/custom.js')

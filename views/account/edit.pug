@@ -1,0 +1,97 @@
+extends ../layouts/layout
+block contents
+    .breadcrumb-area.mb-30
+        .container
+            .breadcrumb-content
+                ul
+                    li
+                        a(href='/home') Home
+                    |
+                    li.active Edit Account
+    .container
+        .row.gutters-sm
+            .col-md-4.mb-10
+                .list-group.mb-30
+                    button.list-group-item.list-group-item-action(type='button')
+                        a( href='/account/', style="color:black") Thông tin cá nhân
+                    |
+                    button.list-group-item.list-group-item-action(type='button')
+                        a( href='/account/history', style="color:black") Lịch sử mua hàng
+                    |
+                    button.list-group-item.list-group-item-action(type='button', href='/authentication/logout')
+                        a(href='/authentication/logout', style="color:black") Đăng xuất
+                .card
+                    .card-body
+                        .d-flex.flex-column.align-items-center.text-center
+                            img.rounded-circle(src='https://bootdey.com/img/Content/avatar/avatar7.png', alt='Admin', width='150')
+                            |
+                            .mt-3
+                                h4= currentAccount.name
+                                |
+                                p.text-secondary.mb-1= currentAccount.phone
+                                |
+                                p.text-muted.font-size-sm= currentAccount.address
+            .col-md-8.mb-10
+                .card.mb-3
+                    .card-body
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Họ tên
+                            |
+                            input(name="name", type="text", value=currentAccount.name, class="col-sm-9")
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Email
+                            |
+                            input(name="name", type="text", value=currentAccount.email , class="col-sm-9", readonly)
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Điện thoại
+                            |
+                            input(name="name", type="text", value=currentAccount.phone, class="col-sm-9")
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Địa chỉ
+                            |
+                            input(name="name", type="text", value=currentAccount.address, class="col-sm-9")
+                            |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Địa chỉ giao hàng
+                            |
+                            input(name="name", type="text", value=currentAccount.delivery_address, class="col-sm-9")
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Mật khẩu
+                            |
+                            input(name="password", type="password", placeholder="Để trống khi không cần đổi mật khẩu", class="col-sm-9")
+                            |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-3
+                                h6.mb-0 Xác nhận mật khẩu
+                            |
+                            input(name="confirm_password", type="password", placeholder="Để trống khi không cần đổi mật khẩu", class="col-sm-9")
+                        |
+                        hr.account-info
+                        |
+                        .row
+                            .col-sm-12
+                                a.btn.btn-info(target='__blank', href='') Lưu
+
+

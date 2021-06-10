@@ -11,6 +11,12 @@ module.exports.get = async function(req, res) {
     });
 };
 
+module.exports.getForgot = async function(req, res) {
+    res.render('./authentication/forgot-pass',{
+        data: data.data,
+    })
+}
+
 module.exports.postLogin = async function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
