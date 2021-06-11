@@ -29,13 +29,13 @@ block contents
                         a.dropdown-item(href='#') May
                       |
                       li
-                        a.dropdown-item(href='#') June
+                        a.dropdown-item.active(href='#') June
                       |
                       li
                         a.dropdown-item(href='#') July
                       |
                       li
-                        a.dropdown-item.active(href='#') August
+                        a.dropdown-item(href='#') August
                       |
                       li
                         a.dropdown-item(href='#') September
@@ -129,7 +129,7 @@ block contents
                         |
                         th Action
                       |
-                      each order in orders
+                      each order in lastedOrder
                         tr
                             td
                                 a(href='#')= order.code
@@ -201,7 +201,7 @@ block contents
                   |
                   .budget-price-label Budget Price
 block script
-    script(src='/admin/assets/bundles/lib.vendor.bundle.js')
+    //script(src='/admin/assets/bundles/lib.vendor.bundle.js')
     script(src='/admin/js/CodiePie.js')
     // JS Libraies
     script(src='/admin/assets/modules/jquery.sparkline.min.js')

@@ -11,9 +11,11 @@ let data = require('../layout.data');
 
 //Home
 module.exports.get = async function(req, res){
-    let orders = await Order.find().limit(5).populate('userId').sort({'date': -1});
+    let orders = await Order.find()
     let orderDetails = await OrderDetail.find()
         .populate('orderId');
+
+    let lastedOrder = await Order.find().limit(5).populate('userId').sort({'date': -1});
 
     let topProducts = await Product.find().limit(5);
     if (res.locals.role === 'customer'){
@@ -26,7 +28,8 @@ module.exports.get = async function(req, res){
             data: data.data,
             orders,
             orderDetails,
-            topProducts
+            topProducts,
+            lastedOrder,
         })
     }
 }

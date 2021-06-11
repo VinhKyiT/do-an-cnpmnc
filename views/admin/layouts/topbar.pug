@@ -1,0 +1,241 @@
+html
+  head
+  body
+    nav.navbar.navbar-expand-lg.main-navbar
+      form.form-inline.mr-auto
+        ul.navbar-nav.mr-3
+          li
+            a.nav-link.nav-link-lg(href='#', data-toggle='sidebar')
+              i.fas.fa-bars
+          |                     
+          li
+            a.nav-link.nav-link-lg.d-sm-none(href='#', data-toggle='search')
+              i.fas.fa-search
+        |                 
+        .search-element
+          input.form-control(type='search', placeholder='Search', aria-label='Search', data-width='250')
+          |                     
+          button.btn(type='submit')
+            i.fas.fa-search
+          |                     
+          .search-backdrop
+          |                     
+          .search-result
+            .search-header Histories
+            |                         
+            .search-item
+              a(href='#') How to Used HTML in Laravel
+              |                             
+              a.search-close(href='#')
+                i.fas.fa-times
+            |                         
+            .search-item
+              a(href='https://themeforest.net/user/admincraft/portfolio', target='_black') Admincraft Portfolio
+              |                             
+              a.search-close(href='#')
+                i.fas.fa-times
+            |                         
+            .search-item
+              a(href='#') #CodiePie
+              |                             
+              a.search-close(href='#')
+                i.fas.fa-times
+            |                         
+            .search-header Result
+            |                         
+            .search-item
+              a(href='#')
+                img.mr-3.rounded(width='30', src='assets/img/products/product-3-50.png', alt='product')
+                |                                 oPhone 11 Pro
+            |                         
+            .search-item
+              a(href='#')
+                img.mr-3.rounded(width='30', src='assets/img/products/product-2-50.png', alt='product')
+                |                                 Drone Zx New Gen-3
+            |                         
+            .search-item
+              a(href='#')
+                img.mr-3.rounded(width='30', src='assets/img/products/product-1-50.png', alt='product')
+                |                                 Headphone JBL
+            |                         
+            .search-header Projects
+            |                         
+            .search-item
+              a(href='https://themeforest.net/item/epice-laravel-admin-template-for-hr-project-management/24466729', target='_black')
+                .search-icon.bg-danger.text-white.mr-3
+                  i.fas.fa-code
+                |                                 Epice Laravel - Admin Template
+            |                         
+            .search-item
+              a(href='https://themeforest.net/item/soccer-project-management-admin-template-ui-kit/24646866', target='_black')
+                .search-icon.bg-primary.text-white.mr-3
+                  i.fas.fa-laptop
+                |                                 Soccer - Admin Template
+      |             
+      ul.navbar-nav.navbar-right
+        li.dropdown.dropdown-list-toggle
+          a.nav-link.nav-link-lg.message-toggle.beep(href='#', data-toggle='dropdown')
+            i.far.fa-envelope
+          |                     
+          .dropdown-menu.dropdown-list.dropdown-menu-right
+            .dropdown-header
+              | Messages
+              .float-right
+                a(href='#') Mark All As Read
+            |                     
+            .dropdown-list-content.dropdown-list-message
+              a.dropdown-item.dropdown-item-unread(href='#')
+                .dropdown-item-avatar
+                  img.rounded-circle(alt='image', src='assets/img/avatar/avatar-1.png')
+                  |                                 
+                  .is-online
+                |                             
+                .dropdown-item-desc
+                  b Kusnaedi
+                  |                                 
+                  p Hello, Bro!
+                  |                                 
+                  .time 10 Hours Ago
+              |                         
+              a.dropdown-item.dropdown-item-unread(href='#')
+                .dropdown-item-avatar
+                  img.rounded-circle(alt='image', src='assets/img/avatar/avatar-2.png')
+                |                             
+                .dropdown-item-desc
+                  b Dedik Sugiharto
+                  |                                 
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                  |                                 
+                  .time 12 Hours Ago
+              |                         
+              a.dropdown-item.dropdown-item-unread(href='#')
+                .dropdown-item-avatar
+                  img.rounded-circle(alt='image', src='assets/img/avatar/avatar-3.png')
+                  |                                 
+                  .is-online
+                |                             
+                .dropdown-item-desc
+                  b Agung Ardiansyah
+                  |                                 
+                  p Sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  |                                 
+                  .time 12 Hours Ago
+              |                         
+              a.dropdown-item(href='#')
+                .dropdown-item-avatar
+                  img.rounded-circle(alt='image', src='assets/img/avatar/avatar-4.png')
+                |                             
+                .dropdown-item-desc
+                  b Ardian Rahardiansyah
+                  |                                 
+                  p Duis aute irure dolor in reprehenderit in voluptate velit ess
+                  |                                 
+                  .time 16 Hours Ago
+              |                         
+              a.dropdown-item(href='#')
+                .dropdown-item-avatar
+                  img.rounded-circle(alt='image', src='assets/img/avatar/avatar-5.png')
+                |                             
+                .dropdown-item-desc
+                  b Alfa Zulkarnain
+                  |                                 
+                  p Exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  |                                 
+                  .time Yesterday
+            |                     
+            .dropdown-footer.text-center
+              a(href='#')
+                | View All 
+                i.fas.fa-chevron-right
+        |                 
+        li.dropdown.dropdown-list-toggle
+          a.nav-link.notification-toggle.nav-link-lg.beep(href='#', data-toggle='dropdown')
+            i.far.fa-bell
+          |                     
+          .dropdown-menu.dropdown-list.dropdown-menu-right
+            .dropdown-header
+              | Notifications
+              .float-right
+                a(href='#') Mark All As Read
+            |                     
+            .dropdown-list-content.dropdown-list-icons
+              a.dropdown-item.dropdown-item-unread(href='#')
+                .dropdown-item-icon.bg-primary.text-white
+                  i.fas.fa-code
+                |                             
+                .dropdown-item-desc
+                  | Template update is available now!
+                  .time.text-primary 2 Min Ago
+              |                         
+              a.dropdown-item(href='#')
+                .dropdown-item-icon.bg-info.text-white
+                  i.far.fa-user
+                |                             
+                .dropdown-item-desc
+                  b You
+                  |  and 
+                  b Dedik Sugiharto
+                  |  are now friends
+                  |                                 
+                  .time 10 Hours Ago
+              |                         
+              a.dropdown-item(href='#')
+                .dropdown-item-icon.bg-success.text-white
+                  i.fas.fa-check
+                |                             
+                .dropdown-item-desc
+                  b Kusnaedi
+                  |  has moved task 
+                  b Fix bug header
+                  |  to 
+                  b Done
+                  |                                 
+                  .time 12 Hours Ago
+              |                         
+              a.dropdown-item(href='#')
+                .dropdown-item-icon.bg-danger.text-white
+                  i.fas.fa-exclamation-triangle
+                |                             
+                .dropdown-item-desc
+                  | Low disk space. Let&apos;s clean it!
+                  .time 17 Hours Ago
+              |                         
+              a.dropdown-item(href='#')
+                .dropdown-item-icon.bg-info.text-white
+                  i.fas.fa-bell
+                |                             
+                .dropdown-item-desc
+                  | Welcome to CodiePie template!
+                  .time Yesterday
+            |                     
+            .dropdown-footer.text-center
+              a(href='#')
+                | View All 
+                i.fas.fa-chevron-right
+        |                 
+        li.dropdown
+          a.nav-link.dropdown-toggle.nav-link-lg.nav-link-user(href='#', data-toggle='dropdown')
+            img.rounded-circle.mr-1(alt='image', src='assets/img/avatar/avatar-1.png')
+            |                     
+            .d-sm-none.d-lg-inline-block Hi, Michelle Green
+          |                     
+          .dropdown-menu.dropdown-menu-right
+            .dropdown-title Logged in 5 min ago
+            |                         
+            a.dropdown-item.has-icon(href='features-profile.html')
+              i.far.fa-user
+              |  Profile
+            |                         
+            a.dropdown-item.has-icon(href='features-activities.html')
+              i.fas.fa-bolt
+              |  Activities
+            |                         
+            a.dropdown-item.has-icon(href='features-settings.html')
+              i.fas.fa-cog
+              |  Settings
+            |                         
+            .dropdown-divider
+            |                         
+            a.dropdown-item.has-icon.text-danger(href='#')
+              i.fas.fa-sign-out-alt
+              |  Logout
