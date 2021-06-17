@@ -52,16 +52,17 @@ block contents
                           span.amount= (product.price - (product.price*product.sale) / 100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
                         |
                         td.quantity
-                          label Quantity
-                          |
-                          .cart-plus-minus
-                            input.cart-plus-minus-box(value=product.quantity, type='text')
-                            |
-                            .dec.qtybutton
-                              i.fa.fa-angle-down
-                            |
-                            .inc.qtybutton
-                              i.fa.fa-angle-up
+                          span= product.quantity
+                          //- label Quantity
+                          //- |
+                          //- .cart-plus-minus
+                          //-   input.cart-plus-minus-box(value=product.quantity, type='text')
+                          //-   |
+                          //-   .dec.qtybutton
+                          //-     i.fa.fa-angle-down
+                          //-   |
+                          //-   .inc.qtybutton
+                          //-     i.fa.fa-angle-up
                         |
                         td.product-subtotal
                           span.amount= ((product.price - (product.price*product.sale) / 100)*product.quantity).toLocaleString('vi', {style : 'currency', currency : 'VND'})
@@ -75,7 +76,7 @@ block contents
                   //-   input.button(name='apply_coupon', value='Apply coupon', type='submit')
                   //- |
                   .coupon2
-                    input.button(name='update_cart', value='Update cart', type='submit')
+                    //input.button(name='update_cart', value='Update cart', type='submit')
             |
             .row
               .col-md-5.ml-auto
