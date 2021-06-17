@@ -11,6 +11,7 @@ let detail_other;
 let detail_smartwatch;
 
 async function Data(){
+
     category = await Category.find();
     let device = await Category.findOne({name: "Điện thoại"});
     let tablet = await Category.findOne({name: "Máy tính bảng"});
