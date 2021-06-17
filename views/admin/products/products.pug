@@ -95,6 +95,27 @@ block contents
                       a(href="/admin/products/delete/"+product._id)
                         button.btn.btn-inverse-danger.btn-icon(type='button')
                           i.mdi.mdi-delete
+        button.btn.btn-success(type="button" data-toggle="modal" data-target="#importProducts") Nhập hàng
+        .modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' id="importProducts")
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Import Product
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') &times;
+              .modal-body
+                form(action="/admin/products/import" method="POST" enctype="multipart/form-data")
+                  .form-group
+                    label.col-form-label(for='product-name') Tên sản phẩm:
+                    select.form-select(name='productIdSelect', style='max-width:450px', id='productIdSelect')
+                      each product in data[10]
+                        option(value=product._id) #{product.name}
+                  .form-group
+                    label.col-form-label(for='product-count') Số lượng:
+                    input.form-control(type='number' id='product-count' name="count")
+                  .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary(type='sumit') Submit
 block script
   script(src="/assets/js/admin.js")
   script.

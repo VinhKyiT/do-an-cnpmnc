@@ -42,3 +42,13 @@ module.exports.getEdit = async function (req, res) {
         data: data.data,
     })
 }
+
+module.exports.getOrdersDetail = async function (req, res) {
+    let orderId = req.params.orderId;
+    let ordersDetail = await OrderDetail.find({orderId: orderId})
+        .populate('productId')
+    res.render('./account/orders_detail', {
+        data: data.data,
+        ordersDetail
+    })
+}

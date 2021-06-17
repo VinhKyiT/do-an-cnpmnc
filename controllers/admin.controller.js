@@ -51,6 +51,7 @@ module.exports.product = async function(req, res){
 
     res.render('./admin/products/products', {
         products,
+        data: data.data,
         account: res.locals.account
     });
 }
@@ -92,6 +93,7 @@ module.exports.getEditProduct = async function(req, res){
 
     res.render('./admin/products/editProduct', {
         product,
+        data: data.data,
         description: product.description.toString()
     })
 }
@@ -119,6 +121,12 @@ module.exports.postEditProduct = async function(req, res){
     product.save();
 
     res.redirect('/admin/products');
+}
+
+module.exports.postImportProduct = async function(req, res){
+    let productId = req.body.productIdSelect;
+    console.log(productId)
+    res.redirect('back')
 }
 
 module.exports.deleteProduct = async function(req, res){

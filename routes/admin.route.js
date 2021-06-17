@@ -32,7 +32,8 @@ router.post('/detail-category/edit/:detailCate', controller.postEditDetailCate)
 //Products
 router.get('/products', controller.product);
 router.get('/products/edit/:productID', controller.getEditProduct);
-router.post('/products/create', upload.array('avatar', 4), controller.createProduct)
+router.post('/products/create', upload.array('avatar', 4), controller.createProduct);
+router.post('/products/import', controller.postImportProduct);
 router.post('/products/edit/:productID', upload.fields([
     {name: "avatar-0", maxCount: 1},
     {name: "avatar-1", maxCount: 1},

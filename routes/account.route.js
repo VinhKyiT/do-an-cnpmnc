@@ -7,5 +7,6 @@ router.get("/", controller.getProfile);
 router.get("/history", controller.getHistory);
 router.get("/edit/:userId", controller.getEdit);
 router.get("/history/cancel/:orderId", controller.cancelOrder)
+router.get("/history/detail/:orderId", controller.getOrdersDetail)
 
 module.exports = router;

@@ -156,19 +156,22 @@ block contents
               //- |
               .single-add-to-cart
                 form.cart-quantity(action='/products/add-to-cart/'+product._id)
-                  .quantity
-                    label Quantity
-                    |
-                    .cart-plus-minus
-                      input.cart-plus-minus-box(value='1', type='text', name='quantity')
-                      |
-                      .dec.qtybutton
-                        i.fa.fa-angle-down
-                      |
-                      .inc.qtybutton
-                        i.fa.fa-angle-up
+                  //- .quantity
+                  //-   label Quantity
+                  //-   |
+                  //-   .cart-plus-minus
+                  //-     input.cart-plus-minus-box(value='1', type='text', name='quantity')
+                  //-     |
+                  //-     .dec.qtybutton
+                  //-       i.fa.fa-angle-down
+                  //-     |
+                  //-     .inc.qtybutton
+                  //-       i.fa.fa-angle-up
                   |
-                  button.add-to-cart(type='submit') Add to cart
+                  if (product.count > 0)
+                    button.add-to-cart(type='submit') Add to cart
+                  else
+                    button.btn.btn-lg.btn-secondary(style='cursor:not-allowed', disabled) Add to cart
               |
               .product-additional-info.pt-25
                 a.wishlist-btn(href='/products/add-to-wishlist/'+product._id)

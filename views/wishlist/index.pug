@@ -60,5 +60,8 @@ block contents
                             span.out-stock Hết hàng
                         |
                         td.li-product-add-cart
-                          a(href='/products/add-to-cart/'+product._id) add to cart
+                          if (product.count > 0)
+                            a(href='/products/add-to-cart/'+product._id) add to cart
+                          else
+                            button.btn.btn-md.btn-secondary(style='cursor:not-allowed', disabled) Add to cart
   // Wishlist Area End

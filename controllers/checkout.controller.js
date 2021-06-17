@@ -77,9 +77,12 @@ module.exports.post = async function(req, res) {
         orderDetail.price = req.session.cart.products[i].priceSale;
         await OrderDetail.create(orderDetail);
         let product = await Product.findById(req.session.cart.products[i]._id);
-        product.count = product.count - req.session.cart.products[i].quantity;
-        product.markModified('count');
-        product.save();
+        if ((product.count - req.session.cart.products[i].quantity) >= 0){
+            product.count = product.count - req.session.cart.products[i].quantity;
+            product.markModified('count');
+            product.save();
+        }
+        else res.redirect('/home')
     }
 
     req.session.destroy();
