@@ -90,8 +90,9 @@ html.no-js(lang='zxx')
                               a(href='/account') My Account
                             li
                               a(href='/checkout') Checkout
-                            li
-                              a(href='/admin') Control Panel
+                            if (currentAccount.id_role.name !== 'customer')
+                              li
+                                a(href='/admin') Control Panel
                     // Setting Area End Here
                     // Begin Language Area
                     li

@@ -25,7 +25,7 @@ block contents
                       | Country
                       span.required *
                     |
-                    select#country-select.wide(name='countrySelect')
+                    select#country-select.wide(name='countrySelect' required)
                       option(value='VN') Viet Nam
                       //- |
                       //- option(value='uk') London
@@ -44,7 +44,7 @@ block contents
                       | Name
                       span.required *
                     |
-                    input(placeholder='', type='text', value=currentUser.name, name='name', id='nameInput')
+                    input(placeholder='', type='text', value=currentUser.name, name='name', id='nameInput' required)
                 |
                 .col-md-6
                   .checkout-form-list
@@ -68,11 +68,11 @@ block contents
                       span.required *
                     |
                     if (currentUser.delivery_address != '')
-                      input(placeholder='Street address', type='text', value=currentUser.delivery_address, name='address')
+                      input(placeholder='Street address', type='text', value=currentUser.delivery_address, name='address' required)
                     else if (currentUser.address != '')
-                      input(placeholder='Street address', type='text', value=currentUser.address, name='address')
+                      input(placeholder='Street address', type='text', value=currentUser.address, name='address' required)
                     else
-                      input(placeholder='Street address', type='text', name='address')
+                      input(placeholder='Street address', type='text', name='address' required)
                 |
                 .col-md-6
                   .checkout-form-list
@@ -80,7 +80,7 @@ block contents
                       | Email Address
                       span.required *
                     |
-                    input(placeholder='', type='email', value=currentUser.email, name='email')
+                    input(placeholder='', type='email', value=currentUser.email, name='email' required)
                 |
                 .col-md-6
                   .checkout-form-list
@@ -88,7 +88,7 @@ block contents
                       | Phone
                       span.required *
                     |
-                    input(type='text', value=currentUser.phone, name='phone')
+                    input(type='text', value=currentUser.phone, name='phone' required)
               |
               .different-address
                 .ship-different-title

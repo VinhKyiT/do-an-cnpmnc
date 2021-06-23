@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "6093b2bf1a6445d5eef73773"
+  },
+  "name": "Apple"
+},{
+  "_id": {
+    "$oid": "6093b2ec8b869811e5d1b56b"
+  },
+  "name": "Xiaomi"
+},{
+  "_id": {
+    "$oid": "60a4ee188811e5b027a31444"
+  },
+  "name": "Sony"
+},{
+  "_id": {
+    "$oid": "60a4ee3389b8e9124c79e362"
+  },
+  "name": "LG"
+},{
+  "_id": {
+    "$oid": "60a4ee4189b8e9124c79e363"
+  },
+  "name": "Vsmart"
+},{
+  "_id": {
+    "$oid": "60a4ee4689b8e9124c79e364"
+  },
+  "name": "OPPO"
+},{
+  "_id": {
+    "$oid": "60a4ee5489b8e9124c79e365"
+  },
+  "name": "Samsung"
+}]

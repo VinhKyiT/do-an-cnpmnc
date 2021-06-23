@@ -14,7 +14,7 @@ block contents
     .container
       .row
         .col-12
-          form(action='#')
+          form(action='/cart/updateCart' method="POST")
             if (!products || products.length ===0)
               h1 Bạn chưa thêm sản phẩm vào giỏ hàng
             else
@@ -36,6 +36,7 @@ block contents
                   |
                   tbody
                     each product in products
+                      -var index = products.indexOf(product)
                       tr
                         td.li-product-remove
                           a(href='/cart/remove/'+ product._id)
@@ -52,7 +53,7 @@ block contents
                           span.amount= (product.price - (product.price*product.sale) / 100).toLocaleString('vi', {style : 'currency', currency : 'VND'})
                         |
                         td.quantity
-                          span= product.quantity
+                          input.text-center.w-50.bg-light.border-0(type="number" name=`item` min=1 max=product.count value=product.quantity)
                           //- label Quantity
                           //- |
                           //- .cart-plus-minus
@@ -66,7 +67,11 @@ block contents
                         |
                         td.product-subtotal
                           span.amount= ((product.price - (product.price*product.sale) / 100)*product.quantity).toLocaleString('vi', {style : 'currency', currency : 'VND'})
-            |
+            .row 
+              .col-12 
+                .float-right 
+                  .cart-page-total
+                    button.btn.btn-primary(type="submit") Cập nhật giỏ hàng 
             .row
               .col-12
                 .coupon-all
@@ -92,5 +97,5 @@ block contents
                       | Total
                       span= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
                   |
-                  a(href='#') Proceed to checkout
+                  a(href='/checkout') Proceed to checkout
   // Shopping Cart Area End

@@ -2,6 +2,8 @@ let data = require('../layout.data');
 const Account = require('../models/account.model');
 const Order = require('../models/order.model');
 const OrderDetail = require('../models/order_detail.model')
+var _ = require('lodash');
+const md5 = require('md5')
 
 module.exports.getProfile = async function(req, res){
     if (!req.signedCookies.userID){
@@ -51,4 +53,30 @@ module.exports.getOrdersDetail = async function (req, res) {
         data: data.data,
         ordersDetail
     })
+}
+
+module.exports.postEditAccount = async function (req, res) {
+    var {password, confirm_password} = req.body;
+    var account = await Account.findById(res.locals.currentAccount._id);
+
+    if (password !== ''){
+        if (confirm_password === ''){
+            return
+        }else{
+            if (password !== confirm_password){
+                res.render('./account/edit', {
+                    data: data.data,
+                    error: "Mật khẩu xác nhận không đúng"
+                })
+                return;
+            }else{
+                req.body.password = md5(md5(password))
+            }
+        }
+    }
+
+    _.extend(account, req.body);
+    account.save();
+
+    res.redirect('back');
 }

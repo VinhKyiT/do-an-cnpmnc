@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b590"
+  },
+  "name": "iPhone",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b591"
+  },
+  "name": "Samsung",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b592"
+  },
+  "name": "LG",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b593"
+  },
+  "name": "Sony",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b594"
+  },
+  "name": "Vsmart",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b595"
+  },
+  "name": "Xiaomi",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b596"
+  },
+  "name": "OPPO",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b597"
+  },
+  "name": "Realme",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b570"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b598"
+  },
+  "name": "iPad",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b571"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b599"
+  },
+  "name": "Galaxy Tab",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b571"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b59a"
+  },
+  "name": "Huawei Tab",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b571"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b59b"
+  },
+  "name": "Sạc dự phòng",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b572"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b59c"
+  },
+  "name": "Cáp sạc",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b572"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b59d"
+  },
+  "name": "Tai nghe",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b572"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b59e"
+  },
+  "name": "Ốp lưng / bao da",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b572"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b59f"
+  },
+  "name": "Phụ kiện khác",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b572"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b5a0"
+  },
+  "name": "Apple Watch",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b573"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b5a1"
+  },
+  "name": "Realme Watch",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b573"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b5a2"
+  },
+  "name": "MiBand",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b573"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b5a3"
+  },
+  "name": "Amazfit",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b573"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b5a4"
+  },
+  "name": "Loa Bluetooth",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b574"
+},{
+  "_id": {
+    "$oid": "6098da828b869811e5d1b5a5"
+  },
+  "name": "Sản phẩm trang trí",
+  "image": "",
+  "id_category": "6098d8278b869811e5d1b574"
+}]
