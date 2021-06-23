@@ -13,6 +13,7 @@ module.exports.get = async function(req, res) {
     //         res.redirect('/admin')
     //     }
     // }
+
     let products = await Product.find();
     let sessionId = req.signedCookies.sessionId;
 
@@ -64,3 +65,7 @@ module.exports.get = async function(req, res) {
         phoneDetailCate,
     });
 };
+
+var session = function(req){
+    console.log(req.session)
+}

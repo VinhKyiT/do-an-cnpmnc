@@ -4,6 +4,8 @@ var Account = require('../models/account.model');
 var Order = require('../models/order.model');
 var Cart = require('../models/cart.model');
 var OrderDetail = require('../models/order_detail.model');
+const nodemailer = require("nodemailer");
+var smtpTransport = require("nodemailer-smtp-transport");
 var products = [];
 const axios = require('axios');
 var listCity = [];
@@ -85,6 +87,8 @@ module.exports.post = async function(req, res) {
         else res.redirect('/home')
     }
 
+    sendEmail(res, res.locals.currentAccount.email, newOrder)
+
     req.session.destroy();
     res.locals.cartLength = 0;
     res.locals.cartItems = [];
@@ -101,4 +105,69 @@ module.exports.post = async function(req, res) {
 
 module.exports.removeCart = async function(req, res) {
     var productID = req.params.productID;
+}
+
+async function sendEmail(res, email, order) {
+    var transporter = nodemailer.createTransport(
+        smtpTransport({
+            service: "gmail",
+            host: "smtp.gmail.com",
+            auth: {
+                user: "dobadov3@gmail.com",
+                pass: "0944609933",
+            },
+        })
+    );
+
+    var order_detail = await OrderDetail.find({orderId: order._id})
+    var totalPrice = 0;
+    var products = [];
+
+    for (let i = 0; i < order_detail.length; i++) {
+        totalPrice += order_detail[i].price
+        var product = await Product.findById(order_detail[i].productId)
+        product.priceSale = product.price * ((100 - product.sale)/100)
+        product.quantity = order_detail[i].quantity
+        products.push(product)
+    }
+
+    console.log(products)
+
+    var mailOptions = {
+        from: "gundamshop@gmail.com",
+        to: email,
+        subject: "[KTTA] Your order",
+        html: `
+        <table>
+            <thead>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                </tr>
+            </thead>
+            ${products.map(product => {
+                return `
+                <tr>
+                    <td><img src="${product.image[0]}" width=50/></td>
+                    <td>${product.name}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.priceSale.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
+                </tr>
+                `
+            })}
+        </table>
+        <h1 class="text-danger">ĐÂY LÀ ĐƠN HÀNG CỦA BẠN ĐÃ ĐẶT</h1>
+        <p>Mã đơn hàng: ${order.code}</p>
+        <p>Ngày mua hàng: ${order.date}</p>
+        <p>Địa chỉ giao hàng: ${order.delivery_address}</p>
+        <p>Phương thức thanh toán: ${order.payment_method}</p>
+        <p>Tổng số tiền phải thanh toán: ${totalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</p>
+        <h4>Chúng tôi sẽ liên hệ với bạn để xác nhận đơn hàng</h4>`
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        
+    });
 }

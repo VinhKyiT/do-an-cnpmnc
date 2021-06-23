@@ -9,4 +9,6 @@ router.get("/edit/:userId", controller.getEdit);
 router.get("/history/cancel/:orderId", controller.cancelOrder)
 router.get("/history/detail/:orderId", controller.getOrdersDetail)
 
+router.post("/edit/:accountID", controller.postEditAccount)
+
 module.exports = router;
