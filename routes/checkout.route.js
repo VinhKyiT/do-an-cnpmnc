@@ -5,6 +5,7 @@ var router = express.Router();
 
 router.get('/', controller.get);
 router.post('/:code', controller.post);
+router.get('/success/:code', controller.getSuccess)
 
 
 module.exports = router;

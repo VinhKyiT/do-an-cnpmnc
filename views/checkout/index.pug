@@ -56,11 +56,9 @@ block contents
                   .checkout-form-list
                     label Payment Method
                     select#country-select.wide(name='paymentMethod')
-                      option(value='COD') Ship COD
+                      option(value='cod') Ship COD
                       |
-                      option(value='ATM') Chuyển khoản
-                      |
-                      option(value='VISA') VISA
+                      option(value='paypal') Paypal
                 .col-md-12
                   .checkout-form-list
                     label
@@ -207,48 +205,48 @@ block contents
                       td
                         strong
                           span.amount= finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+              //- |
+              //- .payment-method
+              //-   .payment-accordion
+              //-     #accordion
+              //-       .card
+              //-         .card-header(id='#payment-1')
+              //-           h5.panel-title
+              //-             a(data-toggle='collapse', data-target='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+              //-               | Direct Bank Transfer.
+              //-         |
+              //-         #collapseOne.collapse.show(data-parent='#accordion')
+              //-           .card-body
+              //-             p
+              //-               | Thực hiện chuyển khoản #{finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} vào tài khoản sau:
+              //-               | TPBank CN Cửu Long: 03425624301 (BUI PHAM VINH KY)
+              //-               | với nội dung chuyên khoản là:
+              //-               span(style='font-weight:bold')  #{checkoutCode}
+              //-       |
+              //-       .card
+              //-         .card-header(id='#payment-2')
+              //-           h5.panel-title
+              //-             a.collapsed(data-toggle='collapse', data-target='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+              //-               | Cheque Payment
+              //-         |
+              //-         #collapseTwo.collapse(data-parent='#accordion')
+              //-           .card-body
+              //-             p
+              //-               | Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won&rsquo;t be shipped until the funds have cleared in our account.
+              //-       |
+              //-       .card
+              //-         .card-header(id='#payment-3')
+              //-           h5.panel-title
+              //-             a.collapsed(data-toggle='collapse', data-target='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+              //-               | PayPal
+              //-         |
+              //-         #collapseThree.collapse(data-parent='#accordion')
+              //-           .card-body
+              //-             p
+              //-               | Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won&rsquo;t be shipped until the funds have cleared in our account.
               |
-              .payment-method
-                .payment-accordion
-                  #accordion
-                    .card
-                      .card-header(id='#payment-1')
-                        h5.panel-title
-                          a(data-toggle='collapse', data-target='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
-                            | Direct Bank Transfer.
-                      |
-                      #collapseOne.collapse.show(data-parent='#accordion')
-                        .card-body
-                          p
-                            | Thực hiện chuyển khoản #{finalPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})} vào tài khoản sau:
-                            | TPBank CN Cửu Long: 03425624301 (BUI PHAM VINH KY)
-                            | với nội dung chuyên khoản là:
-                            span(style='font-weight:bold')  #{checkoutCode}
-                    |
-                    .card
-                      .card-header(id='#payment-2')
-                        h5.panel-title
-                          a.collapsed(data-toggle='collapse', data-target='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
-                            | Cheque Payment
-                      |
-                      #collapseTwo.collapse(data-parent='#accordion')
-                        .card-body
-                          p
-                            | Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won&rsquo;t be shipped until the funds have cleared in our account.
-                    |
-                    .card
-                      .card-header(id='#payment-3')
-                        h5.panel-title
-                          a.collapsed(data-toggle='collapse', data-target='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
-                            | PayPal
-                      |
-                      #collapseThree.collapse(data-parent='#accordion')
-                        .card-body
-                          p
-                            | Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won&rsquo;t be shipped until the funds have cleared in our account.
-                  |
-                  .order-button-payment
-                    input(value='Place order', type='submit', form='checkout-form')
+              .order-button-payment
+                input(value='Place order', type='submit', form='checkout-form')
   // Checkout Area End
 block script
   script(src='/assets/js/city.js')
