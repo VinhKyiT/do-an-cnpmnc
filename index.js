@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 4000;
 const mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var route = require('./routes/index.route');
 var session = require('express-session')
 var cors = require('cors')
+var paypal = require('paypal-rest-sdk')
 require('dotenv').config();
 
 app.use(cors())
@@ -47,6 +48,12 @@ app.get('/', (req, res) => {
 });
 
 route(app);
+
+paypal.configure({
+  mode: "sandbox", //sandbox or live
+  client_id: "AUCa4pobMjYD9BCsDsB2j3u9fWmU-ERk7bl8FMjLzYBsB2QvjPWl82T4gcoObuNomvf2A_PYxW36KfM6",
+  client_secret: "EJHUGgvIFPzangKJjESueYC-c8hvw223p1XJAPc4QFgXVpUElDFTmbWvkfAWwtP5DzR8QHLdb53jxqIG",
+});
 
 
 app.listen(port);
