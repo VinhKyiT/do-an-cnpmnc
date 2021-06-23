@@ -51,17 +51,17 @@ block contents
                 |
                 .card-stats-items
                   .card-stats-item
-                    .card-stats-item-count 2
+                    .card-stats-item-count= pendingOrder.length
                     |
                     .card-stats-item-label Pending
                   |
                   .card-stats-item
-                    .card-stats-item-count 1
+                    .card-stats-item-count= shippingOrder.length
                     |
                     .card-stats-item-label Shipping
                   |
                   .card-stats-item
-                    .card-stats-item-count 5
+                    .card-stats-item-count= completedOrder.length
                     |
                     .card-stats-item-label Completed
               |
@@ -86,7 +86,6 @@ block contents
                 .card-header
                   h4 Balance
                 |
-                -var balance = 59650000
                 .card-body= balance.toLocaleString('vi', {style : 'currency', currency : 'VND'})
           |
           .col-lg-4.col-md-4.col-sm-12
@@ -110,7 +109,7 @@ block contents
                 h4 Invoices
                 |
                 .card-header-action
-                  a.btn.btn-danger(href='#')
+                  a.btn.btn-danger(href='/admin/orders')
                     | View More
                     i.fas.fa-chevron-right
               |
@@ -142,7 +141,7 @@ block contents
                             td= order.date.toLocaleString()
                             |
                             td
-                                a.btn.btn-primary(href='#') Detail
+                                a.btn.btn-primary(href='/admin/orders/'+order._id) Detail
           |
           .col-lg-4
             .card.gradient-bottom

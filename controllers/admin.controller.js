@@ -7,6 +7,7 @@ let Order = require('../models/order.model');
 let OrderDetail = require('../models/order_detail.model');
 let md5 = require('md5');
 let data = require('../layout.data');
+let _ = require('lodash')
 
 
 //Home
@@ -14,6 +15,15 @@ module.exports.get = async function(req, res){
     let orders = await Order.find()
     let orderDetails = await OrderDetail.find()
         .populate('orderId');
+
+    let balance = 0;
+    for (let i = 0; i < orderDetails.length; i++) {
+        balance = balance + (orderDetails[i].price * orderDetails[i].quantity);
+    }
+
+    let pendingOrder = orders.filter(e => e.status === 'pending');
+    let shippingOrder = orders.filter(e => e.status === 'shipping');
+    let completedOrder = orders.filter(e => e.status === 'complete');
 
     let lastedOrder = await Order.find().limit(5).populate('userId').sort({'date': -1});
 
@@ -30,6 +40,10 @@ module.exports.get = async function(req, res){
             orderDetails,
             topProducts,
             lastedOrder,
+            balance,
+            shippingOrder,
+            pendingOrder,
+            completedOrder,
         })
     }
 }
@@ -362,24 +376,21 @@ module.exports.getOrders = async function(req, res){
 
 module.exports.getOrder = async function(req, res){
     let order = await Order.findById(req.params.orderID)
+    let orderDetail = await OrderDetail.find({orderId: req.params.orderID})
+        .populate('productId')
     res.render('./admin/orders/editOrder',{
-        order
+        order,
+        orderDetail
     })
 }
 
 module.exports.postEditOrder = async function(req, res){
     let orderToEdit = await Order.findById(req.params.orderID)
 
-    orderToEdit.payment_method = req.body.payment_method;
-    orderToEdit.delivery_address = req.body.delivery_address;
-    orderToEdit.status = req.body.status;
-
-    orderToEdit.markModified('payment_method');
-    orderToEdit.markModified('delivery_address');
-    orderToEdit.markModified('status');
+    orderToEdit = _.extend(orderToEdit, req.body)
 
     orderToEdit.save();
-    res.redirect('back')
+    res.redirect('/admin/orders')
 }
 
 

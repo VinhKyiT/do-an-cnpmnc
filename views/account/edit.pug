@@ -32,66 +32,70 @@ block contents
                                 |
                                 p.text-muted.font-size-sm= currentAccount.address
             .col-md-8.mb-10
-                .card.mb-3
-                    .card-body
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Họ tên
+                form(action=`/account/edit/${currentAccount._id}` method="POST")
+                    .card.mb-3
+                        .card-body
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Họ tên
+                                |
+                                input(name="name", type="text", value=currentAccount.name, class="col-sm-9")
                             |
-                            input(name="name", type="text", value=currentAccount.name, class="col-sm-9")
-                        |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Email
+                            hr.account-info
                             |
-                            input(name="name", type="text", value=currentAccount.email , class="col-sm-9", readonly)
-                        |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Điện thoại
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Email
+                                |
+                                input(name="email", type="text", value=currentAccount.email , class="col-sm-9", readonly)
                             |
-                            input(name="name", type="text", value=currentAccount.phone, class="col-sm-9")
-                        |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Địa chỉ
+                            hr.account-info
                             |
-                            input(name="name", type="text", value=currentAccount.address, class="col-sm-9")
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Điện thoại
+                                |
+                                input(name="phone", type="text", value=currentAccount.phone, class="col-sm-9")
                             |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Địa chỉ giao hàng
+                            hr.account-info
                             |
-                            input(name="name", type="text", value=currentAccount.delivery_address, class="col-sm-9")
-                        |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Mật khẩu
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Địa chỉ
+                                |
+                                input(name="address", type="text", value=currentAccount.address, class="col-sm-9")
+                                |
+                            hr.account-info
                             |
-                            input(name="password", type="password", placeholder="Để trống khi không cần đổi mật khẩu", class="col-sm-9")
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Địa chỉ giao hàng
+                                |
+                                input(name="delivery_address", type="text", value=currentAccount.delivery_address, class="col-sm-9")
                             |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-3
-                                h6.mb-0 Xác nhận mật khẩu
+                            hr.account-info
                             |
-                            input(name="confirm_password", type="password", placeholder="Để trống khi không cần đổi mật khẩu", class="col-sm-9")
-                        |
-                        hr.account-info
-                        |
-                        .row
-                            .col-sm-12
-                                a.btn.btn-info(target='__blank', href='') Lưu
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Mật khẩu
+                                |
+                                input(name="password", type="password", placeholder="Để trống khi không cần đổi mật khẩu", class="col-sm-9")
+                                |
+                            hr.account-info
+                            |
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 Xác nhận mật khẩu
+                                |
+                                input(name="confirm_password", type="password", placeholder="Để trống khi không cần đổi mật khẩu", class="col-sm-9")
+                            |
+                            hr.account-info
+                            |
+                            .row
+                                .col-sm-6
+                                    button.btn.btn-info(type="submit") Lưu
+                                if (error)
+                                    .col-sm-6
+                                        span.badge.badge-danger.p-2= error
 
 

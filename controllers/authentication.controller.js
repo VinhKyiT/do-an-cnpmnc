@@ -21,8 +21,7 @@ module.exports.postLogin = async function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var user = await Account.findOne({ email: email });
-    var role = await Role.findOne({_id: user.id_role});
-
+    console.log(md5(md5(password)))
     if (!user) {
         res.render('./authentication/index', {
             error: "Account doesn't exits!",

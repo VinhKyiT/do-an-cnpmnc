@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "60a523ca2e1a556d825fe831"
+  },
+  "email": "vinhkyit2905@gmail.com",
+  "name": "Kỳ Bùi",
+  "password": "63ee451939ed580ef3c4b6f0109d1fd0",
+  "phone": "+84378383986",
+  "address": "123 Tô Hiến Thành",
+  "delivery_address": "451 Tô Hiến Thành",
+  "__v": 0,
+  "id_role": "60b24838b4f64532aaff5640"
+},{
+  "_id": {
+    "$oid": "60b30f177f3299ac365df2c8"
+  },
+  "name": "Duy Anh",
+  "email": "duyanhit@gmail.com",
+  "phone": "0123456789",
+  "id_role": "60b24849b9f2f94c700e49c3",
+  "password": "202cb962ac59075b964b07152d234b70",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c08272a23dbf047fa6e71e"
+  },
+  "email": "vinhkyit@nvc3.onmicrosoft.com",
+  "name": "Kỳ Bùi",
+  "password": "63ee451939ed580ef3c4b6f0109d1fd0",
+  "phone": "+84378383986",
+  "id_role": "60b24856b9f2f94c700e49c4",
+  "address": "",
+  "delivery_address": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c08774a23dbf047fa6e726"
+  },
+  "name": "Ky Bui",
+  "email": "vinhkyit@ptd.edu.vn",
+  "phone": "+84378383986",
+  "id_role": "60b24849b9f2f94c700e49c3",
+  "password": "63ee451939ed580ef3c4b6f0109d1fd0",
+  "__v": 0
+}]

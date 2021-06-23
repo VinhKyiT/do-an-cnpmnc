@@ -1,0 +1,1026 @@
+[{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03ed"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone 12 Pro Max",
+  "price": 33000000,
+  "count": 200,
+  "description": [
+    "iPhone 12 Pro Max",
+    "Dung lượng: 128GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-12-pro-max-den_1_7.jpg"
+  ],
+  "code": "ip12pm128gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03ee"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy A32 (6GB|128GB)",
+  "price": 16490000,
+  "count": 10,
+  "description": [
+    "Samsung Galaxy A32 (6GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-a32-den-min.jpg"
+  ],
+  "code": "ssga32p128gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03ef"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone 11 64GB Chính hãng",
+  "price": 15790000,
+  "count": 0,
+  "description": [
+    "iPhone 11 6GB Chính hãng",
+    "Dung lượng: 64GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-11-xanh_2.jpg"
+  ],
+  "code": "ip1164gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f0"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone Xs 256GB",
+  "price": 10390000,
+  "count": 100,
+  "description": [
+    "iPhone Xs 256GB",
+    "Dung lượng: 256GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-xs-grey-didongviet_4_1.jpg"
+  ],
+  "code": "ipxs256gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f1"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone X 64GB cũ",
+  "price": 8000000,
+  "count": 100,
+  "description": [
+    "iPhone X 64GB cũ",
+    "Dung lượng: 64GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-x-64gb-quoc-te-cu-mau-xam-didongviet_1.jpg"
+  ],
+  "code": "ipx64gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f2"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone 12 Pro Max 512GB Chính hãng",
+  "price": 28990000,
+  "count": 100,
+  "description": [
+    "iPhone 12 Pro Max 512GB",
+    "Dung lượng: 512GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-12-pro-max-den_1_5.jpg"
+  ],
+  "code": "ip12pm512gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f3"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone 11 Pro 256GB",
+  "price": 17500000,
+  "count": 100,
+  "description": [
+    "iPhone 11 256GB",
+    "Dung lượng: 256GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-11-pro-gold-didongviet_9_1.jpg"
+  ],
+  "code": "ip11pm256gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f4"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone Xr 64GB",
+  "price": 8290000,
+  "count": 100,
+  "description": [
+    "iPhone Xr 64GB",
+    "Dung lượng: 64GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-xr-mau-do-product-red-didongviet_3_1.jpg"
+  ],
+  "code": "ipxr64gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f5"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone Xs 64GB",
+  "price": 8790000,
+  "count": 100,
+  "description": [
+    "iPhone Xs 64GB",
+    "Dung lượng: 64GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-xs-max-256gb-didongviet_2_1.jpg"
+  ],
+  "code": "ipxs64gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f6"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy S21 Plus 5G",
+  "price": 16490000,
+  "count": 200,
+  "description": [
+    "Samsung Galaxy S21 Plus 5G",
+    "Dung lượng: 128/256 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/2/s21-plus-5g_1_1.jpg"
+  ],
+  "code": "ssgs21p5g",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f7"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy Note 20 (8GB|256GB)",
+  "price": 14990000,
+  "count": 150,
+  "description": [
+    "Samsung Galaxy Note 20 (8GB|256GB)",
+    "Dung lượng: 256 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-note-20-8gb-256gb-dong_1.jpg"
+  ],
+  "code": "ssgn20256GB",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f8"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy A02s (4GB|64GB)",
+  "price": 2590000,
+  "count": 50,
+  "description": [
+    "Samsung Galaxy A02s (4GB|64GB)",
+    "Dung lượng: 64 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-a02s-bhdt-didongviet_1.jpg"
+  ],
+  "code": "ssa02s64gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03f9"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy A72 (8GB|256GB)",
+  "price": 9790000,
+  "count": 15,
+  "description": [
+    "Samsung Galaxy A72 (8GB|256GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-a72-bhdt-den.jpg"
+  ],
+  "code": "ssga72p256gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03fa"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy Note 10 Plus (12GB|256GB)",
+  "price": 1590000,
+  "count": 150,
+  "description": [
+    "Samsung Galaxy Note 10 Plus (12GB|256GB)",
+    "Dung lượng: 256 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-note-10-plus-cty-den_2.jpg"
+  ],
+  "code": "ssgn10p256gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03fb"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy Note 10 Lite (8GB|128GB)",
+  "price": 6990000,
+  "count": 200,
+  "description": [
+    "Samsung Galaxy Note 10 Lite (8GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-note-10-lite-black-didongviet_1_1_1_1.jpg"
+  ],
+  "code": "ssgn10lite128gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03fc"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy A31 (6GB|128GB)",
+  "price": 5400000,
+  "count": 200,
+  "description": [
+    "Samsung Galaxy A31 (6GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-a31-den-didongviet-1_1.jpg"
+  ],
+  "code": "ssga31128gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03fd"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy A52 (8GB|128GB)",
+  "price": 7790000,
+  "count": 200,
+  "description": [
+    "Samsung Galaxy A52 (8GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-a52-tim.jpg"
+  ],
+  "code": "ssga52128gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03fe"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy S20 FE (8GB|256GB)",
+  "price": 10890000,
+  "count": 200,
+  "description": [
+    "Samsung Galaxy S20 FE (8GB|256GB)",
+    "Dung lượng: 256 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/2/s21-plus-5g_1_1.jpg"
+  ],
+  "code": "ssgs20fe256gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b03ff"
+  },
+  "id_detail_category": "6098da828b869811e5d1b591",
+  "name": "Samsung Galaxy S20 Plus 128GB",
+  "price": 13990000,
+  "count": 200,
+  "description": [
+    "Samsung Galaxy S20 Plus 128GB",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/g/a/galaxy-s20-plus-128gb-xam-didongviet_1.jpg"
+  ],
+  "code": "ssgs20p128gb",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0400"
+  },
+  "id_detail_category": "6098da828b869811e5d1b596",
+  "name": "Oppo A94 (8GB|128GB)",
+  "price": 8690000,
+  "count": 100,
+  "description": [
+    "Oppo A94 (8GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/o/p/oppo-a94-tim.jpg"
+  ],
+  "code": "opa94128gb",
+  "sale": 20,
+  "brand_id": "60a4ee4689b8e9124c79e364"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0402"
+  },
+  "id_detail_category": "6098da828b869811e5d1b596",
+  "name": "Oppo A53 (4GB|128GB)",
+  "price": 3999000,
+  "count": 100,
+  "description": [
+    "Oppo A53 (4GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/o/p/oppo-a53_1_2.jpg"
+  ],
+  "code": "opa53128gb",
+  "sale": 20,
+  "brand_id": "60a4ee4689b8e9124c79e364"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0403"
+  },
+  "id_detail_category": "6098da828b869811e5d1b596",
+  "name": "Oppo A93 (8GB|128GB)",
+  "price": 5690000,
+  "count": 100,
+  "description": [
+    "Oppo A93 (8GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/o/p/oppo-a93-trang-didongviet_1.jpg"
+  ],
+  "code": "opa93128gb",
+  "sale": 20,
+  "brand_id": "60a4ee4689b8e9124c79e364"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0404"
+  },
+  "id_detail_category": "6098da828b869811e5d1b594",
+  "name": "Vsmart Live 4 (6GB|64GB)",
+  "price": 3560000,
+  "count": 100,
+  "description": [
+    "Vsmart Live 4 (6GB|64GB)",
+    "Dung lượng: 64 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/v/s/vsmart-live-4-white-didongviet.png"
+  ],
+  "code": "vsl464gb",
+  "sale": 20,
+  "brand_id": "60a4ee4189b8e9124c79e363"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0405"
+  },
+  "id_detail_category": "6098da828b869811e5d1b594",
+  "name": "Vsmart Star 5 (4GB|64GB)",
+  "price": 2890000,
+  "count": 100,
+  "description": [
+    "Vsmart Star 5 (4GB|64GB)",
+    "Dung lượng: 64 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/v/s/vsmart-star-5-mau-den-didongviet_1.jpg"
+  ],
+  "code": "vsl464gb",
+  "sale": 20,
+  "brand_id": "60a4ee4189b8e9124c79e363"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0406"
+  },
+  "id_detail_category": "6098da828b869811e5d1b594",
+  "name": "Vsmart Aris Pro (8GB|128GB)",
+  "price": 7560000,
+  "count": 100,
+  "description": [
+    "Vsmart Aris Pro (8GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/v/s/vsmart-aris-pro-mau-dong-didongviet.jpg"
+  ],
+  "code": "vsarisp128gb",
+  "sale": 20,
+  "brand_id": "60a4ee4189b8e9124c79e363"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0407"
+  },
+  "id_detail_category": "6098da828b869811e5d1b595",
+  "name": "Xiaomi Mi 11 5G (8GB|256GB)",
+  "price": 18500000,
+  "count": 100,
+  "description": [
+    "Xiaomi Mi 11 5G (8GB|256GB)",
+    "Dung lượng: 256 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/x/i/xiaomi-mi-11-didongviet_2_1.jpg"
+  ],
+  "code": "xmi115g256gb",
+  "sale": 20,
+  "brand_id": "6093b2ec8b869811e5d1b56b"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0408"
+  },
+  "id_detail_category": "6098da828b869811e5d1b595",
+  "name": "Redmi Note 10 (4GB|64GB)",
+  "price": 4690000,
+  "count": 100,
+  "description": [
+    "Redmi Note 10 (4GB|64GB)",
+    "Dung lượng: 64 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/x/i/xiaomi-redmi-note-10-xam-didongviet_1.jpg"
+  ],
+  "code": "rmin1064gb",
+  "sale": 20,
+  "brand_id": "6093b2ec8b869811e5d1b56b"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0409"
+  },
+  "id_detail_category": "6098da828b869811e5d1b595",
+  "name": "Redmi Note 10 (6GB|128GB)",
+  "price": 5490000,
+  "count": 100,
+  "description": [
+    "Redmi Note 10 (6GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/x/i/xiaomi-redmi-note-10-xanh-didongviet_1_1.jpeg"
+  ],
+  "code": "rmin10128gb",
+  "sale": 20,
+  "brand_id": "6093b2ec8b869811e5d1b56b"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b040a"
+  },
+  "id_detail_category": "6098da828b869811e5d1b595",
+  "name": "Redmi Note 10 Pro (6GB|128GB)",
+  "price": 6990000,
+  "count": 100,
+  "description": [
+    "Redmi Note 10 Pro (6GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/x/i/xiaomi-redmi-note-10-pro-dong.jpg"
+  ],
+  "code": "rmin10p128gb",
+  "sale": 20,
+  "brand_id": "6093b2ec8b869811e5d1b56b"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b040b"
+  },
+  "id_detail_category": "6098da828b869811e5d1b595",
+  "name": "Xiaomi Mi 10T Pro (8GB|128GB)",
+  "price": 9990000,
+  "count": 100,
+  "description": [
+    "Xiaomi Mi 10T Pro (8GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/x/i/xiaomi-mi-10t-pro-128gb_1.jpg"
+  ],
+  "code": "xmi10tp128gb",
+  "sale": 20,
+  "brand_id": "6093b2ec8b869811e5d1b56b"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b040c"
+  },
+  "id_detail_category": "6098da828b869811e5d1b599",
+  "name": "Samsung Galaxy Tab A7 (2020)",
+  "price": 7290000,
+  "count": 100,
+  "description": [
+    "Samsung Galaxy A32 (6GB|128GB)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-tab-a7-2020_1.jpg"
+  ],
+  "code": "ssgta7",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b040d"
+  },
+  "id_detail_category": "6098da828b869811e5d1b599",
+  "name": "Samsung Galaxy Tab S6 Lite 64GB",
+  "price": 8990000,
+  "count": 100,
+  "description": [
+    "Samsung Galaxy Tab S6 Lite 64GB",
+    "Dung lượng: 64 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-tab-s6-lite-den-didongviet_1_1.png"
+  ],
+  "code": "ssgts6l",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b040e"
+  },
+  "id_detail_category": "6098da828b869811e5d1b599",
+  "name": "Samsung Galaxy Tab A8 (2019)",
+  "price": 3290000,
+  "count": 100,
+  "description": [
+    "Samsung Galaxy Tab A8 (2019)",
+    "Dung lượng: 128 GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/samsung-galaxy-tab-a8-didongviet-b_c_1.jpg"
+  ],
+  "code": "ssgta819",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b040f"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe Bluetooth Samsung Galaxy Buds Pro",
+  "price": 3990000,
+  "count": 100,
+  "description": [
+    "Tai nghe Bluetooth Samsung Galaxy Buds Pro",
+    "Chống ồn - chống nước - pin 11h",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/g/a/galaxy-buds-pro-silver-didongviet.jpg"
+  ],
+  "code": "tnbssbp",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0410"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe Bluetooth Samsung Galaxy Buds Plus",
+  "price": 1490000,
+  "count": 100,
+  "description": [
+    "Tai nghe Bluetooth Samsung Galaxy Buds Plus",
+    "Sạc không dây - pin 11h",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/t/a/tai-nghe-samsung-gear-buds-den-didongviet_1_1_1_1.jpg"
+  ],
+  "code": "tnbssbpl",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0411"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe Apple AirPods 2 chính hãng",
+  "price": 1490000,
+  "count": 100,
+  "description": [
+    "Tai nghe Apple AirPods 2 chính hãng",
+    "Sạc không dây",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/t/a/tai-nghe-samsung-gear-buds-den-didongviet_1_1_1_1.jpg"
+  ],
+  "code": "airpod2",
+  "sale": 20,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0412"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe Bluetooth Apple AirPods Pro",
+  "price": 1490000,
+  "count": 100,
+  "description": [
+    "Tai nghe Bluetooth Apple AirPods Pro",
+    "Sạc không dây",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/t/a/tai-nghe-bluetooth-apple-airpods-pro-didongviet_2.jpg"
+  ],
+  "code": "airpodp",
+  "sale": 20,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0413"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe Sony MDR XB55AP",
+  "price": 690000,
+  "count": 100,
+  "description": [
+    "Tai nghe Sony MDR XB55AP",
+    "Dài: 1.2m - Bass Duct++",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/t/a/tai-nghe-sony-mdr-xb55ap-didongviet_2.jpg"
+  ],
+  "code": "sonymdr",
+  "sale": 20,
+  "brand_id": "60a4ee188811e5b027a31444"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0414"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe Bluetooth Sony WI-C200",
+  "price": 590000,
+  "count": 100,
+  "description": [
+    "Tai nghe Bluetooth Sony WI-C200",
+    "Màng loa: 9mm - đệm tai từ tính - pin 15h",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/t/a/tai-nghe-bluetooth-sony-wi-c200-didongviet_3.jpg"
+  ],
+  "code": "sonyưic200",
+  "sale": 20,
+  "brand_id": "60a4ee188811e5b027a31444"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0415"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59d",
+  "name": "Tai nghe LG Quadbeat 3",
+  "price": 189000,
+  "count": 100,
+  "description": [
+    "Tai nghe LG Quadbeat 3",
+    "Dài: 1.2m - Êm tai",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/t/a/tai-nghe-lg-quadbeat-3-den-didongviet_1_1.jpg"
+  ],
+  "code": "lgquadbeat3",
+  "sale": 20,
+  "brand_id": "60a4ee3389b8e9124c79e362"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0416"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59b",
+  "name": "Sạc dự phòng HyperJuice Magnetic wireless",
+  "price": 890000,
+  "count": 100,
+  "description": [
+    "Sạc dự phòng HyperJuice Magnetic wireless",
+    "Sạc không dây - Cổng type-C",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/sac-du-phong-hyperjuice-magnetic-wireless-cho-iphone-12-series_1.jpg"
+  ],
+  "code": "sdphmw",
+  "sale": 20,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0417"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59b",
+  "name": "Pin dự phòng Energizer 10,000mAh /3.7V Li-Polymer - QP10000PQ",
+  "price": 590000,
+  "count": 100,
+  "description": [
+    "Pin dự phòng Energizer 10,000mAh /3.7V Li-Polymer - QP10000PQ",
+    "Sạc không dây - Cổng type-C, USB-A",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/s/a/sac-energizer-didongviet_1_1.jpg"
+  ],
+  "code": "pdpe",
+  "sale": 20,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0418"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59b",
+  "name": "Pin sạc dự phòng Anker PowerCore 13000mAh",
+  "price": 750000,
+  "count": 100,
+  "description": [
+    "Pin sạc dự phòng Anker PowerCore 13000mAh",
+    "2 cổng ra USB-A",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/p/i/pin-sac-du-phong-anker-powercore-13000mah-trang-didongviet_1.jpg"
+  ],
+  "code": "sdpap",
+  "sale": 20,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b0419"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59b",
+  "name": "Pin dự phòng Anker PowerCore 20100mAh A1271",
+  "price": 990000,
+  "count": 100,
+  "description": [
+    "Pin dự phòng Anker PowerCore 20100mAh A1271",
+    "Cổng ra USB-A 20100mAh",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/p/i/pin-du-phong-anker-20100-mah-mau-den-didongviet_3_1.jpg"
+  ],
+  "code": "sdpap2",
+  "sale": 20,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b041a"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59c",
+  "name": "Cáp Innostyle Jazzy USB-A to Micro 1.2M",
+  "price": 80000,
+  "count": 200,
+  "description": [
+    "Cáp Innostyle Jazzy USB-A to Micro 1.2M",
+    "Dài 1.2m - 10W - USB-A",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/c/a/cap-innostyle-jazzy-usb-a-micro-do_1.jpg"
+  ],
+  "code": "csijua",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b041b"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59c",
+  "name": "Cáp sạc Mophie USB-C to Lightning (1M)",
+  "price": 390000,
+  "count": 200,
+  "description": [
+    "Cáp sạc Mophie USB-C to Lightning (1M)",
+    "Dài 1m - 18W - MFi",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/c/_/c_p-usb-c-to-lightning-mophie-1m-didongviet.jpg"
+  ],
+  "code": "csmucl",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b041c"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59c",
+  "name": "Cáp Mazer Duraflex USB -C to lightning MFI 1.5m",
+  "price": 499000,
+  "count": 200,
+  "description": [
+    "Cáp Mazer Duraflex USB -C to lightning MFI 1.5m",
+    "Dài 1.5m - USB-C",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/c/a/cap-mazer-duraflex-usb-c-to-lightning-mfi-1.5m-mau-den-didongviet.jpg"
+  ],
+  "code": "csmdus",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b041d"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59c",
+  "name": "Cáp sạc Type C - Lightning 1m UmeTravel CL1",
+  "price": 245000,
+  "count": 200,
+  "description": [
+    "Cáp sạc Type C - Lightning 1m UmeTravel CL1",
+    "Dài 1m - lightning - PD",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/u/n/untitled-23.jpg"
+  ],
+  "code": "cstclu",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60a92018330cf60d924b041e"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59c",
+  "name": "Dây cáp sạc Anker PowerLine II Lightning 0.9 m A8432",
+  "price": 246000,
+  "count": 200,
+  "description": [
+    "Dây cáp sạc Anker PowerLine II Lightning 0.9 m A8432",
+    "Dài 0.9m - Lightning",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/d/a/day-cap-sac-anker-powerline-ii-lightning-0-9-m-mau-trang-didongviet_1.jpg"
+  ],
+  "code": "csap2l",
+  "sale": 20,
+  "brand_id": "60a4ee5489b8e9124c79e365"
+},{
+  "_id": {
+    "$oid": "60ac599d330cf60d924b041f"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone 8 Plus",
+  "price": 33000000,
+  "count": 200,
+  "description": [
+    "iPhone 12 Pro Max",
+    "Dung lượng: 128GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-12-pro-max-den_1_7.jpg"
+  ],
+  "code": "ip12pm128gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60ac59a8330cf60d924b0420"
+  },
+  "id_detail_category": "6098da828b869811e5d1b590",
+  "name": "iPhone 7 Plus",
+  "price": 33000000,
+  "count": 200,
+  "description": [
+    "iPhone 12 Pro Max",
+    "Dung lượng: 128GB",
+    "Hàng chính hãng (Bản quốc tế)"
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/iphone-12-pro-max-den_1_7.jpg"
+  ],
+  "code": "ip12pm128gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60bc8f16b9f2f94c700e49c6"
+  },
+  "id_detail_category": "6098da828b869811e5d1b598",
+  "name": "iPad Pro 2021 12.9inch M1 512GB Wifi & 5G Chính hãng",
+  "price": 41990000,
+  "count": 170,
+  "description": [
+    "Pad Pro 2021 12.9inch 512GB Wifi & 5G với thiết kế màn hình với viền bezel mỏng, trang bị màn hình Mini-LED cho model 12.9 inch với tỉ lệ tương phản 1.000.000:1 với nhiều cải tiến mới so với màn hình iPad hiện tại.Cấu hình mạnh mẽ với chip M1 với 8 nhân CPU và 8 nhân GPU, với con Chip ấn tượng có thể xử lý tốt những tác vụ thường ngày một cách mượt mà.",
+    "iPad Pro 2021 12.9inch 512GB Wifi & 5G chính hãng được phân phối chính thức bởi Apple Việt Nam, được bảo hành 12 tháng tại Trung tâm Uỷ quyền cao cấp nhất của Apple tại Việt Nam và trên toàn cầu miễn phí. Đồng thời hưởng nhiều ưu đãi, khuyến mãi hấp dẫn tại KTTStore."
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product//i/p/ipad-pro-2021-12-9inch-512gb-wifi-5g_2.jpg",
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/ipad-pro-2021-12.9_inch-didongviet-bac_1_3_1.jpg"
+  ],
+  "code": "ipadpro122021",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60bc8fa3b9f2f94c700e49c7"
+  },
+  "id_detail_category": "6098da828b869811e5d1b598",
+  "name": "iPad Pro 2020 12.9inch 128GB Wifi & 4G cũ",
+  "price": 24600000,
+  "count": 170,
+  "description": [
+    "iPad Pro 2020 12,9inch 128GB Wi-Fi & 4G cũ là dòng máy tính bảng cao cấp nhất của Apple. Với màn hình lớn 12.9inch hỗ trợ tần số quét 120Hz cùng con chip Apple A12Z Bionic hứa hẹn sẽ mang lại nhiều trải nghiệm tuyệt vời cho người dùng.",
+    "iPad Pro 2020 12,9inch 128GB Wi-Fi & 4G cũ được phân phối chính thức bởi Apple Việt Nam, được bảo hành 12 tháng tại Trung tâm Uỷ quyền cao cấp nhất của Apple tại Việt Nam và trên toàn cầu miễn phí. Đồng thời hưởng nhiều ưu đãi, khuyến mãi hấp dẫn tại KTTStore."
+  ],
+  "image": [
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/ipad-pro-2020-12-9inch-128gb-wifi-4g-cu-xam-didongviet.jpg",
+    "https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/i/p/ipad-pro-2020-12-9inch-128gb-wifi-4g-cu-bac-didongviet.jpg"
+  ],
+  "code": "ipadpro122021cu",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+},{
+  "_id": {
+    "$oid": "60bdf1c2b9f2f94c700e49c8"
+  },
+  "id_detail_category": "6098da828b869811e5d1b59a",
+  "name": "Máy tính bảng Huawei MatePad 128GB (Nền tảng Huawei Mobile Service)",
+  "price": 7500000,
+  "count": 70,
+  "description": [
+    "Sở hữu thiết kế cao cấp, giải trí bùng nổ với màn hình siêu lớn và dàn âm thanh vòm 4 loa cực kỳ sống động, được tùy chọn bộ nhớ trong siêu khủng 128 GB, máy tính bảng Huawei MatePad sẽ là một lựa chọn hoàn hảo cho mọi nhu cầu của bạn dù công việc hay vui chơi",
+    "Sản phẩm chạy hệ điều hành Android trên nền tảng Huawei Mobile Service (HMS)"
+  ],
+  "image": [
+    "https://cdn.tgdd.vn/Products/Images/522/236953/huawei-matepad-xam-128gb-600x600.jpg"
+  ],
+  "code": "huaweimatetab128gb",
+  "sale": 10,
+  "brand_id": "6093b2bf1a6445d5eef73773"
+}]

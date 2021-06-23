@@ -3,7 +3,7 @@ block contents
     .col-12.grid-margin.stretch-card
       .card
         .card-body
-          h4.card-title= 'Edit '
+          h4.card-title Đơn hàng
           form.forms-sample(method="POST", action="/admin/orders/edit/"+order._id)
             .form-group
                 label Ngày đặt hàng
@@ -26,6 +26,37 @@ block contents
                     option(value="canceled") Đã hủy
             button(type="submit" class="btn btn-primary mr-2", id='submit_btn') Submit
             button(class="btn btn-light", href='/admin/orders') Cancel
+    .col-lg-12.stretch-card
+      .card
+        .card-body
+          h4.card-title Sản phẩm
+          |
+          .table-responsive.pt-3
+            table.table.table-bordered
+              thead
+                tr
+                  th
+                    | #
+                  |
+                  th
+                    | Tên
+                  |
+                  th
+                    | Số lượng
+                  |
+                  th
+                    | Đơn giá
+              |
+              tbody
+                each item in orderDetail
+                    tr.table-primary
+                        td= (orderDetail.indexOf(item) + 1)
+                        |
+                        td= item.productId.name
+                        |
+                        td= item.quantity
+                        |
+                        td= item.price
 block script
     script.
         function checkAddress() {

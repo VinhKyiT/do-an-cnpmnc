@@ -11,6 +11,11 @@ var email = '';
 
 module.exports.get = async function(req, res) {
     var currentUser = await Account.findOne({ _id: req.signedCookies.userID });
+    if (!currentUser){
+        res.redirect('/authentication');
+        return  
+    }
+
     if (req.session.cart){
         products = req.session.cart.products;
     }
@@ -36,20 +41,45 @@ module.exports.get = async function(req, res) {
 module.exports.removeCart = async function(req, res) {
     var productID = req.params.productID;
 
-    let product = await Product.findById(productID);
-    let products = [...req.session.cart.products];
+    var product = await Product.findById(productID);
+
+    var products = [...req.session.cart.products];
 
     req.session.cart.products.forEach(item => {
-        if (product._id.equals(item._id)) {
-            req.session.cart.totalPrice -= (product.price - (product.price * product.sale)/100);
-            let index = req.session.cart.products.indexOf(item);
+        if (product._id.equals(item._id)){
+            var index = req.session.cart.products.indexOf(item);
             products.splice(index, 1);
             req.session.cart.products = products;
+            req.session.cart.totalPrice -= item.priceSale * item.quantity;
         }
-    })
+    });
+
+    res.locals.finalPrice = 0;
+
+    Cart.removeCartById(productID);
+
     res.redirect('back')
 }
 
 module.exports.updateCart = async function(req, res) {
-    console.log(req.session.cart.products.quantity);
+    var totalPrice = 0;
+
+    if (typeof req.body.item !== Object){
+        res.locals.cartItems[0].quantity = parseInt(req.body.item) 
+    }
+
+    for (let i = 0; i < res.locals.cartItems.length; i++) {
+        res.locals.cartItems[i].quantity = parseInt(req.body.item[i])    
+        Cart.getCart().products[i].quantity = parseInt(req.body.item[i])   
+    }
+    
+    res.locals.cartItems.forEach(item => {
+        totalPrice += item.priceSale * item.quantity
+    })
+    
+    Cart.getCart().totalPrice = totalPrice
+    
+    req.session.cart.totalPrice = totalPrice
+
+    res.redirect('back')
 }

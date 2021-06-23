@@ -1,0 +1,129 @@
+[{
+  "_id": {
+    "$oid": "60bc67103858ba00c3aa36d8"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": "6/6/2021, 1:11:28 PM",
+  "status": "canceled",
+  "payment_method": "COD",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_1",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bc674a3858ba00c3aa36da"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": "6/6/2021, 1:12:26 PM",
+  "status": "canceled",
+  "payment_method": "COD",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_2",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bc67853858ba00c3aa36dc"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": "6/6/2021, 1:13:25 PM",
+  "status": "canceled",
+  "payment_method": "COD",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_3",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60be4484f8b8895089d720ba"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": "6/7/2021, 11:08:36 PM",
+  "status": "shipping",
+  "payment_method": "COD",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_4",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bec25b0fc65e584f61017d"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": {
+    "$date": "2021-06-08T01:05:31.493Z"
+  },
+  "status": "canceled",
+  "payment_method": "COD",
+  "delivery_address": "451/17/4 Tô Hiến Thành",
+  "code": "order_5",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bf87b73eaea7873af4c046"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": {
+    "$date": "2021-06-08T15:07:35.110Z"
+  },
+  "status": "canceled",
+  "payment_method": "VISA",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_6",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c08464a23dbf047fa6e71f"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": {
+    "$date": "2021-06-09T09:05:40.754Z"
+  },
+  "status": "shipping",
+  "payment_method": "COD",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_7",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c0861ba23dbf047fa6e723"
+  },
+  "userId": "60a523ca2e1a556d825fe831",
+  "date": {
+    "$date": "2021-06-09T09:12:59.447Z"
+  },
+  "status": "pending",
+  "payment_method": "COD",
+  "delivery_address": "451 Tô Hiến Thành",
+  "code": "order_8",
+  "name": "Kỳ Bùi",
+  "email": "vinhkyit2905@gmail.com",
+  "phone": "+84378383986",
+  "companyName": "",
+  "__v": 0
+}]

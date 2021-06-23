@@ -30,12 +30,14 @@ block contents
                   |
                   input.mb-0(type='password', name="password", placeholder='Password', required, value= values ? values.password : "")
                 |
-                .col-md-8
+                .col-md-4
                   .check-box.d-inline-block.ml-0.ml-md-2.mt-10
                     input#remember_me(type='checkbox')
                     |
                     label(for='remember_me') Remember me
-                |
+                .col-md-4
+                  if (error)
+                    span.badge.badge-danger.p-2= error
                 .col-md-4.mt-10.mb-20.text-left.text-md-right
                   a(href='/authentication/forgot-pass')  Forgotten pasward?
                 |
